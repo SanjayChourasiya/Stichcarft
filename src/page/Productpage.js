@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -12,18 +11,18 @@ function ProductPage() {
   const [coupon, setCoupon] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState(null);
   const [couponMessage, setCouponMessage] = useState("");
-useEffect(() => {
-  // 👇 THIS LINE scrolls to the top when a product is clicked
-  window.scrollTo({ top: 0, behavior: "smooth" });
 
-  import("../page/data/product").then((mod) => {
-    const decodedName = decodeURIComponent(productName).toLowerCase();
-    const products = mod.products;
-    setAllProducts(products);
-    const found = products.find((p) => p.name.toLowerCase() === decodedName);
-    setProduct(found);
-  });
-}, [productName]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    import("../page/data/product").then((mod) => {
+      const decodedName = decodeURIComponent(productName).toLowerCase();
+      const products = mod.products;
+      setAllProducts(products);
+      const found = products.find((p) => p.name.toLowerCase() === decodedName);
+      setProduct(found);
+    });
+  }, [productName]);
 
   if (!product) return <div className="text-center py-20">Loading...</div>;
 
@@ -56,7 +55,7 @@ useEffect(() => {
   };
 
   return (
-<div className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 md:pt-6 pb-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 md:pt-6 pb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
         {/* Thumbnails */}
         <div className="lg:col-span-1 hidden lg:flex flex-col gap-3">
@@ -69,16 +68,18 @@ useEffect(() => {
                 setCurrentImage(idx);
                 setSelectedColor(idx);
               }}
-              className={`w-full object-cover rounded-md cursor-pointer border aspect-square ${currentImage === idx
+              className={`w-full object-cover rounded-md cursor-pointer border aspect-square ${
+                currentImage === idx
                   ? "border-indigo-500 ring-2 ring-indigo-300"
                   : "border-gray-200"
-                }`}
+              }`}
             />
           ))}
         </div>
 
-        {/* Main Image */}
-        <div className="lg:col-span-5 flex items-center justify-center">
+        {/* Main Image Section */}
+        {/* Desktop View */}
+        <div className="lg:col-span-5 hidden sm:flex items-center justify-center">
           <div className="w-full max-w-md aspect-[3/4] h-auto sm:h-[560px] bg-white p-2 rounded-2xl shadow-xl border border-gray-200">
             <img
               src={product.images?.[currentImage] || product.image}
@@ -88,8 +89,30 @@ useEffect(() => {
           </div>
         </div>
 
+        {/* Mobile View: Single Image Carousel */}
+        <div className="block sm:hidden mb-4 -mx-4 px-4">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 scrollbar-hide scroll-smooth">
+            {product.images?.map((img, idx) => (
+              <div
+                key={idx}
+                className="flex-shrink-0 w-full snap-center"
+                onClick={() => {
+                  setCurrentImage(idx);
+                  setSelectedColor(idx);
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`Mobile Image ${idx}`}
+                  className="w-full aspect-[3/4] object-cover rounded-xl shadow-md border"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Product Details */}
-      <div className="lg:col-span-6 space-y-4">
+        <div className="lg:col-span-6 space-y-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">{product.name}</h1>
 
           <div className="flex items-center text-sm text-gray-600">
@@ -161,10 +184,11 @@ useEffect(() => {
                 <button
                   key={idx}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-3 py-1 border rounded text-sm ${selectedSize === size
+                  className={`px-3 py-1 border rounded text-sm ${
+                    selectedSize === size
                       ? "bg-indigo-600 text-white"
                       : "bg-white text-gray-800"
-                    }`}
+                  }`}
                 >
                   {size}
                 </button>
@@ -184,16 +208,17 @@ useEffect(() => {
                     setCurrentImage(idx);
                     setSelectedColor(idx);
                   }}
-                  className={`w-10 h-10 object-cover rounded-md cursor-pointer border ${selectedColor === idx
+                  className={`w-10 h-10 object-cover rounded-md cursor-pointer border ${
+                    selectedColor === idx
                       ? "border-indigo-500 ring-2 ring-indigo-300"
                       : "border-gray-200"
-                    }`}
+                  }`}
                 />
               ))}
             </div>
           </div>
 
-         <ul className="list-disc text-sm pl-4 space-y-0.5 text-gray-700">
+          <ul className="list-disc text-sm pl-4 space-y-0.5 text-gray-700">
             <li>Soft Fabric, V-Neck, Cap Sleeve</li>
             <li>Embroidered, Ruffle Hem, Peplum Style</li>
             <li>Perfect for Work, Date, Vacation, Holiday</li>
@@ -215,7 +240,7 @@ useEffect(() => {
           {relatedProducts.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-gray-200 shadow p-4 hover:shadow-lg transition"
+              className="bg-white rounded-xl border border-gray-200 shadow p-4 hover:shadow-lg transition relative"
             >
               {item.discount && (
                 <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
@@ -257,8 +282,8 @@ useEffect(() => {
       </section>
 
       {/* Embroidery Section */}
-<section className="bg-gradient-to-r mb-6 from-indigo-100 to-purple-100 rounded-2xl p-6 sm:p-10 mt-10 shadow-lg pb-8 sm:pb-16">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-gradient-to-r mb-6 from-indigo-100 to-purple-100 rounded-2xl p-6 sm:p-10 mt-10 shadow-lg pb-8 sm:pb-16">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">Custom Embroidery Available</h2>
           <p className="text-gray-700 text-base sm:text-lg mb-6">
             Want your name, logo, or special message embroidered? We offer premium customization tailored to your needs.

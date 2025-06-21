@@ -698,7 +698,7 @@ function Home() {
         {
           title: "Premium",
           price: "$149",
-          features: ["50 items", "Full customization", "2-day delivery"],
+          features: ["50 items", "2-day delivery","Full customization"],
         },
       ].map(({ title, price, features }, idx) => (
         <motion.div

@@ -36,8 +36,8 @@ function App() {
   });
   const [fileName, setFileName] = useState("Upload your design file");
   const [formStatus, setFormStatus] = useState("");
- 
-  
+
+
 
   // ✅ Add this:
   const [navBg, setNavBg] = useState(false);
@@ -80,7 +80,7 @@ function App() {
       setFileName("Upload your design file");
     }, 1000);
   };
-  
+
 
   return (
     <Router>
@@ -90,55 +90,55 @@ function App() {
         ) : (
           <>
             {/* Header */}
-<header className="sticky top-0 z-50 bg-white shadow-md">
-  <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-    {/* Logo */}
-    <Link
-      to="/"
-      className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA]"
-    >
-      Stitch<span className="text-[#4B4FCA]">Craft</span>
-    </Link>
+            <header className="sticky top-0 z-50 bg-white shadow-md">
+              <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+                {/* Logo */}
+                <Link
+                  to="/"
+                  className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA]"
+                >
+                  Stitch<span className="text-[#4B4FCA]">Craft</span>
+                </Link>
 
-    {/* Desktop Nav */}
-    <ul className="hidden md:flex space-x-6 text-sm md:text-base font-lg font-bold text-gray-700">
-      {["Home", "About us", "Product", "Blog"].map((item) => (
-        <li key={item}>
-          <a
-            href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
-            className="hover:text-[#4B4FCA] transition-colors duration-200"
-          >
-            {item}
-          </a>
-        </li>
-      ))}
-    </ul>
+                {/* Desktop Nav */}
+                <ul className="hidden md:flex space-x-6 text-sm md:text-base font-lg font-bold text-gray-700">
+                  {["Home", "About us", "Product", "Blog"].map((item) => (
+                    <li key={item}>
+                      <a
+                        href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
+                        className="hover:text-[#4B4FCA] transition-colors duration-200"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
 
-    {/* CTA Button */}
-    <button
-      onClick={() => setIsModalOpen(true)}
-      className="ml-4 bg-[#4B4FCA] text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
-    >
-      Get a Quote
-    </button>
-  </div>
+                {/* CTA Button */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="ml-4 bg-[#4B4FCA] text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
+                >
+                  Get a Quote
+                </button>
+              </div>
 
-  {/* Mobile Scrollable Nav */}
-  <div className="md:hidden w-full overflow-x-auto px-4 pb-2">
-    <ul className="flex space-x-6 text-sm font-medium text-gray-700 whitespace-nowrap">
-      {["Home", "About us", "Product", "Blog", "Contact us"].map((item) => (
-        <li key={item}>
-          <a
-            href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
-            className="hover:text-[#4B4FCA] transition-colors duration-200"
-          >
-            {item}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-</header>
+              {/* Mobile Scrollable Nav */}
+              <div className="md:hidden w-full overflow-x-auto px-4 pb-2">
+                <ul className="flex space-x-6 text-sm font-medium text-gray-700 whitespace-nowrap">
+                  {["Home", "About us", "Product", "Blog", "Contact us"].map((item) => (
+                    <li key={item}>
+                      <a
+                        href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
+                        className="hover:text-[#4B4FCA] transition-colors duration-200"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </header>
 
 
             {/* Routes */}
@@ -297,8 +297,8 @@ function App() {
                     {formStatus && (
                       <p
                         className={`text-center text-sm font-semibold ${formStatus.includes("successfully")
-                            ? "text-green-600"
-                            : "text-red-600"
+                          ? "text-green-600"
+                          : "text-red-600"
                           }`}
                       >
                         {formStatus}
