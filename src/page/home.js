@@ -546,23 +546,26 @@ function Home() {
         </h2>
 
         {/* Scrollable Category Buttons */}
-        <div className="mb-8 px-4">
-          <div className="flex gap-2 sm:gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth -mx-4 px-4 pb-1">
-            {categories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => setSelectedCategory(category)}
-                className={`flex-shrink-0 px-3 py-2 text-sm sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out ${selectedCategory === category
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                  }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
+     <div className="mb-8 px-4">
+  <div className="flex justify-center">
+    <div className="flex gap-2 sm:gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth px-4 pb-1 max-w-full sm:max-w-5xl">
+      {categories.map((category) => (
+        <button
+          key={category}
+          type="button"
+          onClick={() => setSelectedCategory(category)}
+          className={`flex-shrink-0 px-3 py-2 text-sm sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out ${
+            selectedCategory === category
+              ? "bg-blue-600 text-white shadow-md"
+              : "bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+          }`}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
 
         {/* Product Cards */}
         <motion.div
