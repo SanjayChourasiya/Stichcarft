@@ -8,7 +8,7 @@ function About() {
   const handleContactClick = () => {
     setLoading(true);
     setTimeout(() => {
-      window.location.href = "/contact"; // Redirect after 2 seconds
+      window.location.href = "/contact"; // Redirect after 1 second
     }, 1000);
   };
 
@@ -21,41 +21,87 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          About Taskict
+          About Ditizing Kart
         </motion.h1>
 
-        <motion.p className="text-lg text-center text-gray-700 leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-          Taskict is a global leader in digital task management and productivity solutions. We empower businesses and individuals
-          with cutting-edge technology to streamline workflow, enhance collaboration, and maximize efficiency.
+        <motion.p
+          className="text-lg text-center text-gray-700 leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Ditizing Kart is a global leader in digital task management and productivity solutions. We empower
+          businesses and individuals with cutting-edge technology to streamline workflow, enhance collaboration,
+          and maximize efficiency.
         </motion.p>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <FeatureCard icon={Globe} title="Our Vision" text="Revolutionizing productivity with intuitive and scalable solutions, making workflow management effortless worldwide." />
-          <FeatureCard icon={Target} title="Our Mission" text="Empowering businesses with smart tools to optimize productivity, automate workflows, and drive success." />
-          <FeatureCard icon={Users} title="Our Values" text="We believe in innovation, transparency, and user-centric solutions that create a seamless experience for everyone." />
+          <FeatureCard
+            icon={Globe}
+            title="Our Vision"
+            text="Revolutionizing productivity with intuitive and scalable solutions, making workflow management effortless worldwide."
+          />
+          <FeatureCard
+            icon={Target}
+            title="Our Mission"
+            text="Empowering businesses with smart tools to optimize productivity, automate workflows, and drive success."
+          />
+          <FeatureCard
+            icon={Users}
+            title="Our Values"
+            text="We believe in innovation, transparency, and user‑centric solutions that create a seamless experience for everyone."
+          />
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-800 text-center">Why Choose Taskict?</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center">Why Choose Ditizing Kart?</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          <AdvantageCard icon={CheckCircle} title="Efficiency" text="Automate tasks, reduce manual efforts, and improve productivity effortlessly." />
-          <AdvantageCard icon={Settings} title="Customization" text="Tailor Taskict to your specific needs with flexible settings and personalized dashboards." />
-          <AdvantageCard icon={Briefcase} title="Business Growth" text="Optimize team collaboration and workflow to scale your business with confidence." />
-          <AdvantageCard icon={BarChart} title="Data Insights" text="Gain valuable analytics to track performance and make data-driven decisions." />
-          <AdvantageCard icon={Rocket} title="Innovation" text="Experience cutting-edge features designed to take productivity to the next level." />
-          <AdvantageCard icon={Shield} title="Security" text="Your data is protected with enterprise-grade security and encryption protocols." />
+          <AdvantageCard
+            icon={CheckCircle}
+            title="Efficiency"
+            text="Automate tasks, reduce manual efforts, and improve productivity effortlessly."
+          />
+          <AdvantageCard
+            icon={Settings}
+            title="Customization"
+            text="Tailor Ditizing Kart to your specific needs with flexible settings and personalized dashboards."
+          />
+          <AdvantageCard
+            icon={Briefcase}
+            title="Business Growth"
+            text="Optimize team collaboration and workflow to scale your business with confidence."
+          />
+          <AdvantageCard
+            icon={BarChart}
+            title="Data Insights"
+            text="Gain valuable analytics to track performance and make data‑driven decisions."
+          />
+          <AdvantageCard
+            icon={Rocket}
+            title="Innovation"
+            text="Experience cutting‑edge features designed to take productivity to the next level."
+          />
+          <AdvantageCard
+            icon={Shield}
+            title="Security"
+            text="Your data is protected with enterprise‑grade security and encryption protocols."
+          />
         </div>
 
-        <motion.p className="text-xl font-semibold text-center text-gray-900 leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-          Join Taskict today and transform the way you work. <br /> Innovation starts here!
+        <motion.p
+          className="text-xl font-semibold text-center text-gray-900 leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          Join Ditizing Kart today and transform the way you work. <br /> Innovation starts here!
         </motion.p>
 
-        {/* Contact Us Button with Loader */}
         <div className="flex justify-center items-center">
           <button
             className={`flex items-center justify-center gap-2 bg-blue-700 text-white py-2 px-6 rounded-full shadow-md border-2 border-blue-700 
-            hover:bg-white hover:text-blue-700 hover:border-blue-700 transition duration-300 ${
-              loading ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+              hover:bg-white hover:text-blue-700 hover:border-blue-700 transition duration-300 ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             onClick={handleContactClick}
             disabled={loading}
           >
