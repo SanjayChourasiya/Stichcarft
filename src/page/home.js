@@ -661,78 +661,79 @@ function Home() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-12 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-          <motion.h2
-            className="text-3xl sm:text-4xl font-extrabold text-[#2C2E55] mb-6 sm:mb-8"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Pricing
-          </motion.h2>
+    <section id="pricing" className="py-12 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <motion.h2
+      className="text-3xl sm:text-4xl font-extrabold text-[#2C2E55] mb-6 sm:mb-8"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      Pricing
+    </motion.h2>
 
-          <motion.p
-            className="mb-12 sm:mb-16 text-[#5C5F7C] max-w-xl mx-auto text-base sm:text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Transparent, flexible pricing crafted for every need.
-          </motion.p>
+    <motion.p
+      className="mb-10 sm:mb-16 text-[#5C5F7C] max-w-md sm:max-w-xl mx-auto text-base sm:text-lg"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      Transparent, flexible pricing crafted for every need.
+    </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-            {[
-              {
-                title: "Basic",
-                price: "$49",
-                features: ["10 items", "Single color", "5-day delivery"],
-              },
-              {
-                title: "Standard",
-                price: "$99",
-                features: ["25 items", "Multi-color", "3-day delivery"],
-              },
-              {
-                title: "Premium",
-                price: "$149",
-                features: ["50 items", "Full customization", "2-day delivery"],
-              },
-            ].map(({ title, price, features }, idx) => (
-              <motion.div
-                key={title}
-                className="bg-[#F9FAFF] rounded-3xl shadow-lg border border-gray-200 p-6 sm:p-8 hover:shadow-2xl transition"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                whileHover={{ scale: 1.03 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl sm:text-2xl font-bold text-[#2C2E55] mb-4">
-                  {title}
-                </h3>
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#4B4FCA] mb-6">
-                  {price}
-                </div>
-                <ul className="text-left text-[#5C5F7C] space-y-3 mb-8 text-sm sm:text-base">
-                  {features.map((f, i) => (
-                    <li key={i}>✅ {f}</li>
-                  ))}
-                </ul>
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-[#4B4FCA] text-white py-3 rounded-full hover:bg-[#3B3FBA] transition font-semibold"
-                  onClick={openModal}
-                >
-                  Choose Plan
-                </motion.button>
-              </motion.div>
-            ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+      {[
+        {
+          title: "Basic",
+          price: "$49",
+          features: ["10 items", "Single color", "5-day delivery"],
+        },
+        {
+          title: "Standard",
+          price: "$99",
+          features: ["25 items", "Multi-color", "3-day delivery"],
+        },
+        {
+          title: "Premium",
+          price: "$149",
+          features: ["50 items", "Full customization", "2-day delivery"],
+        },
+      ].map(({ title, price, features }, idx) => (
+        <motion.div
+          key={title}
+          className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-none mx-auto rounded-3xl shadow-md border border-gray-200 p-6 sm:p-8 flex flex-col items-center text-center transition hover:shadow-xl"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: idx * 0.2 }}
+          whileHover={{ scale: 1.03 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-xl sm:text-2xl font-bold text-[#2C2E55] mb-3">
+            {title}
+          </h3>
+          <div className="text-3xl sm:text-4xl font-extrabold text-[#4B4FCA] mb-5">
+            {price}
           </div>
-        </div>
-      </section>
+          <ul className="text-[#5C5F7C] space-y-2 mb-6 text-sm sm:text-base">
+            {features.map((f, i) => (
+              <li key={i}>✅ {f}</li>
+            ))}
+          </ul>
+          <motion.button
+            whileTap={{ scale: 0.97 }}
+            className="w-full bg-[#4B4FCA] text-white py-2.5 rounded-full hover:bg-[#3B3FBA] transition font-semibold"
+            onClick={openModal}
+          >
+            Choose Plan
+          </motion.button>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Testimonials */}
       <ClientTestimonials />
