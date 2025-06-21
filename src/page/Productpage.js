@@ -12,16 +12,18 @@ function ProductPage() {
   const [coupon, setCoupon] = useState("");
   const [discountedPrice, setDiscountedPrice] = useState(null);
   const [couponMessage, setCouponMessage] = useState("");
+useEffect(() => {
+  // 👇 THIS LINE scrolls to the top when a product is clicked
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
-  useEffect(() => {
-    import("../page/data/product").then((mod) => {
-      const decodedName = decodeURIComponent(productName).toLowerCase();
-      const products = mod.products;
-      setAllProducts(products);
-      const found = products.find((p) => p.name.toLowerCase() === decodedName);
-      setProduct(found);
-    });
-  }, [productName]);
+  import("../page/data/product").then((mod) => {
+    const decodedName = decodeURIComponent(productName).toLowerCase();
+    const products = mod.products;
+    setAllProducts(products);
+    const found = products.find((p) => p.name.toLowerCase() === decodedName);
+    setProduct(found);
+  });
+}, [productName]);
 
   if (!product) return <div className="text-center py-20">Loading...</div>;
 
