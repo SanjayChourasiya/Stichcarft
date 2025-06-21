@@ -12,150 +12,141 @@ import {
 
 // --- QuoteForm Component (Included directly) ---
 const QuoteForm = () => {
-  const [fileName, setFileName] = useState("Upload Design (optional)");
-  const [formStatus, setFormStatus] = useState(""); // To display success/error messages
-
-  // State to hold all form data
-  const formDataInitialState = {
+  const [formData, setFormData] = useState({
     full_name: "",
     email_address: "",
     phone_number: "",
     embroidery_needs: "",
-  };
-  const [formData, setFormData] = useState(formDataInitialState);
+  });
 
-  // Handle changes for text input fields
+  const [fileData, setFileData] = useState(null);
+  const [fileName, setFileName] = useState("Upload Design (optional)");
+  const [formStatus, setFormStatus] = useState("");
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle file input changes
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
     if (file) {
       setFileName(file.name);
-      setFormData((prev) => ({ ...prev, design_file: file }));
-    } else {
-      setFileName("Upload Design (optional)");
-      setFormData((prev) => ({ ...prev, design_file: null }));
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result.split(",")[1];
+        setFileData({
+          name: file.name,
+          type: file.type,
+          content: base64,
+        });
+      };
+      reader.readAsDataURL(file);
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default browser form submission
+    e.preventDefault();
+    setFormStatus("Submitting...");
 
-    setFormStatus("Sending your request..."); // Provide immediate feedback to the user
-
-    // Create a FormData object to send text inputs and the file
-    const dataToSend = new FormData();
-    for (const key in formData) {
-      dataToSend.append(key, formData[key]);
-    }
+    const payload = { ...formData, file: fileData };
 
     try {
-      // IMPORTANT: Replace this URL with the actual address of your backend server when deployed.
-      // For local development, 'http://localhost:5000/api/send-email' is correct.
-      const response = await fetch("http://localhost:5000/api/send-email", {
-        method: "POST",
-        body: dataToSend, // FormData correctly handles content-type for files
-      });
+   await fetch("https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec", {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(payload),
+});
 
-      if (response.ok) {
-        setFormStatus("Request sent successfully! We'll get back to you soon.");
-        setFormData(formDataInitialState); // Clear the form fields
-        setFileName("Upload Design (optional)"); // Reset file input text
-      } else {
-        const errorData = await response.json(); // Attempt to parse error message from backend
-        setFormStatus(`Failed to send request: ${errorData.message || response.statusText}`);
-      }
+
+      setFormStatus("✅ Submitted successfully!");
+      setFormData({
+        full_name: "",
+        email_address: "",
+        phone_number: "",
+        embroidery_needs: "",
+      });
+      setFileData(null);
+      setFileName("Upload Design (optional)");
     } catch (error) {
-      console.error("Error submitting form:", error);
-      setFormStatus("An unexpected error occurred. Please try again later.");
+      setFormStatus("❌ Error: " + error.message);
     }
   };
-
   return (
-    <form className="space-y-4 " onSubmit={handleSubmit}>
-      {/* Input fields with name, value, and onChange handler */}
+  <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
       <input
         type="text"
         name="full_name"
         placeholder="Full Name"
-        className="w-full p-3 border border-[#D1D5FA] rounded focus:ring-2 focus:ring-[#4B4FCA]"
         value={formData.full_name}
         onChange={handleChange}
         required
+        className="w-full p-3 border border-gray-300 rounded"
       />
       <input
         type="email"
         name="email_address"
         placeholder="Email Address"
-        className="w-full p-3 border border-[#D1D5FA] rounded focus:ring-2 focus:ring-[#4B4FCA]"
         value={formData.email_address}
         onChange={handleChange}
         required
+        className="w-full p-3 border border-gray-300 rounded"
       />
       <input
         type="tel"
         name="phone_number"
         placeholder="Phone Number"
-        className="w-full p-3 border border-[#D1D5FA] rounded focus:ring-2 focus:ring-[#4B4FCA]"
         value={formData.phone_number}
         onChange={handleChange}
         required
+        className="w-full p-3 border border-gray-300 rounded"
       />
       <textarea
         name="embroidery_needs"
         placeholder="Tell us your embroidery needs..."
         rows="4"
-        className="w-full p-3 border border-[#D1D5FA] rounded focus:ring-2 focus:ring-[#4B4FCA]"
         value={formData.embroidery_needs}
         onChange={handleChange}
         required
+        className="w-full p-3 border border-gray-300 rounded"
       ></textarea>
 
-      {/* File Upload Input */}
-      <div className="relative border border-[#D1D5FA] rounded p-3 flex items-center justify-between cursor-pointer focus-within:ring-2 focus-within:ring-[#4B4FCA] hover:bg-gray-50 transition">
+      {/* File Upload Field */}
+      <div className="relative border border-gray-300 rounded p-3 flex items-center justify-between cursor-pointer hover:bg-gray-50">
         <input
           type="file"
-          id="file-upload"
           name="design_file"
+          id="file-upload"
           className="absolute inset-0 opacity-0 cursor-pointer"
           onChange={handleFileChange}
-        // Optional: Add 'accept' to restrict file types, e.g., accept=".jpg,.jpeg,.png,.pdf"
+          accept=".jpg,.jpeg,.png,.pdf"
         />
-        <label htmlFor="file-upload" className="text-gray-600 truncate mr-2">
+        <label htmlFor="file-upload" className="text-gray-600 truncate">
           {fileName}
         </label>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-[#4B4FCA]"
+          className="h-6 w-6 text-blue-600"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
         </svg>
       </div>
 
-      <motion.button
-        whileTap={{ scale: 0.95 }}
+      <button
         type="submit"
-        className="w-full bg-[#4B4FCA] text-white py-3 rounded hover:bg-[#3B3FBA] transition font-semibold"
+        className="w-full bg-[#4B4FCA] text-white py-3 rounded hover:bg-[#3B3FBA]"
       >
         Submit Request
-      </motion.button>
+      </button>
 
-      {/* Display form submission status */}
       {formStatus && (
-        <p className={`mt-4 text-center text-sm font-semibold ${formStatus.includes("successfully") ? "text-green-600" : "text-red-600"}`}>
+        <p className="text-center mt-4 font-semibold">
           {formStatus}
         </p>
       )}

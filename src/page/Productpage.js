@@ -68,67 +68,56 @@ function ProductPage() {
                 setCurrentImage(idx);
                 setSelectedColor(idx);
               }}
-              className={`w-full object-cover rounded-md cursor-pointer border aspect-square ${
-                currentImage === idx
+              className={`w-full object-cover rounded-md cursor-pointer border aspect-square ${currentImage === idx
                   ? "border-indigo-500 ring-2 ring-indigo-300"
                   : "border-gray-200"
-              }`}
+                }`}
             />
           ))}
         </div>
 
+
+
+        {/* Mobile View: Single Image Carousel */}
         {/* Main Image Section */}
-        {/* Desktop View */}
-        {/* <div className="lg:col-span-5 hidden sm:flex items-center justify-center">
-          <div className="w-full max-w-md aspect-[3/4] h-auto sm:h-[560px] bg-white p-2 rounded-2xl shadow-xl border border-gray-200">
+        {/* Main Image Section */}
+        <div className="lg:col-span-5 flex items-center justify-center">
+          {/* Desktop View */}
+          <div className="hidden sm:block w-full max-w-md aspect-[3/4] bg-white p-3 rounded-2xl shadow-xl border border-gray-200">
             <img
               src={product.images?.[currentImage] || product.image}
               alt={product.name}
               className="w-full h-full object-cover rounded-md"
             />
           </div>
-        </div> */}
 
-        {/* Mobile View: Single Image Carousel */}
-      {/* Main Image Section */}
-{/* Main Image Section */}
-<div className="lg:col-span-5 flex items-center justify-center">
-  {/* Desktop View */}
-  <div className="hidden sm:block w-full max-w-md aspect-[3/4] bg-white p-3 rounded-2xl shadow-xl border border-gray-200">
-    <img
-      src={product.images?.[currentImage] || product.image}
-      alt={product.name}
-      className="w-full h-full object-cover rounded-md"
-    />
-  </div>
+          {/* Mobile View: Scrollable inside fixed box with proper end padding */}
+          {/* Mobile View: Scrollable carousel with true end spacing using ghost spacer */}
+          <div className="block sm:hidden w-[320px] h-[440px] bg-white p-3 rounded-2xl shadow-xl border border-gray-200 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+            <div className="flex h-full gap-x-4">
+              {product.images?.map((img, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 w-[280px] h-full snap-center"
+                  onClick={() => {
+                    setCurrentImage(idx);
+                    setSelectedColor(idx);
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={`Product Image ${idx}`}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              ))}
 
-  {/* Mobile View: Scrollable inside fixed box with proper end padding */}
-{/* Mobile View: Scrollable carousel with true end spacing using ghost spacer */}
-<div className="block sm:hidden w-[320px] h-[440px] bg-white p-3 rounded-2xl shadow-xl border border-gray-200 overflow-x-auto scroll-smooth snap-x snap-mandatory">
-  <div className="flex h-full gap-x-4">
-    {product.images?.map((img, idx) => (
-      <div
-        key={idx}
-        className="flex-shrink-0 w-[280px] h-full snap-center"
-        onClick={() => {
-          setCurrentImage(idx);
-          setSelectedColor(idx);
-        }}
-      >
-        <img
-          src={img}
-          alt={`Product Image ${idx}`}
-          className="w-full h-full object-cover rounded-lg"
-        />
-      </div>
-    ))}
+              {/* 👇 Invisible spacer at end to prevent last image from sticking to edge */}
+              <div className="flex-shrink-0 w-[20px]"></div>
+            </div>
+          </div>
 
-    {/* 👇 Invisible spacer at end to prevent last image from sticking to edge */}
-    <div className="flex-shrink-0 w-[20px]"></div>
-  </div>
-</div>
-
-</div>
+        </div>
 
 
 
@@ -205,11 +194,10 @@ function ProductPage() {
                 <button
                   key={idx}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-3 py-1 border rounded text-sm ${
-                    selectedSize === size
+                  className={`px-3 py-1 border rounded text-sm ${selectedSize === size
                       ? "bg-indigo-600 text-white"
                       : "bg-white text-gray-800"
-                  }`}
+                    }`}
                 >
                   {size}
                 </button>
@@ -229,11 +217,10 @@ function ProductPage() {
                     setCurrentImage(idx);
                     setSelectedColor(idx);
                   }}
-                  className={`w-10 h-10 object-cover rounded-md cursor-pointer border ${
-                    selectedColor === idx
+                  className={`w-10 h-10 object-cover rounded-md cursor-pointer border ${selectedColor === idx
                       ? "border-indigo-500 ring-2 ring-indigo-300"
                       : "border-gray-200"
-                  }`}
+                    }`}
                 />
               ))}
             </div>
