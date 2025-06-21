@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link,
 } from "react-router-dom";
 import {
   FaFacebook,
@@ -76,21 +77,28 @@ function App() {
             {/* Navbar */}
             <header className="bg-gray-200 shadow sticky top-0 z-50">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
-                <div className="text-xl sm:text-2xl font-extrabold text-black">
+                <Link
+                  to="/"
+                  className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA] transition"
+                >
                   Stitch<span className="text-[#4B4FCA]">Craft</span>
-                </div>
+                </Link>
                 <nav className="hidden md:flex space-x-6 font-medium">
-                  {["Home", "Products", "Pricing", "Testimonials", "Contact"].map(
-                    (item) => (
-                      <a
-                        key={item}
-                        href={`#${item.toLowerCase()}`}
-                        className="text-[#5C5F7C] hover:text-[#4B4FCA] transition"
-                      >
-                        {item}
-                      </a>
-                    )
-                  )}
+                  <Link to="/" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
+                    Home
+                  </Link>
+                  <Link to="/product" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
+                    Products
+                  </Link>
+                  <Link to="/about" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
+                    Pricing
+                  </Link>
+                  <Link to="/blog" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
+                    Testimonials
+                  </Link>
+                  <Link to="/contact" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
+                    Contact
+                  </Link>
                 </nav>
                 <button
                   onClick={openModal}
@@ -145,10 +153,18 @@ function App() {
                 <div>
                   <h3 className="text-lg font-semibold">Quick Links</h3>
                   <ul className="mt-3 space-y-2 text-sm">
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Shop</li>
-                    <li>Contact</li>
+                    <li>
+                      <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                      <Link to="/product">Shop</Link>
+                    </li>
+                    <li>
+                      <Link to="/contact">Contact</Link>
+                    </li>
                   </ul>
                 </div>
 
@@ -169,7 +185,7 @@ function App() {
               </div>
             </footer>
 
-            {/* Quote Modal - Mobile Optimized */}
+            {/* Quote Modal */}
             {isModalOpen && (
               <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-4">
                 <motion.div
@@ -187,93 +203,91 @@ function App() {
                   <h2 className="text-3xl font-bold mb-1 mt-2 text-center text-black">
                     Request a <span className="text-[#4B4FCA]">Quote</span>
                   </h2>
-             
-  <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 sm:p-8 rounded-md ">
-    <input
-      type="text"
-      name="full_name"
-      placeholder="Full Name"
-      className="w-full p-2 border border-[#D1D5FA] rounded"
-      value={formData.full_name}
-      onChange={handleChange}
-      required
-    />
-    <input
-      type="email"
-      name="email_address"
-      placeholder="Email Address"
-      className="w-full p-3 border border-[#D1D5FA] rounded"
-      value={formData.email_address}
-      onChange={handleChange}
-      required
-    />
-    <input
-      type="tel"
-      name="phone_number"
-      placeholder="Phone Number"
-      className="w-full p-3 border border-[#D1D5FA] rounded"
-      value={formData.phone_number}
-      onChange={handleChange}
-      required
-    />
-    <textarea
-      name="embroidery_needs"
-      placeholder="Tell us your embroidery needs..."
-      rows="4"
-      className="w-full p-3 border border-[#D1D5FA] rounded"
-      value={formData.embroidery_needs}
-      onChange={handleChange}
-      required
-    ></textarea>
 
-    <div className="relative border border-[#D1D5FA] rounded p-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
-      <input
-        type="file"
-        id="file-upload"
-        name="design_file"
-        className="absolute inset-0 opacity-0 cursor-pointer"
-        onChange={handleFileChange}
-      />
-      <label htmlFor="file-upload" className="text-gray-600 truncate mr-2">
-        {fileName}
-      </label>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-[#4B4FCA]"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-        />
-      </svg>
-    </div>
+                  <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 sm:p-8 rounded-md ">
+                    <input
+                      type="text"
+                      name="full_name"
+                      placeholder="Full Name"
+                      className="w-full p-2 border border-[#D1D5FA] rounded"
+                      value={formData.full_name}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="email"
+                      name="email_address"
+                      placeholder="Email Address"
+                      className="w-full p-3 border border-[#D1D5FA] rounded"
+                      value={formData.email_address}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="tel"
+                      name="phone_number"
+                      placeholder="Phone Number"
+                      className="w-full p-3 border border-[#D1D5FA] rounded"
+                      value={formData.phone_number}
+                      onChange={handleChange}
+                      required
+                    />
+                    <textarea
+                      name="embroidery_needs"
+                      placeholder="Tell us your embroidery needs..."
+                      rows="4"
+                      className="w-full p-3 border border-[#D1D5FA] rounded"
+                      value={formData.embroidery_needs}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
 
-    <motion.button
-      whileTap={{ scale: 0.95 }}
-      type="submit"
-      className="w-full bg-[#4B4FCA] text-white py-3 rounded hover:bg-[#3B3FBA] transition font-semibold"
-    >
-      Submit Request
-    </motion.button>
+                    <div className="relative border border-[#D1D5FA] rounded p-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                      <input
+                        type="file"
+                        id="file-upload"
+                        name="design_file"
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                        onChange={handleFileChange}
+                      />
+                      <label htmlFor="file-upload" className="text-gray-600 truncate mr-2">
+                        {fileName}
+                      </label>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-[#4B4FCA]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                        />
+                      </svg>
+                    </div>
 
-    {formStatus && (
-      <p
-        className={`text-center text-sm font-semibold ${formStatus.includes("successfully")
-          ? "text-green-600"
-          : "text-red-600"
-          }`}
-      >
-        {formStatus}
-      </p>
-    )}
-  </form>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      type="submit"
+                      className="w-full bg-[#4B4FCA] text-white py-3 rounded hover:bg-[#3B3FBA] transition font-semibold"
+                    >
+                      Submit Request
+                    </motion.button>
 
-
+                    {formStatus && (
+                      <p
+                        className={`text-center text-sm font-semibold ${formStatus.includes("successfully")
+                          ? "text-green-600"
+                          : "text-red-600"
+                          }`}
+                      >
+                        {formStatus}
+                      </p>
+                    )}
+                  </form>
                 </motion.div>
               </div>
             )}
