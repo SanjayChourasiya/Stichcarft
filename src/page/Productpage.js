@@ -79,7 +79,7 @@ function ProductPage() {
 
         {/* Main Image Section */}
         {/* Desktop View */}
-        <div className="lg:col-span-5 hidden sm:flex items-center justify-center">
+        {/* <div className="lg:col-span-5 hidden sm:flex items-center justify-center">
           <div className="w-full max-w-md aspect-[3/4] h-auto sm:h-[560px] bg-white p-2 rounded-2xl shadow-xl border border-gray-200">
             <img
               src={product.images?.[currentImage] || product.image}
@@ -87,29 +87,50 @@ function ProductPage() {
               className="w-full h-full object-cover rounded-md"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Mobile View: Single Image Carousel */}
-        <div className="block sm:hidden mb-4 -mx-4 px-4">
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 scrollbar-hide scroll-smooth">
-            {product.images?.map((img, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0 w-full snap-center"
-                onClick={() => {
-                  setCurrentImage(idx);
-                  setSelectedColor(idx);
-                }}
-              >
-                <img
-                  src={img}
-                  alt={`Mobile Image ${idx}`}
-                  className="w-full aspect-[3/4] object-cover rounded-xl shadow-md border"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Main Image Section */}
+{/* Main Image Section */}
+<div className="lg:col-span-5 flex items-center justify-center">
+  {/* Desktop View */}
+  <div className="hidden sm:block w-full max-w-md aspect-[3/4] bg-white p-3 rounded-2xl shadow-xl border border-gray-200">
+    <img
+      src={product.images?.[currentImage] || product.image}
+      alt={product.name}
+      className="w-full h-full object-cover rounded-md"
+    />
+  </div>
+
+  {/* Mobile View: Scrollable inside fixed box with proper end padding */}
+{/* Mobile View: Scrollable carousel with true end spacing using ghost spacer */}
+<div className="block sm:hidden w-[320px] h-[440px] bg-white p-3 rounded-2xl shadow-xl border border-gray-200 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+  <div className="flex h-full gap-x-4">
+    {product.images?.map((img, idx) => (
+      <div
+        key={idx}
+        className="flex-shrink-0 w-[280px] h-full snap-center"
+        onClick={() => {
+          setCurrentImage(idx);
+          setSelectedColor(idx);
+        }}
+      >
+        <img
+          src={img}
+          alt={`Product Image ${idx}`}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+    ))}
+
+    {/* 👇 Invisible spacer at end to prevent last image from sticking to edge */}
+    <div className="flex-shrink-0 w-[20px]"></div>
+  </div>
+</div>
+
+</div>
+
+
 
         {/* Product Details */}
         <div className="lg:col-span-6 space-y-4">
