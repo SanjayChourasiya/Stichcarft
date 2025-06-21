@@ -184,7 +184,7 @@ function App() {
                     ×
                   </button>
 
-                  <h2 className="text-3xl font-bold mb-1 text-center text-black">
+                  <h2 className="text-3xl font-bold mb-1 mt-2 text-center text-black">
                     Request a <span className="text-[#4B4FCA]">Quote</span>
                   </h2>
              
