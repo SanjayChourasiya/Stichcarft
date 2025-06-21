@@ -188,7 +188,7 @@ function App() {
                     Request a <span className="text-[#4B4FCA]">Quote</span>
                   </h2>
              
-  <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 sm:p-6 rounded-md shadow-md">
+  <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 sm:p-8 rounded-md ">
     <input
       type="text"
       name="full_name"
