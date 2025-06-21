@@ -24,6 +24,7 @@ import Product from "./page/product";
 import SingleProductPage from "./page/Productpage";
 
 function App() {
+
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -35,6 +36,19 @@ function App() {
   });
   const [fileName, setFileName] = useState("Upload your design file");
   const [formStatus, setFormStatus] = useState("");
+ 
+  
+
+  // ✅ Add this:
+  const [navBg, setNavBg] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavBg(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
@@ -66,6 +80,7 @@ function App() {
       setFileName("Upload your design file");
     }, 1000);
   };
+  
 
   return (
     <Router>
@@ -74,40 +89,57 @@ function App() {
           <Loader />
         ) : (
           <>
-            {/* Navbar */}
-            <header className="bg-gray-200 shadow sticky top-0 z-50">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
-                <Link
-                  to="/"
-                  className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA] transition"
-                >
-                  Stitch<span className="text-[#4B4FCA]">Craft</span>
-                </Link>
-                <nav className="hidden md:flex space-x-6 font-medium">
-                  <Link to="/" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
-                    Home
-                  </Link>
-                  <Link to="/product" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
-                    Products
-                  </Link>
-                  <Link to="/about" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
-                    Pricing
-                  </Link>
-                  <Link to="/blog" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
-                    Testimonials
-                  </Link>
-                  <Link to="/contact" className="text-[#5C5F7C] hover:text-[#4B4FCA] transition">
-                    Contact
-                  </Link>
-                </nav>
-                <button
-                  onClick={openModal}
-                  className="bg-[#4B4FCA] text-white px-4 sm:px-6 py-2 rounded-full shadow hover:bg-[#3B3FBA] transition-transform transform hover:scale-105 text-sm sm:text-base"
-                >
-                  Get a Quote
-                </button>
-              </div>
-            </header>
+            {/* Header */}
+<header className="sticky top-0 z-50 bg-white shadow-md">
+  <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+    {/* Logo */}
+    <Link
+      to="/"
+      className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA]"
+    >
+      Stitch<span className="text-[#4B4FCA]">Craft</span>
+    </Link>
+
+    {/* Desktop Nav */}
+    <ul className="hidden md:flex space-x-6 text-sm md:text-base font-lg font-bold text-gray-700">
+      {["Home", "About us", "Product", "Blog"].map((item) => (
+        <li key={item}>
+          <a
+            href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
+            className="hover:text-[#4B4FCA] transition-colors duration-200"
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {/* CTA Button */}
+    <button
+      onClick={() => setIsModalOpen(true)}
+      className="ml-4 bg-[#4B4FCA] text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
+    >
+      Get a Quote
+    </button>
+  </div>
+
+  {/* Mobile Scrollable Nav */}
+  <div className="md:hidden w-full overflow-x-auto px-4 pb-2">
+    <ul className="flex space-x-6 text-sm font-medium text-gray-700 whitespace-nowrap">
+      {["Home", "About us", "Product", "Blog", "Contact us"].map((item) => (
+        <li key={item}>
+          <a
+            href={`#${item.replace(/\s+/g, "").toLowerCase()}`}
+            className="hover:text-[#4B4FCA] transition-colors duration-200"
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
 
             {/* Routes */}
             <Routes>
@@ -129,7 +161,6 @@ function App() {
                     shopping experience. Shop local, shop smart with Diziting Kart!
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-semibold">Categories</h3>
                   <ul className="mt-3 space-y-2 text-sm">
@@ -139,7 +170,6 @@ function App() {
                     <li>Electronics</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-semibold">Seller Services</h3>
                   <ul className="mt-3 space-y-2 text-sm">
@@ -149,25 +179,15 @@ function App() {
                     <li>Promote Your Products</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-semibold">Quick Links</h3>
                   <ul className="mt-3 space-y-2 text-sm">
-                    <li>
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/about">About Us</Link>
-                    </li>
-                    <li>
-                      <Link to="/product">Shop</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Contact</Link>
-                    </li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/product">Shop</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-semibold">Follow Us</h3>
                   <div className="mt-4 flex space-x-4">
@@ -179,7 +199,6 @@ function App() {
                   </div>
                 </div>
               </div>
-
               <div className="mt-8 text-center text-gray-400 border-t border-gray-700 pt-4 text-xs sm:text-sm">
                 © {new Date().getFullYear()} Diziting Kart. All rights reserved.
               </div>
@@ -199,12 +218,13 @@ function App() {
                   >
                     ×
                   </button>
-
                   <h2 className="text-3xl font-bold mb-1 mt-2 text-center text-black">
                     Request a <span className="text-[#4B4FCA]">Quote</span>
                   </h2>
-
-                  <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 sm:p-8 rounded-md ">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 bg-white p-6 sm:p-8 rounded-md "
+                  >
                     <input
                       type="text"
                       name="full_name"
@@ -241,7 +261,6 @@ function App() {
                       onChange={handleChange}
                       required
                     ></textarea>
-
                     <div className="relative border border-[#D1D5FA] rounded p-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
                       <input
                         type="file"
@@ -268,7 +287,6 @@ function App() {
                         />
                       </svg>
                     </div>
-
                     <motion.button
                       whileTap={{ scale: 0.95 }}
                       type="submit"
@@ -276,12 +294,11 @@ function App() {
                     >
                       Submit Request
                     </motion.button>
-
                     {formStatus && (
                       <p
                         className={`text-center text-sm font-semibold ${formStatus.includes("successfully")
-                          ? "text-green-600"
-                          : "text-red-600"
+                            ? "text-green-600"
+                            : "text-red-600"
                           }`}
                       >
                         {formStatus}

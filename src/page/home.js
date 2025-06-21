@@ -467,7 +467,7 @@ function Home() {
   return (
     <div>
       {/* Banner */}
-      <section id="home" className="relative h-auto md:h-[650px]">
+      <section id="home" className="relative h-auto md:h-[650px] ">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video
