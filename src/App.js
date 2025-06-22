@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./page/home";
 import About from "./page/about";
@@ -84,6 +85,8 @@ function App() {
 
   return (
     <Router>
+          <Toaster position="top-center" reverseOrder={false} />
+
       <div className="min-h-screen bg-gray-100">
         {loading ? (
           <Loader />

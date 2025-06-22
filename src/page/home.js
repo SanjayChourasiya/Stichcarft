@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
+
 
 
 import {
@@ -46,41 +48,55 @@ const QuoteForm = () => {
       reader.readAsDataURL(file);
     }
   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const loadingToast = toast.loading("Submitting...");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   const loadingToast = toast.loading(
+  <div className="flex items-center gap-2">
+    <span className="h-5 w-5 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
+    <span>Submitting...</span>
+  </div>
+);
 
-  const payload = { ...formData, file: fileData };
 
-  try {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec",
-      {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
+    const payload = { ...formData, file: fileData };
 
-    toast.success("✅ Submitted successfully!", { id: loadingToast });
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
-    setFormData({
-      full_name: "",
-      email_address: "",
-      phone_number: "",
-      embroidery_needs: "",
-    });
-    setFileData(null);
-    setFileName("Upload Design (optional)");
-  } catch (error) {
-    toast.error("❌ Submission failed: " + error.message, { id: loadingToast });
-  }
-};
+      toast.dismiss(loadingToast); // Remove loading toast
+      toast.success("Form submitted successfully!", {
+        duration: 4000,
+        position: "top-center",
+      });
+
+      setFormData({
+        full_name: "",
+        email_address: "",
+        phone_number: "",
+        embroidery_needs: "",
+      });
+      setFileData(null);
+      setFileName("Upload Design (optional)");
+    } catch (error) {
+      toast.dismiss(loadingToast);
+      toast.error("Submission failed: " + error.message, {
+        duration: 5000,
+        position: "top-center",
+      });
+    }
+  };
   return (
-  <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
       <input
         type="text"
         name="full_name"
@@ -307,53 +323,53 @@ function FAQSection() {
   };
 
   return (
-<section className="py-6 md:py-16 bg-white text-gray-900">
-  <div className="max-w-5xl mx-auto text-center px-4 sm:px-6">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">
-      Frequently Asked Questions
-    </h2>
-  </div>
+    <section className="py-6 md:py-16 bg-white text-gray-900">
+      <div className="max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">
+          Frequently Asked Questions
+        </h2>
+      </div>
 
-  <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 px-4 sm:px-6">
-    {/* Left Column: FAQs */}
-    <div className="space-y-4">
-      {faqs.map((faq, index) => (
-        <div
-          key={index}
-          className="border rounded-lg shadow-md bg-gray-50"
-        >
-          <button
-            className="w-full flex justify-between items-center p-4 text-base sm:text-lg font-semibold bg-gray-100 hover:bg-gray-200 transition rounded-lg"
-            onClick={() => toggleFAQ(index)}
-          >
-            {faq.question}
-            <span className="text-xl">{openIndexes[index] ? "−" : "+"}</span>
-          </button>
-
-          {openIndexes[index] && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="p-4 text-gray-700 bg-white rounded-b-lg text-sm sm:text-base"
+      <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 px-4 sm:px-6">
+        {/* Left Column: FAQs */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border rounded-lg shadow-md bg-gray-50"
             >
-              {faq.answer}
-            </motion.div>
-          )}
-        </div>
-      ))}
-    </div>
+              <button
+                className="w-full flex justify-between items-center p-4 text-base sm:text-lg font-semibold bg-gray-100 hover:bg-gray-200 transition rounded-lg"
+                onClick={() => toggleFAQ(index)}
+              >
+                {faq.question}
+                <span className="text-xl">{openIndexes[index] ? "−" : "+"}</span>
+              </button>
 
-    {/* Right Column: Image */}
-    <div className="flex justify-center items-start md:items-center mt-6 md:mt-0">
-      <img
-        src="/img/faq.png"
-        alt="FAQ Illustration"
-        className="w-full max-w-sm h-auto rounded-lg shadow-lg"
-      />
-    </div>
-  </div>
-</section>
+              {openIndexes[index] && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="p-4 text-gray-700 bg-white rounded-b-lg text-sm sm:text-base"
+                >
+                  {faq.answer}
+                </motion.div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Right Column: Image */}
+        <div className="flex justify-center items-start md:items-center mt-6 md:mt-0">
+          <img
+            src="/img/faq.png"
+            alt="FAQ Illustration"
+            className="w-full max-w-sm h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -404,43 +420,43 @@ function PartnerSlider() {
 function ClientTestimonials() {
   return (
     <section className="py-4 md:py-16 bg-white text-gray-900">
-  <motion.div
-    className="text-center font-bold text-2xl sm:text-3xl mb-10 sm:mb-12"
-    initial={{ opacity: 0, y: -30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-  >
-    <h1>What Clients Say About Us</h1>
-  </motion.div>
-
-  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
-    {testimonials.map((testimonial, index) => (
       <motion.div
-        key={testimonial.id}
-        className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center"
-        initial={{ opacity: 0, y: 40 }}
+        className="text-center font-bold text-2xl sm:text-3xl mb-10 sm:mb-12"
+        initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.2 }}
-        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          className="w-16 h-16 rounded-full mb-4 border-4 border-blue-500 object-cover"
-        />
-        <p className="text-base sm:text-lg italic text-gray-700 leading-relaxed">
-          “{testimonial.text}”
-        </p>
-        <h3 className="mt-4 font-semibold text-lg sm:text-xl text-gray-900">
-          {testimonial.name}
-        </h3>
-        <p className="text-sm text-gray-600">{testimonial.company}</p>
+        <h1>What Clients Say About Us</h1>
       </motion.div>
-    ))}
-  </div>
-</section>
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
+        {testimonials.map((testimonial, index) => (
+          <motion.div
+            key={testimonial.id}
+            className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            whileHover={{ scale: 1.05 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-16 h-16 rounded-full mb-4 border-4 border-blue-500 object-cover"
+            />
+            <p className="text-base sm:text-lg italic text-gray-700 leading-relaxed">
+              “{testimonial.text}”
+            </p>
+            <h3 className="mt-4 font-semibold text-lg sm:text-xl text-gray-900">
+              {testimonial.name}
+            </h3>
+            <p className="text-sm text-gray-600">{testimonial.company}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -541,26 +557,25 @@ function Home() {
         </h2>
 
         {/* Scrollable Category Buttons */}
-     <div className="mb-8 px-4">
-  <div className="flex justify-center">
-    <div className="flex gap-2 sm:gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth px-4 pb-1 max-w-full sm:max-w-5xl">
-      {categories.map((category) => (
-        <button
-          key={category}
-          type="button"
-          onClick={() => setSelectedCategory(category)}
-          className={`flex-shrink-0 px-3 py-2 text-sm sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out ${
-            selectedCategory === category
-              ? "bg-blue-600 text-white shadow-md"
-              : "bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-          }`}
-        >
-          {category}
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
+        <div className="mb-8 px-4">
+          <div className="flex justify-center">
+            <div className="flex gap-2 sm:gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth px-4 pb-1 max-w-full sm:max-w-5xl">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setSelectedCategory(category)}
+                  className={`flex-shrink-0 px-3 py-2 text-sm sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out ${selectedCategory === category
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+                    }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Product Cards */}
         <motion.div
@@ -656,78 +671,78 @@ function Home() {
       </section>
 
       {/* Pricing */}
-    <section id="pricing" className="py-12 bg-gray-50">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-    <motion.h2
-      className="text-3xl sm:text-4xl font-extrabold text-[#2C2E55] mb-6 sm:mb-8"
-      initial={{ opacity: 0, y: -30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      Pricing
-    </motion.h2>
-
-    <motion.p
-      className="mb-10 sm:mb-16 text-[#5C5F7C] max-w-md sm:max-w-xl mx-auto text-base sm:text-lg"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      viewport={{ once: true }}
-    >
-      Transparent, flexible pricing crafted for every need.
-    </motion.p>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-      {[
-        {
-          title: "Basic",
-          price: "$49",
-          features: ["10 items", "Single color", "5-day delivery"],
-        },
-        {
-          title: "Standard",
-          price: "$99",
-          features: ["25 items", "Multi-color", "3-day delivery"],
-        },
-        {
-          title: "Premium",
-          price: "$149",
-          features: ["50 items", "2-day delivery","Full customization"],
-        },
-      ].map(({ title, price, features }, idx) => (
-        <motion.div
-          key={title}
-          className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-none mx-auto rounded-3xl shadow-md border border-gray-200 p-6 sm:p-8 flex flex-col items-center text-center transition hover:shadow-xl"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: idx * 0.2 }}
-          whileHover={{ scale: 1.03 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-xl sm:text-2xl font-bold text-[#2C2E55] mb-3">
-            {title}
-          </h3>
-          <div className="text-3xl sm:text-4xl font-extrabold text-[#4B4FCA] mb-5">
-            {price}
-          </div>
-          <ul className="text-[#5C5F7C] space-y-2 mb-6 text-sm sm:text-base">
-            {features.map((f, i) => (
-              <li key={i}>✅ {f}</li>
-            ))}
-          </ul>
-          <motion.button
-            whileTap={{ scale: 0.97 }}
-            className="w-full bg-[#4B4FCA] text-white py-2.5 rounded-full hover:bg-[#3B3FBA] transition font-semibold"
-            onClick={openModal}
+      <section id="pricing" className="py-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <motion.h2
+            className="text-3xl sm:text-4xl font-extrabold text-[#2C2E55] mb-6 sm:mb-8"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            Choose Plan
-          </motion.button>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
+            Pricing
+          </motion.h2>
+
+          <motion.p
+            className="mb-10 sm:mb-16 text-[#5C5F7C] max-w-md sm:max-w-xl mx-auto text-base sm:text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Transparent, flexible pricing crafted for every need.
+          </motion.p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+            {[
+              {
+                title: "Basic",
+                price: "$49",
+                features: ["10 items", "Single color", "5-day delivery"],
+              },
+              {
+                title: "Standard",
+                price: "$99",
+                features: ["25 items", "Multi-color", "3-day delivery"],
+              },
+              {
+                title: "Premium",
+                price: "$149",
+                features: ["50 items", "2-day delivery", "Full customization"],
+              },
+            ].map(({ title, price, features }, idx) => (
+              <motion.div
+                key={title}
+                className="bg-white w-full max-w-xs sm:max-w-sm md:max-w-none mx-auto rounded-3xl shadow-md border border-gray-200 p-6 sm:p-8 flex flex-col items-center text-center transition hover:shadow-xl"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                whileHover={{ scale: 1.03 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl sm:text-2xl font-bold text-[#2C2E55] mb-3">
+                  {title}
+                </h3>
+                <div className="text-3xl sm:text-4xl font-extrabold text-[#4B4FCA] mb-5">
+                  {price}
+                </div>
+                <ul className="text-[#5C5F7C] space-y-2 mb-6 text-sm sm:text-base">
+                  {features.map((f, i) => (
+                    <li key={i}>✅ {f}</li>
+                  ))}
+                </ul>
+                <motion.button
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full bg-[#4B4FCA] text-white py-2.5 rounded-full hover:bg-[#3B3FBA] transition font-semibold"
+                  onClick={openModal}
+                >
+                  Choose Plan
+                </motion.button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
       {/* Testimonials */}
