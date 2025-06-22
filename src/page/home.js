@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import toast from 'react-hot-toast';
+
 
 import {
   FaFacebook,
@@ -44,37 +46,39 @@ const QuoteForm = () => {
       reader.readAsDataURL(file);
     }
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const loadingToast = toast.loading("Submitting...");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus("Submitting...");
+  const payload = { ...formData, file: fileData };
 
-    const payload = { ...formData, file: fileData };
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
 
-    try {
-   await fetch("https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec", {
-  method: "POST",
-  mode: "no-cors",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(payload),
-});
+    toast.success("✅ Submitted successfully!", { id: loadingToast });
 
-
-      setFormStatus("✅ Submitted successfully!");
-      setFormData({
-        full_name: "",
-        email_address: "",
-        phone_number: "",
-        embroidery_needs: "",
-      });
-      setFileData(null);
-      setFileName("Upload Design (optional)");
-    } catch (error) {
-      setFormStatus("❌ Error: " + error.message);
-    }
-  };
+    setFormData({
+      full_name: "",
+      email_address: "",
+      phone_number: "",
+      embroidery_needs: "",
+    });
+    setFileData(null);
+    setFileName("Upload Design (optional)");
+  } catch (error) {
+    toast.error("❌ Submission failed: " + error.message, { id: loadingToast });
+  }
+};
   return (
   <form onSubmit={handleSubmit} className="space-y-4 max-w-xl mx-auto">
       <input
