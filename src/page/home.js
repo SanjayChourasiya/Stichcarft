@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
+import Herosection from "../page/herosection"
 
 
 
@@ -50,12 +51,12 @@ const QuoteForm = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-   const loadingToast = toast.loading(
-  <div className="flex items-center gap-2">
-    <span className="h-5 w-5 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
-    <span>Submitting...</span>
-  </div>
-);
+    const loadingToast = toast.loading(
+      <div className="flex items-center gap-2">
+        <span className="h-5 w-5 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
+        <span>Submitting...</span>
+      </div>
+    );
 
 
     const payload = { ...formData, file: fileData };
@@ -209,13 +210,14 @@ const RequestQuoteModal = ({ isOpen, onClose }) => {
 
 // --- Static Data (kept for completeness) ---
 const partners = [
-  { id: 1, name: "Partner 1", bg: "bg-red-300" },
-  { id: 2, name: "Partner 2", bg: "bg-blue-300" },
-  { id: 3, name: "Partner 3", bg: "bg-green-300" },
-  { id: 4, name: "Partner 4", bg: "bg-yellow-300" },
-  { id: 5, name: "Partner 5", bg: "bg-purple-300" },
-  { id: 6, name: "Partner 6", bg: "bg-indigo-300" },
+  { id: 1, name: "Partner 1", image: "/img/part3.jpeg" },
+  { id: 2, name: "Partner 2", image: "/img/images.png" },
+  { id: 3, name: "Partner 3", image: "/img/part1.png" },
+  { id: 4, name: "Partner 4", image: "/img/trustpartner.png" },
+  { id: 5, name: "Partner 5", image: "/img/images.png" },
+  { id: 6, name: "Partner 6", image: "/img/part1.png" },
 ];
+
 
 const products = [
   {
@@ -394,9 +396,16 @@ function PartnerSlider() {
 
   return (
     <section className="py-10 bg-gray-50">
-      <div className="text-4xl font-extrabold text-[#2C2E55] text-center mb-8">
-        <h1>Trusted Partner</h1>
+      <div className="text-center mb-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA]  via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-sm">
+          Trusted Partner
+        </h1>
+        <p className="mt-2 text-sm sm:text-base text-gray-600 font-medium">
+          Empowering brands with reliable service and quality
+        </p>
       </div>
+
+
       <div
         ref={containerRef}
         className="overflow-hidden flex whitespace-nowrap w-full px-4"
@@ -405,14 +414,19 @@ function PartnerSlider() {
           {[...partners, ...partners].map((partner, index) => (
             <div
               key={index}
-              className={`flex-none w-40 h-40 flex justify-center items-center ${partner.bg} p-6 rounded-lg shadow-md`}
+              className="flex-none w-40 h-40 flex justify-center items-center bg-white p-4 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300"
             >
-              <h1 className="text-lg font-semibold">{partner.name}</h1>
+              <img
+                src={partner.image}
+                alt={partner.name}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ))}
         </motion.div>
       </div>
     </section>
+
   );
 }
 
@@ -478,200 +492,84 @@ function Home() {
   return (
     <div>
       {/* Banner */}
-      <section id="home" className="relative h-auto md:h-[650px] ">
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/videos/banner.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
-        </div>
-
-        {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full py-10 md:py-0 flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-60 items-center">
-
-          {/* Text Content */}
-          <motion.div
-            className="text-black text-center md:text-left"
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 sm:mb-5">
-              Custom <span className="text-[#4B4FCA]">Embroidery</span> for
-              Your Brand
-            </h1>
-            <p className="text-base sm:text-lg font-medium mb-6 sm:mb-8">
-              Elevate your apparel with our high-quality embroidery — perfect
-              for businesses, events, and personal branding.
-            </p>
-            <div className="space-y-4 sm:space-y-0 sm:space-x-5 flex flex-col sm:flex-row justify-center md:justify-start">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-[#4B4FCA] hover:bg-[#3B3FBA] px-6 py-3 rounded-full text-white font-semibold shadow transition"
-                onClick={openModal}
-              >
-                Explore Products
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="border-2 border-[#4B4FCA] text-[#4B4FCA] px-6 py-3 rounded-full hover:bg-[#4B4FCA] hover:text-white transition font-semibold"
-                onClick={openModal}
-              >
-                View Pricing
-              </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Quote Form */}
-          <motion.div
-            className="relative w-full max-w-md mx-auto md:mx-0 mt-10 md:mt-0"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <div className="relative z-10 bg-white/90 backdrop-blur-lg rounded-xl shadow-lg p-6 sm:p-8 border">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-black">
-                Request a <span className="text-[#4B4FCA]">Quote</span>
-              </h2>
-              <QuoteForm />
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      <Herosection />
 
       {/* Partner */}
       <PartnerSlider />
+<section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 py-4 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  {/* Background Decoration */}
+  <div className="absolute -top-10 -left-10 w-72 h-72 bg-purple-100 rounded-full opacity-20 blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-100 rounded-full opacity-20 blur-2xl"></div>
+
+  <div className="max-w-3xl mx-auto text-center relative z-10 mb-16">
+    <p className="uppercase text-xs font-semibold text-indigo-600 tracking-widest mb-2">Services</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA]  via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-sm">
+      Turning Threads & Pixels Into Perfection
+    </h1>
+    <p className="mt-4 text-gray-600 text-sm sm:text-base font-medium">
+      We bring your designs to life with professional embroidery digitizing, crisp vector art, and dedicated support — every detail crafted with care.
+    </p>
+  </div>
+
+  <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto relative z-10">
+    {/* Card 1 */}
+    <div className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:border hover:border-indigo-300 transition-all duration-300 text-center group">
+      <div className="flex justify-center mb-4">
+        <div className="bg-indigo-100 text-indigo-600 p-4 rounded-full group-hover:scale-110 transform transition">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v5m0 0v5a2 2 0 002 2h5m0-12h5a2 2 0 012 2v5m0 0v5a2 2 0 01-2 2h-5" />
+          </svg>
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">Vector Art</h3>
+      <p className="text-gray-600 text-sm">
+        High-quality, scalable artwork for apparel, branding, and print. Delivered in AI, SVG, or EPS formats with clean lines and pro touch.
+      </p>
+    </div>
+
+    {/* Card 2 */}
+    <div className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:border hover:border-purple-300 transition-all duration-300 text-center group">
+      <div className="flex justify-center mb-4">
+        <div className="bg-purple-100 text-purple-600 p-4 rounded-full group-hover:scale-110 transform transition">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.105 0-2 .895-2 2s.895 2 2 2m0 0c1.105 0 2-.895 2-2s-.895-2-2-2zm0 0V4m0 8v8m-4-4h8" />
+          </svg>
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">Embroidery Digitizing</h3>
+      <p className="text-gray-600 text-sm">
+        Clean, machine-ready stitch files with flawless detailing — optimized for caps, polos, patches, and more. Fast turnaround guaranteed.
+      </p>
+    </div>
+
+    {/* Card 3 */}
+    <div className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl hover:border hover:border-pink-300 transition-all duration-300 text-center group">
+      <div className="flex justify-center mb-4">
+        <div className="bg-pink-100 text-pink-600 p-4 rounded-full group-hover:scale-110 transform transition">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-1.414 1.414a1 1 0 000 1.414L20.243 12l-3.293 3.536a1 1 0 000 1.414l1.414 1.414M5.636 18.364l1.414-1.414a1 1 0 001.414 0L12 20.243l3.536-3.293a1 1 0 001.414 0l1.414 1.414" />
+          </svg>
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">Priority Support</h3>
+      <p className="text-gray-600 text-sm">
+        Need revisions, changes, or rework? We’re just a message away with fast replies and unmatched care for every project.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
       {/* Products */}
-      <section className="py-12 bg-gray-50">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
-          Our Products
-        </h2>
 
-        {/* Scrollable Category Buttons */}
-        <div className="mb-8 px-4">
-          <div className="flex justify-center">
-            <div className="flex gap-2 sm:gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide scroll-smooth px-4 pb-1 max-w-full sm:max-w-5xl">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => setSelectedCategory(category)}
-                  className={`flex-shrink-0 px-3 py-2 text-sm sm:px-4 sm:py-2 rounded-full transition duration-300 ease-in-out ${selectedCategory === category
-                      ? "bg-blue-600 text-white shadow-md"
-                      : "bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                    }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Product Cards */}
-        <motion.div
-          layout
-          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-6"
-        >
-          {filteredProducts.map((product, index) => (
-            <motion.div
-              key={product.name}
-              layout
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <Link to={`/product/${encodeURIComponent(product.name)}`} className="block h-full">
-                <div className="bg-white p-4 rounded-xl shadow relative flex flex-col h-full">
-                  {/* Discount Label */}
-                  {product.discount && (
-                    <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full z-10">
-                      {product.discount}% OFF
-                    </span>
-                  )}
-
-                  {/* Image */}
-                  <div className="flex-grow flex items-center justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-40 object-contain rounded mb-4"
-                    />
-                  </div>
-
-                  {/* Product Name */}
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 leading-tight text-center sm:text-left">
-                    {product.name}
-                  </h3>
-
-                  {/* Rating */}
-                  <div className="flex items-center justify-center sm:justify-start my-2">
-                    {[...Array(5)].map((_, i) => (
-                      <span
-                        key={i}
-                        className={i < product.rating ? "text-yellow-400" : "text-gray-300"}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-start items-center mb-3 gap-1">
-                    {product.originalPrice && product.discount ? (
-                      <>
-                        <span className="text-lg sm:text-xl font-bold text-gray-900">
-                          $
-                          {(
-                            product.originalPrice *
-                            (1 - product.discount / 100)
-                          ).toFixed(2)}
-                        </span>
-                        <span className="text-sm text-gray-500 line-through">
-                          ${product.originalPrice.toFixed(2)}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="text-lg sm:text-xl font-bold text-gray-900">
-                        ${product.price.toFixed(2)}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex flex-col sm:flex-row justify-end mt-auto w-full gap-2">
-                    <button className="flex-1 bg-[#4B4FCA] text-white font-semibold py-2 rounded-lg transition duration-300 ease-in-out hover:bg-blue-700">
-                      View details
-                    </button>
-                    <button
-                      type="button"
-                      className="flex-1 bg-gray-200 text-gray-800 font-semibold py-2 rounded-lg transition duration-300 ease-in-out hover:bg-gray-300 hover:text-gray-900"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        openModal();
-                      }}
-                    >
-                      Get Quote
-                    </button>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-12 bg-gray-50">
+      {/* <section id="pricing" className="py-12 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <motion.h2
             className="text-3xl sm:text-4xl font-extrabold text-[#2C2E55] mb-6 sm:mb-8"
@@ -742,7 +640,7 @@ function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Testimonials */}
