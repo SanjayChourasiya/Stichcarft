@@ -558,8 +558,17 @@ function Home() {
     </div>
   </div>
 </section>
+<section className="p-4">
+  <div className="max-w-3xl mx-auto text-center relative z-10 mb-16">
+    <p className="uppercase text-xs font-semibold text-indigo-600 tracking-widest mb-2">Services</p>
+        <h1 className="text-2xl p-2 sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA]  via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-sm">
+      Work in progress
+    </h1>
+    <p className="mt-4 text-gray-600 text-sm sm:text-base font-medium">
+    </p>
+  </div>
 
-
+</section>
 
 
 
@@ -644,10 +653,10 @@ function Home() {
 
 
       {/* Testimonials */}
-      <ClientTestimonials />
+      {/* <ClientTestimonials /> */}
 
       {/* FAQs */}
-      <FAQSection />
+      {/* <FAQSection /> */}
 
       {/* Request Quote Modal */}
       <AnimatePresence>

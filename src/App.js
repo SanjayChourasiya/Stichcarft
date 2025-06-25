@@ -201,10 +201,10 @@ function App() {
                       {isMobileProductOpen && (
                         <ul className="ml-4 mt-2 space-y-1 text-sm">
                           {/* <li><Link to="/product" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Po</Link></li> */}
-                          <li><Link to="/product/Shirts" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Shirts</Link></li>
-                          <li><Link to="/product/Caps" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Caps</Link></li>
-                          <li><Link to="/product/Hoodies" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Hoodies</Link></li>
-                          <li><Link to="/product/Jackets" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Jackets</Link></li>
+                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Shirts</Link></li>
+                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Caps</Link></li>
+                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Hoodies</Link></li>
+                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Jackets</Link></li>
                         </ul>
                       )}
                     </li>
@@ -223,8 +223,8 @@ function App() {
                         </ul>
                       )}
                     </li>
-                    <li><Link to="/blog" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
-                    <li><Link to="/contact" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link></li>
+                    <li><Link to="/" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
+                    <li><Link to="/" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link></li>
                     <li>
                       <button
                         onClick={() => {
