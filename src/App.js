@@ -101,10 +101,12 @@ function App() {
               <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 ">
                 <Link
                   to="/"
-                  className="text-xl sm:text-2xl font-extrabold text-black hover:text-[#4B4FCA]"
+                  className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent hover:brightness-110 transition"
                 >
-                  Stitch<span className="text-[#4B4FCA]">Craft</span>
+                  StitchCraft
                 </Link>
+
+
 
                 {/* Desktop Navbar */}
                 <ul className="hidden md:flex space-x-6 text-sm md:text-base font-bold text-gray-700 items-center relative">
@@ -117,7 +119,7 @@ function App() {
                       onClick={() => setIsProductDropdownOpen((prev) => !prev)}
                       className="flex items-center gap-1 hover:text-[#4B4FCA]"
                     >
-                      Prod
+                      Product
                       <svg className={`w-4 h-4 transition-transform ${isProductDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
@@ -168,13 +170,13 @@ function App() {
 
                   <li><Link to="/blog">Blog</Link></li>
                 </ul>
-
                 <button
                   onClick={openModal}
-                  className="hidden md:inline-block ml-4 bg-[#4B4FCA] text-white font-bold py-2 px-4 rounded-lg transition"
+                  className="hidden md:inline-block ml-4 font-bold py-2 px-4 rounded-lg transition bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105"
                 >
                   Get a Quote
                 </button>
+
                 <button
                   onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                   className="block lg:hidden text-sm font-bold text-white bg-[#4B4FCA] px-4 py-3 rounded shadow"
