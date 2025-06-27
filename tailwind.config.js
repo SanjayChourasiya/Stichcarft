@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import aspectRatio from '@tailwindcss/aspect-ratio';
-import scrollbar from 'tailwind-scrollbar';
+import plugin from 'tailwindcss/plugin';
 
 export default {
   content: [
@@ -24,11 +24,11 @@ export default {
       },
     },
   },
-  plugins: [
-    aspectRatio,
-    scrollbar({ nocompatible: true }),
-  ],
   variants: {
     scrollbar: ['rounded'],
   },
+  plugins: [
+    aspectRatio,
+    require('tailwind-scrollbar'), // ✅ use this for v3
+  ],
 };
