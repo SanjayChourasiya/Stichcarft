@@ -23,6 +23,8 @@ import Blog from "./page/blog";
 import Loader from "./page/Loder";
 import Product from "./page/product";
 import SingleProductPage from "./page/Productpage";
+import Ditizing from "../src/page/EmbroideryDigitizing"
+import Vector from "../src/page/VectorArt"
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -250,6 +252,8 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/product" element={<Product />} />
+                 <Route path="/emd" element={< Ditizing />} />
+                      <Route path="/Vd" element={< Vector/>} />
               <Route path="/product/:productName" element={<SingleProductPage />} />
             </Routes>
 

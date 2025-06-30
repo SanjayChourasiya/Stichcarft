@@ -62,7 +62,8 @@ export default function HowWeMakeSection() {
           <p className="text-sm uppercase text-purple-600 font-semibold tracking-wide">
             How We Make
           </p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900">
+          <h2  className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-sm mb-4">
+
             Before & After Transformation
           </h2>
           <p className="text-gray-600 text-md sm:text-lg mt-2">

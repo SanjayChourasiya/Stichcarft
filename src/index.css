@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide scrollbar across all browsers */
-/* src/index.css or tailwind.css */
-/* Hide scrollbar but keep scroll functionality */
+/* ===== Scrollbar Utilities ===== */
+
+/* Hide scrollbar but retain scroll functionality */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -13,11 +13,24 @@
   scrollbar-width: none;     /* Firefox */
 }
 
-/* index.css */
+/* Custom scrollbar styling */
 .scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
   height: 8px;
 }
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: #a855f7;
+  background-color: #a855f7; /* Tailwind purple-500 */
   border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.scrollbar-custom {
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: #a855f7 transparent;
 }
