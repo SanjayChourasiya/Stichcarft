@@ -15,6 +15,7 @@ import {
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Toaster } from "react-hot-toast";
+import { AnimatePresence } from "framer-motion";
 
 import Home from "./page/home";
 import About from "./page/about";
@@ -25,7 +26,7 @@ import Product from "./page/product";
 import SingleProductPage from "./page/Productpage";
 import Ditizing from "../src/page/EmbroideryDigitizing"
 import Vector from "../src/page/VectorArt"
-
+import RequestQuoteModal from "../src/page/RequestQuoteModal";
 function App() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,6 +35,8 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProductOpen, setIsMobileProductOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  //  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openIndexes, setOpenIndexes] = useState({});
 
   const [formData, setFormData] = useState({
     full_name: "",
@@ -113,10 +116,10 @@ function App() {
                 {/* Desktop Navbar */}
                 <ul className="hidden md:flex space-x-6 text-sm md:text-base font-bold text-gray-700 items-center relative">
                   <li><Link to="/">Home</Link></li>
-                  <li><Link to="/about">About us</Link></li>
+
 
                   {/* Product Dropdown */}
-                  <li className="relative" ref={productRef}>
+                  {/* <li className="relative" ref={productRef}>
                     <button
                       onClick={() => setIsProductDropdownOpen((prev) => !prev)}
                       className="flex items-center gap-1 hover:text-[#4B4FCA]"
@@ -132,7 +135,7 @@ function App() {
 
                       </ul>
                     )}
-                  </li>
+                  </li> */}
 
                   {/* Services Dropdown */}
                   <li className="relative" ref={servicesRef}>
@@ -169,22 +172,27 @@ function App() {
 
                     )}
                   </li>
+                  <li><Link to="/about">About us</Link></li>
 
-                  <li><Link to="/blog">Blog</Link></li>
+                  <li><Link to="/contact">Contact us</Link></li>
                 </ul>
                 <button
                   onClick={openModal}
                   className="hidden md:inline-block ml-4 font-bold py-2 px-4 rounded-lg transition bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105"
                 >
-                  Get a Quote
+                  Get Started Free
+
+
+
                 </button>
 
                 <button
                   onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                  className="block lg:hidden text-sm font-bold text-white bg-[#4B4FCA] px-4 py-3 rounded shadow"
+                  className="block lg:hidden text-sm font-bold text-white bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 px-4 py-3 rounded shadow hover:opacity-90 transition"
                 >
                   {isMobileMenuOpen ? '✕ Close' : '☰ Menu'}
                 </button>
+
 
               </div>
 
@@ -194,24 +202,7 @@ function App() {
                   <ul className="mt-4 space-y-2 text-base font-medium bg-gray-800 text-white p-4 rounded-md">
                     <li><Link to="/" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/about" className="block py-1 border-b border-gray-700" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link></li>
-                    <li>
-                      <button
-                        onClick={() => setIsMobileProductOpen((prev) => !prev)}
-                        className="flex items-center justify-between w-full py-1 border-b border-gray-700"
-                      >
-                        Product
-                        <span>{isMobileProductOpen ? "▲" : "▼"}</span>
-                      </button>
-                      {isMobileProductOpen && (
-                        <ul className="ml-4 mt-2 space-y-1 text-sm">
-                          {/* <li><Link to="/product" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Po</Link></li> */}
-                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Shirts</Link></li>
-                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Caps</Link></li>
-                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Hoodies</Link></li>
-                          <li><Link to="/" onClick={() => { setIsMobileProductOpen(false); setIsMobileMenuOpen(false); }}>Jackets</Link></li>
-                        </ul>
-                      )}
-                    </li>
+
                     <li>
                       <button
                         onClick={() => setIsMobileServicesOpen((prev) => !prev)}
@@ -235,10 +226,11 @@ function App() {
                           openModal();
                           setIsMobileMenuOpen(false);
                         }}
-                        className="w-full bg-[#4B4FCA] text-white py-2 rounded mt-2 font-bold"
+                        className="w-full bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white py-2 rounded mt-2 font-bold hover:opacity-90 transition"
                       >
-                        Get a Quote
+                        Get Started Free
                       </button>
+
                     </li>
                   </ul>
                 )}
@@ -252,8 +244,8 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/product" element={<Product />} />
-                 <Route path="/emd" element={< Ditizing />} />
-                      <Route path="/Vd" element={< Vector/>} />
+              <Route path="/emd" element={< Ditizing />} />
+              <Route path="/Vd" element={< Vector />} />
               <Route path="/product/:productName" element={<SingleProductPage />} />
             </Routes>
 
@@ -310,12 +302,19 @@ function App() {
               </div>
             </footer>
 
+            <AnimatePresence>
+              {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+            </AnimatePresence>
+
+            <Toaster />
             {/* Modal */}
             {/* (Modal code remains unchanged...) */}
+
           </>
         )}
       </div>
     </Router>
+
   );
 }
 

@@ -74,7 +74,12 @@ const QuoteForm = () => {
         </svg>
       </div>
 
-      <button type="submit" className="w-full bg-[#4B4FCA] text-white py-3 rounded hover:bg-[#3B3FBA]">Submit Request</button>
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white py-3 rounded hover:opacity-90 transition shadow"
+      >
+        Submit Request
+      </button>
     </form>
   );
 };
@@ -82,13 +87,32 @@ const QuoteForm = () => {
 const RequestQuoteModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   return (
-    <motion.div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <motion.div className="bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl p-8 w-full max-w-md relative" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 50, opacity: 0 }} transition={{ duration: 0.3 }}>
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold">&times;</button>
-        <h2 className="text-3xl font-bold mb-6 text-center text-black">Request a <span className="text-[#4B4FCA]">Quote</span></h2>
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl p-8 w-full max-w-md relative"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+        >
+          &times;
+        </button>
+        <h2 className="text-3xl font-bold mb-6 text-center text-purple-800  hover:opacity-90 transition">
+          Request a Quote
+        </h2>
         <QuoteForm />
       </motion.div>
     </motion.div>
+
   );
 };
 
