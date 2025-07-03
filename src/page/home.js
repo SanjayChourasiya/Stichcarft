@@ -4,6 +4,10 @@ import { Toaster, toast } from "react-hot-toast";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
+import { Image, Rocket, Layers } from "lucide-react";
+import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
+
+
 
 import Herosection from "../page/herosection";
 import Howemake from "../page/HowWeMakeSection";
@@ -12,19 +16,19 @@ import RequestQuoteModal from "../page/RequestQuoteModal";
 
 const services = [
   {
-    title: "Vector Art",
-    desc: "Scalable, clean vector art for high-quality printing and branding.",
-    icon: <Sparkles className="w-6 h-6 text-white" />,
-  },
-  {
-    title: "Embroidery Digitizing",
-    desc: "Tailored, precise stitch files optimized for any fabric or machine.",
+    title: "Embroidery Digitizing Services",
+    desc: "We convert your artwork into machine-ready embroidery files with sharp detailing, accurate stitch paths, and minimal thread breaks. Our team is skilled in left chest logo digitizing, cap and hat digitizing, 3D puff digitizing, appliqué digitizing, and monogram and lettering digitizing. Each file is tested for production quality and optimized for smooth operation on major embroidery machines like Tajima, Barudan, Brother, and more.",
     icon: <ScissorsSquare className="w-6 h-6 text-white" />,
   },
   {
-    title: "24/7 Support",
-    desc: "We’re always here to ensure your designs are perfect and on time.",
-    icon: <Headphones className="w-6 h-6 text-white" />,
+    title: "Vector Artwork Services",
+    desc: "We transform low-resolution images, hand-drawn logos, or blurry artwork into clean, scalable vector files ready for screen printing, DTF, sublimation, and vinyl cutting. Our services include raster to vector conversion, logo recreation, color separation for printing, and redrawing complex artwork. We support AI, EPS, PDF, SVG, and CDR formats.",
+    icon: <Image className="w-6 h-6 text-white" />,
+  },
+  {
+    title: "Why Choose StichKart",
+    desc: "24-hour turnaround time, competitive pricing, industry-leading software and technology, 100% manual digitizing without auto-software, and bulk order handling with personalized service. Whether you’re a small business or a large-scale embroidery house, StichKart ensures your designs are production-ready, accurate, and delivered on time — every time.",
+    icon: <Rocket className="w-6 h-6 text-white" />,
   },
 ];
 
@@ -66,25 +70,32 @@ export default function Home() {
       <PartnerSlider />
 
       {/* Why StitchCraft Section */}
-         <section className="relative bg-white py-10 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+      <section className="relative bg-white py-16 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          {/* Text Content */}
           <div className="md:col-span-7">
-            <p className="text-sm uppercase text-purple-600 font-semibold tracking-wide mb-4">
+            <p className="text-sm uppercase text-purple-600 font-semibold tracking-wide mb-3">
               About Us
             </p>
-            <h2 className="text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-lg mb-6">
-              Why StitchCraft?
+            <h2 className="text-4xl sm:text-5xl text-justify font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-6">
+              Who We Are
             </h2>
             <p className="text-gray-700 mb-4">
-              We were tired of boring, outdated embroidery. StitchCraft was born to
-              fuse cutting-edge technology with artisan creativity — delivering
-              embroidery that’s fast, bold, and brand-defining.
+              StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
+              At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
             </p>
-            <p className="text-gray-600 mb-6">
-              Whether it’s uniforms, gifting, or merchandise — you bring the vision,
-              we bring the stitch-perfect detail.
+            <p className="text-gray-600 mb-8 text-justify">
+              We take pride in:
+              Fast turnaround times (within 24 hours)
+              Affordable pricing without compromising on quality
+              Skilled professionals using the latest digitizing software
+              Exceptional customer support and satisfaction
+              Our mission is to help businesses grow by providing custom embroidery digitizing and vector conversion services that are production-ready, machine-friendly, and visually stunning.
+              Partner with StichKart to turn your ideas into flawless embroidery designs and ready-to-print vector files — quickly, affordably, and reliably.
             </p>
-            <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left mt-4">
+
+            {/* Stats */}
+            <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left mt-6">
               <div>
                 <h3 className="text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={3} duration={2} suffix="M+" />}
@@ -112,15 +123,16 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Image */}
           <div className="md:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl group h-[300px] sm:h-[380px]">
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl group h-[400px] sm:h-[450px]">
               <img
                 src="/img/about.jpeg"
-                alt="About StitchCraft"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                alt="About StitchKart"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10" />
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-sm text-purple-800 px-4 py-1 rounded-full font-semibold shadow-md z-20">
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-purple-800 px-4 py-1 rounded-full font-semibold shadow-md z-20">
                 Real Craft in Action
               </div>
             </div>
@@ -130,7 +142,7 @@ export default function Home() {
 
 
       {/* What We Offer Section */}
-           <motion.section
+      <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -140,10 +152,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="w-14 h-1 bg-purple-600 rounded-full mb-6 mx-auto" />
           <h2 className="text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
-            What We Offer
+            What We Do
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10">
-            From vector refinement to flawless digitizing, we deliver excellence in every stitch.
+            At StichKart, we specialize in delivering top-quality embroidery digitizing services and vector artwork services tailored for embroidery professionals, apparel decorators, screen printers, and promotional businesses.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, i) => (
@@ -159,14 +171,14 @@ export default function Home() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.desc}</p>
+                <p className="text-gray-600 text-sm text-justify">{service.desc}</p>
               </motion.div>
             ))}
           </div>
           <div className="mt-16">
             <a
               onClick={() => setIsModalOpen(true)}
-             
+
               className="px-6 py-3 bg-purple-700 text-white text-sm font-medium rounded-full hover:bg-purple-800 transition"
             >
               Explore All Services
@@ -174,14 +186,61 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
-   
+      <section className="relative bg-gradient-to-br from-white to-gray-50 py-20 px-4 sm:px-10">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-16">
+      <div className="w-14 h-1 bg-purple-600 rounded-full mb-6 mx-auto" />
+      <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-6">
+        Why Choose Us
+      </h2>
+      <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+        Trusted by print shops, designers, and apparel decorators globally — our commitment to quality and service sets us apart.
+      </p>
+    </div>
+
+    <div className="flex flex-col space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+      {[
+        { title: "Affordable Pricing", desc: "Affordable digitizing for embroidery & vector artwork, designed to fit your budget without sacrificing quality.", icon: <BadgeDollarSign className="w-8 h-8 text-purple-700" /> },
+        { title: "Fast Turnaround", desc: "12–24 hour turnaround time ensures your designs are ready when you need them most.", icon: <Clock className="w-8 h-8 text-purple-700" /> },
+        { title: "All Formats Supported", desc: "We deliver in all major machine file formats (DST, PES, EMB, and more) — ready for immediate production.", icon: <Layers className="w-8 h-8 text-purple-700" /> },
+        { title: "Free Edits & Guarantee", desc: "Free edits and a 100% satisfaction guarantee give you complete peace of mind.", icon: <CheckCircle className="w-8 h-8 text-purple-700" /> },
+      ].map((feature, i) => (
+        <div
+          key={i}
+          className="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-2xl p-6 border border-gray-200 shadow hover:shadow-lg transition transform hover:-translate-y-1 duration-300"
+        >
+          <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 bg-purple-100 rounded-full p-4">
+            {feature.icon}
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+            <p className="text-gray-700 text-base leading-relaxed">{feature.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-16 text-center">
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="px-8 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-lg font-bold rounded-full shadow hover:scale-105 transition duration-300"
+      >
+        Know More
+      </button>
+    </div>
+  </div>
+</section>
+
+     
+
+
 
       <section>
         <Howemake />
       </section>
 
       {/* FAQ Section */}
-      <section className="relative bg-gradient-to-br from-white to-gray-50 py-8 px-4 sm:px-10">
+      {/* <section className="relative bg-gradient-to-br from-white to-gray-50 py-8 px-4 sm:px-10">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <div className="w-14 h-1 bg-purple-600 rounded-full mb-4 mx-auto" />
@@ -234,7 +293,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section with CTA */}
       <section className="bg-white py-10 px-4 sm:px-8">

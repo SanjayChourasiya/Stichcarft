@@ -34,3 +34,15 @@
   scrollbar-width: thin;              /* Firefox */
   scrollbar-color: #a855f7 transparent;
 }
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.animate-shine {
+  animation: shine 2s linear infinite;
+}
