@@ -349,7 +349,9 @@ function App() {
 
         {/* 3. Get Connected Box */}
         <div className="bg-[#161620] rounded-xl p-6 shadow-md">
-          <h4 className="text-white text-lg font-semibold mb-4">Get Connected</h4>
+          <h4 
+
+          className="text-white text-lg font-semibold mb-4">Get Connected</h4>
           <ul className="text-sm space-y-3 mb-6">
             <li className="flex items-center gap-3">
               <FaPhoneAlt className="text-yellow-500" />
@@ -367,7 +369,9 @@ function App() {
               </span>
             </li>
           </ul>
-          <button className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300">
+          <button 
+           onClick={openModal}
+           className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300">
             Get Connected
           </button>
         </div>
