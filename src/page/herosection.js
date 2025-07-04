@@ -12,6 +12,18 @@ export default function HeroCarousel() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const slides = ["quote", "journey", "vectorArt"];
+  const headingVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
 
   useEffect(() => {
     const startAutoScroll = () => {
@@ -46,12 +58,12 @@ export default function HeroCarousel() {
 
   const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  const checkMobile = () => setIsMobile(window.innerWidth < 640);
-  checkMobile(); // check on mount
-  window.addEventListener('resize', checkMobile);
-  return () => window.removeEventListener('resize', checkMobile);
-}, []);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile(); // check on mount
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const renderSlide = (type) => {
     const animationProps = {
       initial: { opacity: 0, x: 50 },
@@ -63,137 +75,127 @@ useEffect(() => {
     if (type === "quote") {
       return (
         <motion.section
-          className="relative bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 text-white py-10 px-4 sm:py-14 sm:px-12"
-          {...animationProps}
+          className="h-[80vh] bg-[#150818] text-white flex items-center justify-center overflow-hidden px-4 sm:px-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 sm:gap-12">
-            <div>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 leading-snug">
-                Embroidery Digitizing <br /> That Elevates Your Brand
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8">
-                Fast. Precise. Machine-Ready. From simple logos to complex artwork — we stitch your vision into reality.
-              </p>
-              <a
-                onClick={() => setIsModalOpen(true)}
-                className="inline-block px-6 sm:px-8 py-3 bg-white text-indigo-700 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition"
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+
+            {/* Text Section */}
+            <div className="text-center md:text-left space-y-6 z-10">
+              <motion.h1
+                custom={1}
+                initial="hidden"
+                animate="visible"
+                variants={headingVariant}
+                className="text-3xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text animate-headingGlow"
               >
-                Get a Free Quote
-              </a>
+                Embroidery Digitizing <br />
+                That Elevates Your Brand
+              </motion.h1>
+
+
+              <motion.p
+                custom={2}
+                initial="hidden"
+                animate="visible"
+                variants={headingVariant}
+                className="text-base sm:text-lg md:text-xl text-white/80 max-w-xl"
+              >
+                Fast. Precise. Machine-Ready. From simple logos to complex artwork — we stitch your vision into reality.
+              </motion.p>
+
+              <motion.button
+                custom={3}
+                initial="hidden"
+                animate="visible"
+                variants={headingVariant}
+                onClick={() => setIsModalOpen(true)}
+                className="relative overflow-hidden hidden md:inline-block font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transform transition duration-300"
+              >
+                <span className="relative z-10 animate-textGlow">
+                  Get a Free Quote
+                </span>
+                <span className="absolute top-0 left-[-75%] w-[50%] h-full bg-white opacity-20 transform skew-x-[-20deg] animate-shine"></span>
+              </motion.button>
+
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="w-full px-2 sm:px-4"
-            >
-              <div
-                ref={sliderRef}
-                className="relative max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/30 shadow-[0_0_40px_10px_rgba(255,105,180,0.4)] ring-2 ring-pink-500/30 h-[60vw] sm:h-[400px] md:h-[450px] cursor-ew-resize bg-white transition-all duration-300"
-                onMouseMove={handleMouseMove}
-                onTouchMove={handleTouchMove}
-              >
-                <img
-                  src="/img/4-after.jpg"
-                  alt="After"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-
-                <div
-                  className="absolute top-0 left-0 h-full overflow-hidden"
-                  style={{ width: `${sliderPos}%` }}
-                >
-                  <img
-                    src="/img/4-before.jpg"
-                    alt="Before"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white z-20"
-                  style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
-                />
-                <div
-                  className="absolute top-1/2 z-30 bg-white rounded-full border-2 border-gray-300 shadow w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center"
-                  style={{
-                    left: `${sliderPos}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <div className="w-1 h-4 bg-gray-700 rounded-sm" />
-                </div>
-
-                <span className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">
-                  BEFORE
-                </span>
-                <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">
-                  AFTER
-                </span>
-              </div>
-            </motion.div>
+            {/* Parrot Image with Gradient Overlay */}
+            <div className="relative flex justify-center md:justify-end h-[100vh]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA]/30 via-purple-800/20 to-pink-600/30 z-0 rounded-lg" />
+              <img
+                src="/img/co4.png"
+                alt="Parrot"
+                className="h-[100vh] w-auto object-contain relative z-10"
+              />
+            </div>
           </div>
         </motion.section>
       );
     }
-if (type === "journey") {
-  const steps = [
-    { icon: "📤", title: "Step 1", desc: "Upload your files and details." },
-    { icon: "🧵", title: "Step 2", desc: "We digitize your design." },
-    { icon: "✅", title: "Step 3", desc: "You review and approve." },
-    { icon: "🚚", title: "Step 4", desc: "Delivery to your doorstep." },
-  ];
 
-  let visibleSteps = steps; // default: show all steps
-  if (isMobile) {
-    if (currentIndex % 2 === 0) {
-      // mobile slide 1 → steps 1 & 2
-      visibleSteps = [steps[2], steps[3]];
-    } else {
-      // mobile slide 2 → steps 3 & 4
-      visibleSteps = [steps[0], steps[1]];
-    }
-  }
+    if (type === "journey") {
+      const steps = [
+        { icon: "📤", title: "Step 1", desc: "Upload your logo or artwork (JPG, PNG, PDF, etc.)." },
+        { icon: "📩", title: "Step 2", desc: "Get a quote and preview within 1–3 hours." },
+        { icon: "💳", title: "Step 3", desc: "Approve and pay via PayPal, Wise, or bank transfer." },
+        { icon: "📧", title: "Step 4", desc: "Receive final files via email within 12–24 hours." },
+      ];
 
-  return (
-    <motion.section
-      className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white py-8 sm:py-20 px-4 sm:px-12 max-h-[95vh] overflow-y-auto"
-      {...animationProps}
-    >
-      <div className="max-w-7xl mx-auto text-center space-y-6 sm:space-y-10">
-        <div className="space-y-3 sm:space-y-5">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-2 sm:mb-4">
-            Track Your Order Journey
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-            Follow your embroidery project from upload to delivery — clearly, confidently, and in style.
-          </p>
-        </div>
+      let visibleSteps = steps; // default: show all steps
+      if (isMobile) {
+        if (currentIndex % 2 === 0) {
+          // mobile slide 1 → steps 1 & 2
+          visibleSteps = [steps[2], steps[3]];
+        } else {
+          // mobile slide 2 → steps 3 & 4
+          visibleSteps = [steps[0], steps[1]];
+        }
+      }
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {visibleSteps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/10 backdrop-blur-lg p-4 sm:p-6 rounded-2xl border border-white/20 shadow-xl hover:scale-105 transition"
-            >
-              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{step.icon}</div>
-              <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2">{step.title}</h3>
-              <p className="text-xs sm:text-sm text-white/80">{step.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <a
-          onClick={() => setIsModalOpen(true)}
-          className="inline-block mt-6 sm:mt-8 px-6 sm:px-8 py-3 bg-white text-blue-900 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition"
+      return (
+        <motion.section
+          className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white h-[50vh] sm:min-h-[80vh] flex items-center px-4 sm:px-12  sm:py-24 overflow-hidden"
+          {...animationProps}
         >
-          Explore the Full Process
-        </a>
-      </div>
-    </motion.section>
-  );
-}
+          {/* Background Image with overlay */}
+
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto w-full text-center space-y-6 sm:space-y-10">
+            <div className="space-y-3 sm:space-y-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-2 sm:mb-4">
+                How It Works
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+                Follow your embroidery project from upload to delivery — clearly, confidently, and in style.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              {visibleSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-lg p-4 sm:p-6 rounded-2xl border border-white/20 shadow-xl hover:scale-105 transition"
+                >
+                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{step.icon}</div>
+                  <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-white/80">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <a
+              onClick={() => setIsModalOpen(true)}
+              className="inline-block mt-6 sm:mt-8 px-6 sm:px-8 py-3 bg-white text-blue-900 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition cursor-pointer"
+            >
+              Start Building Yours   </a>
+          </div>
+        </motion.section>
+
+      );
+    }
 
 
 
@@ -211,7 +213,7 @@ if (type === "journey") {
               <p className="text-base sm:text-lg md:text-xl text-white/90">
                 We transform your rough ideas into machine-ready vector art and detailed embroidery files.
               </p>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="inline-block px-6 sm:px-8 py-3 bg-white text-pink-700 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition"
               >

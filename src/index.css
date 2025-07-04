@@ -46,3 +46,13 @@
 .animate-shine {
   animation: shine 2s linear infinite;
 }
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+

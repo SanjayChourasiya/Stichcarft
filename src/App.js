@@ -19,6 +19,7 @@ import { AnimatePresence } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
+import ScrollToTop from "../src/page/ScrollToTop"
 
 import Home from "./page/home";
 import About from "./page/about";
@@ -104,7 +105,7 @@ function App() {
 
   return (
     <Router>
-
+<ScrollToTop />
       <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-screen bg-gray-100">
         {loading ? (
@@ -168,78 +169,48 @@ function App() {
                   <li><Link to="/">Home</Link></li>
 
                   {/* Services Dropdown */}
-                  <li className="relative" ref={servicesRef}>
-                    <button
-                      onClick={() => setIsServicesDropdownOpen((prev) => !prev)}
-                      className="flex items-center gap-1 hover:text-[#4B4FCA]"
-                    >
+                  <li className="relative group" ref={servicesRef}>
+                    {/* Trigger */}
+                    <div className="flex items-center gap-1 hover:text-[#4B4FCA] cursor-pointer">
                       Services
-                      <svg className={`w-4 h-4 transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <svg
+                        className="w-4 h-4 transition-transform group-hover:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                    </button>
-                    {isServicesDropdownOpen && (
-                      <ul className="absolute bg-white shadow-lg rounded-md mt-2 w-[200px] z-50">
-                        <li>
-                          <a
-                            href="#bulk"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                            onClick={() => setIsServicesDropdownOpen(false)}
-                          >
-                            Embroidery Digitising
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#branding"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                            onClick={() => setIsServicesDropdownOpen(false)}
-                          >
-                            Vector Artwork
-                          </a>
-                        </li>
+                    </div>
 
-                      </ul>
-                    )}
+                    {/* Dropdown */}
+                    <ul className="absolute left-0 top-full mt-1 w-[200px] bg-white shadow-lg rounded-md z-50 hidden group-hover:block">
+                      <li>
+                        <a
+                          href="#bulk"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Embroidery Digitising
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#branding"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Vector Artwork
+                        </a>
+                      </li>
+                    </ul>
                   </li>
+
 
                   {/* New Gallery Dropdown */}
-                  <li className="relative" ref={galleryRef}>
-                    <button
-                      onClick={() => setIsGalleryDropdownOpen((prev) => !prev)}
-                      className="flex items-center gap-1 hover:text-[#4B4FCA]"
-                    >
-                      Gallery
-                      <svg className={`w-4 h-4 transition-transform ${isGalleryDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {isGalleryDropdownOpen && (
-                      <ul className="absolute bg-white shadow-lg rounded-md mt-2 w-[180px] z-50">
-                        <li>
-                          <a
-                            href="#embroidery-gallery"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                            onClick={() => setIsGalleryDropdownOpen(false)}
-                          >
-                            Embroidery Gallery
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#vector-art-gallery"
-                            className="block px-4 py-2 hover:bg-gray-100"
-                            onClick={() => setIsGalleryDropdownOpen(false)}
-                          >
-                            Vector Art Gallery
-                          </a>
-                        </li>
-                      </ul>
-                    )}
-                  </li>
+                  <li><Link to="/">Gallery </Link></li>
 
-                  <li><Link to="/about">About us</Link></li>
-                  <li><Link to="/contact">Contact us</Link></li>
+                  <li><Link to="/about">About Us</Link></li>
+                  <li><Link to="/contact">Contact Us</Link></li>
                 </ul>
 
                 <button
@@ -315,75 +286,68 @@ function App() {
             </Routes>
 
             {/* Footer */}
-        <footer className="bg-[#0e0e16] text-gray-300 mt-20 pt-8 pb-2 relative z-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <footer className="bg-[#0e0e16] text-gray-300 mt-20 pt-8 pb-2 relative z-10">
+              <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
-        {/* 1. Logo & Description */}
-        <div>
-          <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
-          <p className="mt-4 text-gray-400 text-sm leading-relaxed">
-            Crafted with precision, designed for creators. StitchCraft empowers businesses
-            with exceptional embroidery digitizing and vector art services.
-          </p>
-        </div>
+                {/* 1. Logo & Description */}
+                <div>
+                  <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
+                  <p className="mt-4 text-gray-400 text-sm leading-relaxed">
+                    StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe
+                  </p>
+                </div>
 
-        {/* 2. Navigation */}
-        <div className="grid grid-cols-2 gap-8 text-sm">
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="/" className="hover:text-pink-400">Home</a></li>
-              <li><a href="#about" className="hover:text-pink-400">About Us</a></li>
-              <li><a href="#contact" className="hover:text-pink-400">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><a href="#embroidery" className="hover:text-pink-400">Embroidery Digitizing</a></li>
-              <li><a href="#vector" className="hover:text-pink-400">Vector Art</a></li>
-              <li><a href="#support" className="hover:text-pink-400">Support</a></li>
-            </ul>
-          </div>
-        </div>
+                {/* 2. Navigation */}
+                <div className="grid grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul className="space-y-2">
+                      <li><a href="/" className="hover:text-pink-400">Home</a></li>
+                      <li><a href="#about" className="hover:text-pink-400">About Us</a></li>
+                      <li><a href="#contact" className="hover:text-pink-400">Contact Us</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-4">Services</h4>
+                    <ul className="space-y-2">
+                      <li><a href="#embroidery" className="hover:text-pink-400">Embroidery Digitizing</a></li>
+                      <li><a href="#vector" className="hover:text-pink-400">Vector Art</a></li>
+                      {/* <li><a href="#support" className="hover:text-pink-400">Support</a></li> */}
+                    </ul>
+                  </div>
+                </div>
 
-        {/* 3. Get Connected Box */}
-        <div className="bg-[#161620] rounded-xl p-6 shadow-md">
-          <h4 
+                {/* 3. Get Connected Box */}
+                <div className="bg-[#161620] rounded-xl p-6 shadow-md">
+                  <h4
 
-          className="text-white text-lg font-semibold mb-4">Get Connected</h4>
-          <ul className="text-sm space-y-3 mb-6">
-            <li className="flex items-center gap-3">
-              <FaPhoneAlt className="text-yellow-500" />
-              +91 98765 43210
-            </li>
-            <li className="flex items-center gap-3">
-              <FaEnvelope className="text-yellow-500" />
-              support@stitchcraft.com
-            </li>
-            <li className="flex items-start gap-3">
-              <FaMapMarkerAlt className="text-yellow-500 mt-1" />
-              <span>
-                123 Artisan Street, <br />
-                Mumbai, Maharashtra - 400001
-              </span>
-            </li>
-          </ul>
-          <button 
-           onClick={openModal}
-           className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300">
-            Get Connected
-          </button>
-        </div>
-      </div>
+                    className="text-white text-lg font-semibold mb-4">Get Connected</h4>
+                  <ul className="text-sm space-y-3 mb-6">
+                    <li className="flex items-center gap-3">
+                      <FaPhoneAlt className="text-yellow-500" />
+                      +91 98765 43210
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <FaEnvelope className="text-yellow-500" />
+                      support@stitchcraft.com
+                    </li>
 
-      {/* Bottom Line */}
-      <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm text-center">
-        <p className="text-gray-400">
-          © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
-        </p>
-      </div>
-    </footer>
+                  </ul>
+                  <button
+                    onClick={openModal}
+                    className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300">
+                    Get Connected
+                  </button>
+                </div>
+              </div>
+
+              {/* Bottom Line */}
+              <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm text-center">
+                <p className="text-gray-400">
+                  © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
+                </p>
+              </div>
+            </footer>
 
             <AnimatePresence>
               {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
