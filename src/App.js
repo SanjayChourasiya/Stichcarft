@@ -105,7 +105,7 @@ function App() {
 
   return (
     <Router>
-<ScrollToTop />
+      <ScrollToTop />
       <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-screen bg-gray-100">
         {loading ? (
@@ -312,16 +312,13 @@ function App() {
                     <ul className="space-y-2">
                       <li><a href="#embroidery" className="hover:text-pink-400">Embroidery Digitizing</a></li>
                       <li><a href="#vector" className="hover:text-pink-400">Vector Art</a></li>
-                      {/* <li><a href="#support" className="hover:text-pink-400">Support</a></li> */}
                     </ul>
                   </div>
                 </div>
 
                 {/* 3. Get Connected Box */}
                 <div className="bg-[#161620] rounded-xl p-6 shadow-md">
-                  <h4
-
-                    className="text-white text-lg font-semibold mb-4">Get Connected</h4>
+                  <h4 className="text-white text-lg font-semibold mb-4">Get Connected</h4>
                   <ul className="text-sm space-y-3 mb-6">
                     <li className="flex items-center gap-3">
                       <FaPhoneAlt className="text-yellow-500" />
@@ -331,21 +328,47 @@ function App() {
                       <FaEnvelope className="text-yellow-500" />
                       support@stitchcraft.com
                     </li>
-
                   </ul>
                   <button
                     onClick={openModal}
-                    className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300">
+                    className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300"
+                  >
                     Get Connected
                   </button>
                 </div>
               </div>
 
-              {/* Bottom Line */}
-              <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm text-center">
-                <p className="text-gray-400">
+              {/* Bottom Line with Payment & Copyright */}
+              <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm flex flex-col md:flex-row justify-between items-center p-4 ">
+                {/* Copyright */}
+                <p className="text-gray-400 text-center md:text-right">
                   © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
                 </p>
+                {/* Payment Methods */}
+                <div className="flex gap-4 items-center mb-4 md:mb-0">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+                    alt="Visa"
+                    className="h-6 object-contain"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+                    alt="MasterCard"
+                    className="h-8 object-contain"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png"
+                    alt="PayPal"
+                    className="h-8 object-contain"
+                  />
+                  <img
+                    src="/img/rupay.png"
+                    alt="RuPay"
+                    className="h-8 object-contain"
+                  />
+                </div>
+
+
               </div>
             </footer>
 
