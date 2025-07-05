@@ -120,7 +120,7 @@ export default function App() {
         </div>
 
         {/* Dropdown with container padding */}
-        <div className="absolute left-0 top-full mt-0 w-[230px] bg-white shadow-xl rounded-md z-50 hidden group-hover:flex flex-col py-6 px-2 space-y-2">
+        <div className="absolute left-0 top-full mt-0 w-[230px] bg-white shadow-xl rounded-md z-50 hidden group-hover:flex flex-col py-4 px-2 space-y-2">
           <NavLink
             to="/emd"
             className={navLinkClass}
