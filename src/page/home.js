@@ -192,7 +192,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <section className="relative bg-gradient-to-br from-white to-gray-50 py-10 px-4 sm:px-10">
+      <section className="relative bg-gradient-to-br from-white to-gray-50 py-4 px-4 sm:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="w-14 h-1 bg-purple-600 rounded-full mb-2 mx-auto" />

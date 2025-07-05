@@ -195,15 +195,15 @@ export default function App() {
                     <h4 className="text-white font-semibold mb-4">Quick Links</h4>
                     <ul className="space-y-2">
                       <li><a href="/" className="hover:text-pink-400">Home</a></li>
-                      <li><a href="#about" className="hover:text-pink-400">About Us</a></li>
-                      <li><a href="#contact" className="hover:text-pink-400">Contact Us</a></li>
+                      <li><a href="/about" className="hover:text-pink-400">About Us</a></li>
+                      <li><a href="/contact" className="hover:text-pink-400">Contact Us</a></li>
                     </ul>
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-4">Services</h4>
                     <ul className="space-y-2">
-                      <li><a href="#embroidery" className="hover:text-pink-400">Embroidery Digitizing</a></li>
-                      <li><a href="#vector" className="hover:text-pink-400">Vector Art</a></li>
+                      <li><a href="/emd" className="hover:text-pink-400">Embroidery Digitizing</a></li>
+                      <li><a href="/vd" className="hover:text-pink-400">Vector Art</a></li>
                     </ul>
                   </div>
                 </div>
