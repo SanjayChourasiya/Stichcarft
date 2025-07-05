@@ -110,7 +110,7 @@ export default function App() {
                       <span className="font-bold">Services</span>
                       <FaChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                     </div>
-                    <ul className="absolute left-0 top-full mt-1 w-[250px] bg-white shadow-lg rounded-md z-50 hidden group-hover:block">
+                    <ul className="absolute left-0 top-full mt-1 p-2 w-[250px] bg-white shadow-lg rounded-md z-50 hidden group-hover:block space-y-2">
                       <li><NavLink to="/emd" className={navLinkClass}>Embroidery Digitising</NavLink></li>
                       <li><NavLink to="/Vd" className={navLinkClass}>Vector Artwork Conversion</NavLink></li>
                     </ul>
