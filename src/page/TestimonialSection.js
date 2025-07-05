@@ -60,8 +60,8 @@ const TestimonialSlider = () => {
           <p className="text-sm text-center uppercase text-[#4B4FCA] font-semibold tracking-wide ">
            Testimonial
           </p>
-      <div className="text-center mb-12">
-        <h2 className="text-4xl p-2 font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-700 to-pink-500 text-transparent bg-clip-text">
+      <div className="text-center mb-10">
+            <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-1 p-2">
           What Our Clients Say
         </h2>
         <p className="text-gray-600 mt-2 ">Genuine words from real people</p>

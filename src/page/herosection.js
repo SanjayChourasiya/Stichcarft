@@ -10,8 +10,10 @@ export default function HeroCarousel() {
   const intervalRef = useRef(null);
   const [sliderPos, setSliderPos] = useState(50);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const slides = ["quote", "journey", "vectorArt"];
+
   const headingVariant = {
     hidden: { opacity: 0, y: 40 },
     visible: (i = 1) => ({
@@ -39,7 +41,12 @@ export default function HeroCarousel() {
     return () => stopAutoScroll();
   }, [isPaused]);
 
-  const sliderRef = useRef(null);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleMouseMove = (e) => {
     if (!sliderRef.current) return;
@@ -56,14 +63,8 @@ export default function HeroCarousel() {
     setSliderPos(Math.max(0, Math.min(100, x)));
   };
 
-  const [isMobile, setIsMobile] = useState(false);
+  const sliderRef = useRef(null);
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile(); // check on mount
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
   const renderSlide = (type) => {
     const animationProps = {
       initial: { opacity: 0, x: 50 },
@@ -75,67 +76,60 @@ export default function HeroCarousel() {
     if (type === "quote") {
       return (
         <motion.section
-          className="h-[80vh] bg-[#150818] text-white flex items-center justify-center overflow-hidden px-4 sm:px-12"
+          className="h-auto sm:h-[80vh] bg-[#150818] text-white flex items-center justify-center overflow-hidden px-4 sm:px-12 py-10 sm:py-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-
-            {/* Text Section */}
             <div className="text-center md:text-left space-y-6 z-10">
               <motion.h1
                 custom={1}
                 initial="hidden"
                 animate="visible"
                 variants={headingVariant}
-                className="text-3xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text animate-headingGlow"
+                className="text-2xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text animate-headingGlow"
               >
-                Embroidery Digitizing <br />
+                Embroidery Digitizing <br className="hidden sm:block" />
                 That Elevates Your Brand
               </motion.h1>
-
-
               <motion.p
                 custom={2}
                 initial="hidden"
                 animate="visible"
                 variants={headingVariant}
-                className="text-base sm:text-lg md:text-xl text-white/80 max-w-xl"
+                className="text-sm sm:text-lg md:text-xl text-white/80 max-w-xl mx-auto md:mx-0"
               >
                 Fast. Precise. Machine-Ready. From simple logos to complex artwork — we stitch your vision into reality.
               </motion.p>
-
               <motion.button
                 custom={3}
                 initial="hidden"
                 animate="visible"
                 variants={headingVariant}
                 onClick={() => setIsModalOpen(true)}
-                className="relative overflow-hidden hidden md:inline-block font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transform transition duration-300"
+                className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
               >
-                <span className="relative z-10 animate-textGlow">
-                  Get a Free Quote
-                </span>
-                <span className="absolute top-0 left-[-75%] w-[50%] h-full bg-white opacity-20 transform skew-x-[-20deg] animate-shine"></span>
+                <span className="relative z-10">Get a Free Quote</span>
               </motion.button>
 
-            </div>
 
-            {/* Parrot Image with Gradient Overlay */}
-            <div className="relative flex justify-center md:justify-end h-[100vh]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA]/30 via-purple-800/20 to-pink-600/30 z-0 rounded-lg" />
+            </div>
+            <div className="relative flex justify-center md:justify-end h-auto sm:h-[100vh] bg-[#150818] sm:bg-transparent">
+              {/* Gradient background visible only on sm (640px) and up */}
+              <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-[#4B4FCA]/30 sm:via-purple-800/20 sm:to-pink-600/30 z-0 rounded-lg" />
+
               <img
                 src="/img/co4.png"
                 alt="Parrot"
-                className="h-[100vh] w-auto object-contain relative z-10"
+                className="h-[300px] sm:h-full w-auto object-contain relative z-10"
               />
             </div>
+
           </div>
         </motion.section>
       );
     }
-
     if (type === "journey") {
       const steps = [
         { icon: "📤", title: "Step 1", desc: "Upload your logo or artwork (JPG, PNG, PDF, etc.)." },
@@ -144,25 +138,16 @@ export default function HeroCarousel() {
         { icon: "📧", title: "Step 4", desc: "Receive final files via email within 12–24 hours." },
       ];
 
-      let visibleSteps = steps; // default: show all steps
+      let visibleSteps = steps;
       if (isMobile) {
-        if (currentIndex % 2 === 0) {
-          // mobile slide 1 → steps 1 & 2
-          visibleSteps = [steps[2], steps[3]];
-        } else {
-          // mobile slide 2 → steps 3 & 4
-          visibleSteps = [steps[0], steps[1]];
-        }
+        visibleSteps = currentIndex % 2 === 0 ? steps.slice(0, 4) : steps.slice(0, 2);
       }
 
       return (
         <motion.section
-          className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white h-[50vh] sm:min-h-[80vh] flex items-center px-4 sm:px-12  sm:py-24 overflow-hidden"
+          className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white h-auto sm:min-h-[80vh] flex items-center px-4 sm:px-12 py-12 sm:py-24 overflow-hidden"
           {...animationProps}
         >
-          {/* Background Image with overlay */}
-
-          {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto w-full text-center space-y-6 sm:space-y-10">
             <div className="space-y-3 sm:space-y-5">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-2 sm:mb-4">
@@ -190,14 +175,12 @@ export default function HeroCarousel() {
               onClick={() => setIsModalOpen(true)}
               className="inline-block mt-6 sm:mt-8 px-6 sm:px-8 py-3 bg-white text-blue-900 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition cursor-pointer"
             >
-              Start Building Yours   </a>
+              Start Building Yours
+            </a>
           </div>
         </motion.section>
-
       );
     }
-
-
 
     if (type === "vectorArt") {
       return (
@@ -233,42 +216,16 @@ export default function HeroCarousel() {
                 onMouseMove={handleMouseMove}
                 onTouchMove={handleTouchMove}
               >
-                <img
-                  src="/img/2-after.jpg"
-                  alt="After"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div
-                  className="absolute top-0 left-0 h-full overflow-hidden"
-                  style={{ width: `${sliderPos}%` }}
-                >
-                  <img
-                    src="/img/2-before.jpg"
-                    alt="Before"
-                    className="w-full h-full object-cover"
-                  />
+                <img src="/img/2-after.jpg" alt="After" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute top-0 left-0 h-full overflow-hidden" style={{ width: `${sliderPos}%` }}>
+                  <img src="/img/2-before.jpg" alt="Before" className="w-full h-full object-cover" />
                 </div>
-
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white z-20"
-                  style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
-                />
-                <div
-                  className="absolute top-1/2 z-30 bg-white rounded-full border-2 border-gray-300 shadow w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center"
-                  style={{
-                    left: `${sliderPos}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
+                <div className="absolute top-0 bottom-0 w-1 bg-white z-20" style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }} />
+                <div className="absolute top-1/2 z-30 bg-white rounded-full border-2 border-gray-300 shadow w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center" style={{ left: `${sliderPos}%`, transform: "translate(-50%, -50%)" }}>
                   <div className="w-1 h-4 bg-gray-700 rounded-sm" />
                 </div>
-
-                <span className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">
-                  BEFORE
-                </span>
-                <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">
-                  AFTER
-                </span>
+                <span className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">BEFORE</span>
+                <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">AFTER</span>
               </div>
             </motion.div>
           </div>
@@ -290,31 +247,19 @@ export default function HeroCarousel() {
       </AnimatePresence>
 
       <div className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 z-30">
-        <button
-          onClick={() =>
-            setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
-          }
-          className="bg-white text-black p-2 rounded-full shadow hover:bg-gray-100"
-        >
+        <button onClick={() => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)} className="bg-white text-black p-2 rounded-full shadow hover:bg-gray-100">
           <FaArrowLeft className="text-lg" />
         </button>
       </div>
       <div className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 z-30">
-        <button
-          onClick={() => setCurrentIndex((prev) => (prev + 1) % slides.length)}
-          className="bg-white text-black p-2 rounded-full shadow hover:bg-gray-100"
-        >
+        <button onClick={() => setCurrentIndex((prev) => (prev + 1) % slides.length)} className="bg-white text-black p-2 rounded-full shadow hover:bg-gray-100">
           <FaArrowRight className="text-lg" />
         </button>
       </div>
 
       <div className="absolute bottom-4 w-full flex justify-center items-center space-x-2 z-30">
         {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentIndex(i)}
-            className={`w-3 h-3 rounded-full transition-all ${currentIndex === i ? "bg-white scale-125" : "bg-white/40"}`}
-          />
+          <button key={i} onClick={() => setCurrentIndex(i)} className={`w-3 h-3 rounded-full transition-all ${currentIndex === i ? "bg-white scale-125" : "bg-white/40"}`} />
         ))}
       </div>
 

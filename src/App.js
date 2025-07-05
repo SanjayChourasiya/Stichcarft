@@ -29,6 +29,7 @@ import SingleProductPage from "./page/Productpage";
 import Ditizing from "../src/page/EmbroideryDigitizing";
 import Vector from "../src/page/VectorArt";
 import RequestQuoteModal from "../src/page/RequestQuoteModal";
+import GalleryPage from "../src/page/GalleryPage"
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -122,10 +123,11 @@ export default function App() {
 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="hidden md:inline-block ml-4 px-6 py-2 font-bold rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
+                  className="shine-button hidden md:inline-block ml-4 px-6 py-2 font-bold rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
                 >
-                  Let’s Get Started!
+                  <span className="relative z-10">Let’s Get Started!</span>
                 </button>
+
 
                 <button
                   onClick={() => setIsMobileMenuOpen((m) => !m)}
@@ -178,6 +180,8 @@ export default function App() {
               <Route path="/product" element={<Product />} />
               <Route path="/emd" element={<Ditizing />} />
               <Route path="/Vd" element={<Vector />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+
               <Route path="/product/:productName" element={<SingleProductPage />} />
             </Routes>
 

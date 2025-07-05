@@ -51,75 +51,75 @@ export default function Home() {
       <PartnerSlider />
 
       {/* Why StitchCraft Section */}
-      <section className="relative bg-white py-16 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-          {/* Text Content */}
-          <div className="md:col-span-7">
-            <p className="text-sm uppercase text-purple-600 font-semibold tracking-wide mb-3">
-              About Us
-            </p>
-            <h2 className="text-4xl sm:text-5xl text-justify font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-6">
-              Who We Are
-            </h2>
-            <p className="text-gray-700 mb-4">
-              StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
-              At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
-            </p>
-            <p className="text-gray-600 mb-8 text-justify">
-              We take pride in:
-              Fast turnaround times (within 24 hours)
-              Affordable pricing without compromising on quality
-              Skilled professionals using the latest digitizing software
-              Exceptional customer support and satisfaction
-              Our mission is to help businesses grow by providing custom embroidery digitizing and vector conversion services that are production-ready, machine-friendly, and visually stunning.
-              Partner with StichKart to turn your ideas into flawless embroidery designs and ready-to-print vector files — quickly, affordably, and reliably.
-            </p>
+   <section className="relative bg-white py-10px-4 sm:px-6 p-4">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
+    {/* Text Content */}
+    <div className="md:col-span-7">
+      <p className="text-xs sm:text-sm uppercase text-purple-600 font-semibold tracking-wide mb-2 sm:mb-3">
+        About Us
+      </p>
+      <h2 className="text-3xl sm:text-5xl font-extrabold text-justify bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4 sm:mb-6">
+        Who We Are
+      </h2>
+      <p className="text-gray-700 mb-4 text-sm sm:text-base text-justify">
+        StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
+        At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
+      </p>
+      <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base text-justify">
+        We take pride in:
+        Fast turnaround times (within 24 hours)
+        Affordable pricing without compromising on quality
+        Skilled professionals using the latest digitizing software
+        Exceptional customer support and satisfaction
+        Our mission is to help businesses grow by providing custom embroidery digitizing and vector conversion services that are production-ready, machine-friendly, and visually stunning.
+        Partner with StichKart to turn your ideas into flawless embroidery designs and ready-to-print vector files — quickly, affordably, and reliably.
+      </p>
 
-            {/* Stats */}
-            <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left mt-6">
-              <div>
-                <h3 className="text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={3} duration={2} suffix="M+" />}
-                </h3>
-                <p className="text-sm text-gray-600 mt-1">Products Digitized</p>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={1} duration={2} suffix="K+" />}
-                </h3>
-                <p className="text-sm text-gray-600 mt-1">Happy Clients</p>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={10} duration={2} suffix="+" />}
-                </h3>
-                <p className="text-sm text-gray-600 mt-1">Years of Experience</p>
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={25} duration={2} />}
-                </h3>
-                <p className="text-sm text-gray-600 mt-1">Team Members</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="md:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl group h-[400px] sm:h-[450px]">
-              <img
-                src="/img/about.jpeg"
-                alt="About StitchKart"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10" />
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-purple-800 px-4 py-1 rounded-full font-semibold shadow-md z-20">
-                Real Craft in Action
-              </div>
-            </div>
-          </div>
+      {/* Stats */}
+      <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-left mt-4 sm:mt-6">
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
+            {inView && <CountUp end={3} duration={2} suffix="M+" />}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mt-1">Products Digitized</p>
         </div>
-      </section>
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
+            {inView && <CountUp end={1} duration={2} suffix="K+" />}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mt-1">Happy Clients</p>
+        </div>
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
+            {inView && <CountUp end={10} duration={2} suffix="+" />}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mt-1">Years of Experience</p>
+        </div>
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
+            {inView && <CountUp end={25} duration={2} />}
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mt-1">Team Members</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Image */}
+    <div className="md:col-span-5 mt-8 md:mt-0">
+      <div className="relative overflow-hidden rounded-2xl shadow-2xl group h-60 sm:h-[450px]">
+        <img
+          src="/img/about.jpeg"
+          alt="About StitchKart"
+          className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10" />
+        <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md text-purple-800 px-3 py-1 rounded-full font-semibold shadow-md z-20 text-sm">
+          Real Craft in Action
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
       {/* What We Offer Section */}
@@ -155,7 +155,7 @@ export default function Home() {
                   Embroidery Digitizing Services
                 </h3>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed text-justify">
                 We convert your artwork into machine-ready embroidery files with sharp detailing, accurate stitch paths, and minimal thread breaks. Our team is skilled in left chest logo digitizing, cap and hat digitizing, 3D puff digitizing, appliqué digitizing, and monogram and lettering digitizing. Each file is tested for production quality and optimized for smooth operation on major embroidery machines like Tajima, Barudan, Brother, and more.        </p>
             </motion.div>
 
@@ -171,10 +171,10 @@ export default function Home() {
                   <Image className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Vector Artwork Services
+                  Vector Artwork Conversion
                 </h3>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed text-justify">
                 We transform low-resolution images, hand-drawn logos, or blurry artwork into clean, scalable vector files ready for screen printing, DTF, sublimation, and vinyl cutting. Our services include raster to vector conversion, logo recreation, color separation for printing, and redrawing complex artwork. We support AI, EPS, PDF, SVG, and CDR formats.",
               </p>
             </motion.div>
