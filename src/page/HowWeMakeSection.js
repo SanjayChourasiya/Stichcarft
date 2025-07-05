@@ -11,16 +11,28 @@ const portfolioItems = [
 function BeforeAfter({ before, after }) {
   const [pos, setPos] = useState(50);
 
-  const handleMove = (e) => {
-    const b = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - b.left;
+  const handleMove = (clientX, element) => {
+    const b = element.getBoundingClientRect();
+    const x = clientX - b.left;
     setPos(Math.max(0, Math.min(100, (x / b.width) * 100)));
+  };
+
+  const handleMouseMove = (e) => {
+    handleMove(e.clientX, e.currentTarget);
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.touches.length > 0) {
+      handleMove(e.touches[0].clientX, e.currentTarget);
+    }
   };
 
   return (
     <div
-      onMouseMove={handleMove}
-      className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-white group transition-all duration-300"
+      onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-white group transition-all duration-300 select-none"
     >
       {/* After Image (Background) */}
       <img
@@ -42,14 +54,12 @@ function BeforeAfter({ before, after }) {
       </div>
 
       {/* Divider Line */}
-    
       <div
         className="absolute inset-y-0 w-[2px] bg-gray-500 z-30"
         style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
       />
 
-
-      {/* Ferrari-style Draggable Handle */}
+      {/* Draggable Handle */}
       <div
         className="absolute top-1/2 w-12 h-12 bg-white border-2 border-gray-400 rounded-full shadow-xl z-40 flex items-center justify-center cursor-ew-resize transition-transform duration-300 group-hover:scale-110"
         style={{ left: `${pos}%`, transform: "translate(-50%, -50%)" }}
