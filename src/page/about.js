@@ -109,66 +109,68 @@ function About() {
         </section>
 
         {/* Why Choose Us */}
-        <section className="relative bg-gradient-to-br from-white to-gray-50 py-10 px-4 sm:px-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="w-14 h-1 bg-purple-600 rounded-full mb-6 mx-auto" />
-              <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-6">
-                Why Choose Us
-              </h2>
-              <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-                Trusted by print shops, designers, and apparel decorators globally — our commitment to quality and service sets us apart.
-              </p>
-            </div>
-
-            <div className="flex flex-col space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Affordable Pricing",
-                  desc: "Affordable digitizing for embroidery & vector artwork, designed to fit your budget without sacrificing quality.",
-                  icon: <BadgeDollarSign className="w-8 h-8 text-purple-700" />,
-                },
-                {
-                  title: "Fast Turnaround",
-                  desc: "12–24 hour turnaround time ensures your designs are ready when you need them most.",
-                  icon: <Clock className="w-8 h-8 text-purple-700" />,
-                },
-                {
-                  title: "All Formats Supported",
-                  desc: "We deliver in all major machine file formats (DST, PES, EMB, and more) — ready for immediate production.",
-                  icon: <Layers className="w-8 h-8 text-purple-700" />,
-                },
-                {
-                  title: "Free Edits & Guarantee",
-                  desc: "Free edits and a 100% satisfaction guarantee give you complete peace of mind.",
-                  icon: <CheckCircle className="w-8 h-8 text-purple-700" />,
-                },
-              ].map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-2xl p-6 border border-gray-200 shadow hover:shadow-lg transition transform hover:-translate-y-1 duration-300"
-                >
-                  <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 bg-purple-100 rounded-full p-4">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-700 text-base leading-relaxed">{feature.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 text-center">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="px-8 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-lg font-bold rounded-full shadow hover:scale-105 transition duration-300"
-              >
-                Know More
-              </button>
-            </div>
+   <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="w-16 h-1 bg-purple-600 rounded-full mb-3 mx-auto" />
+            <h2 className="text-3xl  p-4 sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
+              Why Choose Us
+            </h2>
+            <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto">
+              Trusted by print shops, designers, and apparel decorators globally —
+              our commitment to quality and service sets us apart.
+            </p>
           </div>
-        </section>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {[
+              {
+                title: "Affordable Pricing",
+                desc: "Affordable digitizing for embroidery & vector artwork without sacrificing quality.",
+                icon: <BadgeDollarSign className="w-8 h-8 text-purple-700" />,
+              },
+              {
+                title: "Fast Turnaround",
+                desc: "12–24 hour delivery to keep your business moving.",
+                icon: <Clock className="w-8 h-8 text-purple-700" />,
+              },
+              {
+                title: "All Formats Supported",
+                desc: "We support DST, PES, EMB, and all major file types.",
+                icon: <Layers className="w-8 h-8 text-purple-700" />,
+              },
+              {
+                title: "Free Edits & Guarantee",
+                desc: "Unlimited edits + 100% satisfaction guarantee.",
+                icon: <CheckCircle className="w-8 h-8 text-purple-700" />,
+              },
+            ].map((feature, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-2xl shadow border border-gray-200 text-center hover:shadow-lg transition-transform hover:-translate-y-1 duration-300"
+              >
+                <div className="flex justify-center items-center bg-purple-100 rounded-full w-14 h-14 mx-auto mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="mt-14 text-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold text-base sm:text-lg rounded-full shadow hover:scale-105 transition duration-300"
+            >
+              Know More
+            </button>
+          </div>
+        </div>
+      </section>
       </div>
 
       {/* MODAL & TOASTER */}
