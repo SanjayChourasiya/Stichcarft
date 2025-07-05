@@ -36,6 +36,8 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
 
   const navLinkClass = ({ isActive }) =>
     isActive
@@ -103,29 +105,59 @@ export default function App() {
                 >
                   StitchCraft
                 </Link>
+                 <ul className="hidden md:flex items-center space-x-6 font-bold relative">
+      <li>
+        <NavLink to="/" className={navLinkClass}>
+          Home
+        </NavLink>
+      </li>
 
-                <ul className="hidden md:flex items-center space-x-6 font-bold">
-                  <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
-                  <li className="relative group inline-block">
-                    <div className="flex items-center gap-1 cursor-pointer group-hover:text-[#4B4FCA]">
-                      <span className="font-bold">Services</span>
-                      <FaChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-                    </div>
-                    <ul className="absolute left-0 top-full mt-1 p-2 w-[250px] bg-white shadow-lg rounded-md z-50 hidden group-hover:block space-y-2">
-                      <li><NavLink to="/emd" className={navLinkClass}>Embroidery Digitising</NavLink></li>
-                      <li><NavLink to="/Vd" className={navLinkClass}>Vector Artwork Conversion</NavLink></li>
-                    </ul>
-                  </li>
-                  <li><NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink></li>
-                  <li><NavLink to="/about" className={navLinkClass}>About Us</NavLink></li>
-                  <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
-                </ul>
+      <li className="relative group ">
+        {/* Services dropdown button */}
+        <div className="flex items-center gap-1 cursor-pointer font-bold group-hover:text-[#4B4FCA]">
+          <span>Services</span>
+          <FaChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+        </div>
+
+        {/* Dropdown with container padding */}
+        <div className="absolute left-0 top-full mt-0 w-[230px] bg-white shadow-xl rounded-md z-50 hidden group-hover:flex flex-col py-6 px-2 space-y-2">
+          <NavLink
+            to="/emd"
+            className={navLinkClass}
+          >
+            Embroidery Digitising
+          </NavLink>
+          <NavLink
+            to="/Vd"
+            className={navLinkClass}
+          >
+            Vector Artwork Conversion
+          </NavLink>
+        </div>
+      </li>
+
+      <li>
+        <NavLink to="/gallery" className={navLinkClass}>
+          Gallery
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/about" className={navLinkClass}>
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/contact" className={navLinkClass}>
+          Contact Us
+        </NavLink>
+      </li>
+    </ul>
 
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="shine-button hidden md:inline-block ml-4 px-6 py-2 font-bold rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
                 >
-                  <span className="relative z-10">Let’s Get Started!</span>
+                  <span className="relative z-10">Upload Your Artwork</span>
                 </button>
 
 
