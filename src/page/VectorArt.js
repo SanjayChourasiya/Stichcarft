@@ -12,7 +12,7 @@ function VectorArt() {
             Stunning Vector Art Services
           </h1>
           <p className="text-lg sm:text-xl max-w-2xl mx-auto">
-            Get ultra-crisp, scalable, and print-ready artwork for logos, t-shirts, illustrations, and more.
+            Get ultra-crisp, scalable, and print-ready artwork for logos, t-shirts,illustrations, and more.
           </p>
         </div>
       </section>

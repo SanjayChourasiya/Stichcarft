@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -48,12 +48,15 @@ const QuoteForm = () => {
     const payload = { ...formData, file: fileData };
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxdOHvU198NLp3uh2VA3ohw_DD0UvMaAED7cmyc5PbbsIMSKp5pOTDdI67494mYz4hmKQ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       toast.dismiss(loadingToast);
       toast.success("Form submitted successfully!");
@@ -98,11 +101,15 @@ const QuoteForm = () => {
         value={formData.phone_number}
         onChange={handleChange}
         required
+        pattern="\d{10}" // Only 10 digit numbers
+        maxLength={10}
+        minLength={10}
+        title="Phone number must be exactly 10 digits"
         className="w-full p-3 border border-gray-300 rounded"
       />
       <textarea
         name="embroidery_needs"
-        placeholder="Enter your requirements: file format, design size, product/fabric details*"
+        placeholder="Requirements: file format, design size, product/fabric details*"
         rows="4"
         value={formData.embroidery_needs}
         onChange={handleChange}
@@ -120,8 +127,19 @@ const QuoteForm = () => {
         <label htmlFor="file-upload" className="text-gray-600 truncate">
           {fileName === "Upload Design" ? "Upload Design *" : fileName}
         </label>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-blue-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+          />
         </svg>
       </div>
       <p className="text-sm text-gray-500 mt-1">

@@ -195,8 +195,8 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-white to-gray-50 py-10 px-4 sm:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <div className="w-14 h-1 bg-purple-600 rounded-full mb-6 mx-auto" />
-            <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-6">
+            <div className="w-14 h-1 bg-purple-600 rounded-full mb-2 mx-auto" />
+            <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-6 p-2">
               Why Choose Us
             </h2>
             <p className="text-gray-700 text-lg max-w-3xl mx-auto">
@@ -236,10 +236,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-
-
 
       <section>
         <Howemake />
