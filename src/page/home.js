@@ -7,7 +7,7 @@ import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
 import { Image, Rocket, Layers } from "lucide-react";
 import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
 
-
+import  TestimonialSection from "../page/TestimonialSection"
 
 import Herosection from "../page/herosection";
 import Howemake from "../page/HowWeMakeSection";
@@ -296,6 +296,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
+      <TestimonialSection/>
 
       {/* Contact Section with CTA */}
       <section className="bg-white py-10 px-4 sm:px-8">

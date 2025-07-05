@@ -6,15 +6,17 @@ const portfolioItems = [
   { id: 2, before: "/img/4-before.jpg", after: "/img/4-after.jpg" },
   { id: 3, before: "/img/4-before.jpg", after: "/img/4-after.jpg" },
   { id: 4, before: "/img/4-before.jpg", after: "/img/4-after.jpg" },
-]
+];
 
 function BeforeAfter({ before, after }) {
   const [pos, setPos] = useState(50);
-  const handleMove = e => {
+
+  const handleMove = (e) => {
     const b = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - b.left;
     setPos(Math.max(0, Math.min(100, (x / b.width) * 100)));
   };
+
   return (
     <div
       onMouseMove={handleMove}
@@ -40,17 +42,34 @@ function BeforeAfter({ before, after }) {
       </div>
 
       {/* Divider Line */}
+    
       <div
-        className="absolute inset-y-0 w-[2px] bg-white z-30"
+        className="absolute inset-y-0 w-[2px] bg-gray-500 z-30"
         style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
       />
 
-      {/* Draggable Handle */}
+
+      {/* Ferrari-style Draggable Handle */}
       <div
-        className="absolute top-1/2 w-10 h-10 bg-white/80 border border-gray-300 backdrop-blur-md rounded-full shadow-lg z-40 flex items-center justify-center transition duration-300 group-hover:scale-110"
+        className="absolute top-1/2 w-12 h-12 bg-white border-2 border-gray-400 rounded-full shadow-xl z-40 flex items-center justify-center cursor-ew-resize transition-transform duration-300 group-hover:scale-110"
         style={{ left: `${pos}%`, transform: "translate(-50%, -50%)" }}
       >
-        <div className="w-1 h-6 bg-gray-600 rounded" />
+        <div className="flex items-center space-x-1 text-gray-700">
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fillRule="evenodd"
+              d="M12.293 4.293a1 1 0 011.414 1.414L8.414 11l5.293 5.293a1 1 0 01-1.414 1.414l-6-6a1 1 0 010-1.414l6-6z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fillRule="evenodd"
+              d="M7.707 4.293a1 1 0 00-1.414 1.414L11.586 11l-5.293 5.293a1 1 0 001.414 1.414l6-6a1 1 0 000-1.414l-6-6z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
 
       {/* Labels */}
@@ -61,7 +80,6 @@ function BeforeAfter({ before, after }) {
         After
       </span>
     </div>
-
   );
 }
 
@@ -73,9 +91,10 @@ export default function PortfolioSection() {
           Transform Before and After
         </h2>
         <p className="text-gray-600 text-md sm:text-lg text-center max-w-2xl mx-auto">
-          See the precision, creativity, and craftsmanship that go into transforming your designs — from concept to final result. Every detail is intentional. Every outcome, impactful.
+          See the precision, creativity, and craftsmanship that go into
+          transforming your designs — from concept to final result. Every detail
+          is intentional. Every outcome, impactful.
         </p>
-
       </div>
 
       <motion.div
@@ -84,8 +103,12 @@ export default function PortfolioSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, staggerChildren: 0.1 }}
       >
-        {portfolioItems.map(item => (
-          <motion.div key={item.id} whileHover={{ scale: 1.02 }} className="rounded-lg overflow-hidden">
+        {portfolioItems.map((item) => (
+          <motion.div
+            key={item.id}
+            whileHover={{ scale: 1.02 }}
+            className="rounded-lg overflow-hidden"
+          >
             <BeforeAfter before={item.before} after={item.after} />
           </motion.div>
         ))}

@@ -5,12 +5,18 @@ import {
   Routes,
   Route,
   Link,
+  NavLink,
 } from "react-router-dom";
-import { FaChevronDown, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { Toaster } from "react-hot-toast";
 import { AnimatePresence } from "framer-motion";
-import { NavLink } from "react-router-dom";
-
 
 import ScrollToTop from "../src/page/ScrollToTop";
 import Home from "./page/home";
@@ -23,23 +29,17 @@ import SingleProductPage from "./page/Productpage";
 import Ditizing from "../src/page/EmbroideryDigitizing";
 import Vector from "../src/page/VectorArt";
 import RequestQuoteModal from "../src/page/RequestQuoteModal";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const navLinkClass = ({ isActive }) =>
-  isActive
-    ? "bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent font-bold"
-    : "text-gray-700 hover:bg-gradient-to-r hover:from-[#4B4FCA] hover:via-purple-800 hover:to-pink-600 hover:bg-clip-text hover:text-transparent font-bold transition";
 
+  const navLinkClass = ({ isActive }) =>
+    isActive
+      ? "bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent font-bold"
+      : "text-gray-700 hover:bg-gradient-to-r hover:from-[#4B4FCA] hover:via-purple-800 hover:to-pink-600 hover:bg-clip-text hover:text-transparent font-bold transition";
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -59,9 +59,7 @@ export default function App() {
               {/* Top Bar */}
               <div className="w-full bg-[#1e1f26] text-white text-sm md:text-base py-2">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
-                  {/* Left Side: Contact Info */}
                   <div className="flex flex-wrap md:flex-nowrap items-center gap-4">
-                    {/* Phone */}
                     <div className="flex items-center gap-2">
                       <div className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 p-2 rounded">
                         <FaPhoneAlt className="text-white w-4 h-4" />
@@ -70,8 +68,6 @@ export default function App() {
                         <span className="text-white font-semibold">+91 98765 43210</span>
                       </span>
                     </div>
-
-                    {/* Email */}
                     <div className="flex items-center gap-2">
                       <div className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 p-2 rounded">
                         <FaEnvelope className="text-white w-4 h-4" />
@@ -81,30 +77,23 @@ export default function App() {
                       </span>
                     </div>
                   </div>
-
-                  {/* Right Side: Social Icons (Only show on md and up) */}
                   <div className="hidden md:flex items-center gap-4">
                     <span className="text-gray-400">Follow Us:</span>
                     <div className="flex gap-3">
-                      {/* Facebook */}
                       <a href="#" className="p-2 rounded transition">
                         <FaFacebookF className="text-gray-300 hover:text-[#1877F2] transition-colors duration-200" />
                       </a>
-
-                      {/* Instagram */}
                       <a href="#" className="p-2 rounded transition">
                         <FaInstagram className="text-gray-300 hover:text-[#E4405F] transition-colors duration-200" />
                       </a>
-
-                      {/* LinkedIn */}
                       <a href="#" className="p-2 rounded transition">
                         <FaLinkedinIn className="text-gray-300 hover:text-[#0077B5] transition-colors duration-200" />
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
+
               {/* Main Nav */}
               <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5">
                 <Link
@@ -114,40 +103,23 @@ export default function App() {
                   StitchCraft
                 </Link>
 
-                {/* Desktop Menu */}
                 <ul className="hidden md:flex items-center space-x-6 font-bold">
-                  <li>
-                    <NavLink to="/" className={navLinkClass}>Home</NavLink>
-                  </li>
+                  <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
                   <li className="relative group inline-block">
                     <div className="flex items-center gap-1 cursor-pointer group-hover:text-[#4B4FCA]">
                       <span className="font-bold">Services</span>
                       <FaChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                     </div>
                     <ul className="absolute left-0 top-full mt-1 w-[250px] bg-white shadow-lg rounded-md z-50 hidden group-hover:block">
-                      <li>
-                        <NavLink to="/emd" className={({ isActive }) =>
-                          isActive
-                            ? "block px-4 py-2 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent font-bold"
-                            : "block px-4 py-2 hover:bg-gray-100"}>Embroidery Digitising</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/Vd" className={({ isActive }) =>
-                          isActive
-                            ? "block px-4 py-2 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent font-bold"
-                            : "block px-4 py-2 hover:bg-gray-100"}>Vector Artwork Conversion</NavLink>
-                      </li>
+                      <li><NavLink to="/emd" className={navLinkClass}>Embroidery Digitising</NavLink></li>
+                      <li><NavLink to="/Vd" className={navLinkClass}>Vector Artwork Conversion</NavLink></li>
                     </ul>
                   </li>
-                  <li>
-                    <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink>
-                  </li>
+                  <li><NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink></li>
+                  <li><NavLink to="/about" className={navLinkClass}>About Us</NavLink></li>
+                  <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
                 </ul>
 
-                {/* “Let’s Get Started” Button */}
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="hidden md:inline-block ml-4 px-6 py-2 font-bold rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
@@ -155,9 +127,8 @@ export default function App() {
                   Let’s Get Started!
                 </button>
 
-                {/* Mobile Toggle */}
                 <button
-                  onClick={() => setIsMobileMenuOpen(m => !m)}
+                  onClick={() => setIsMobileMenuOpen((m) => !m)}
                   className="block md:hidden px-4 py-2 font-bold text-white bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 rounded shadow hover:opacity-90 transition"
                 >
                   {isMobileMenuOpen ? "✕ Close" : "☰ Menu"}
@@ -172,7 +143,7 @@ export default function App() {
                     <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link></li>
                     <li>
                       <button
-                        onClick={() => setIsMobileServicesOpen(s => !s)}
+                        onClick={() => setIsMobileServicesOpen((s) => !s)}
                         className="flex items-center justify-between w-full py-2"
                       >
                         Services {isMobileServicesOpen ? "▲" : "▼"}
@@ -198,7 +169,6 @@ export default function App() {
               )}
             </header>
 
-
             {/* Routes */}
             <Routes>
               <Route path="/" element={<Home />} />
@@ -211,10 +181,66 @@ export default function App() {
               <Route path="/product/:productName" element={<SingleProductPage />} />
             </Routes>
 
-            {/* Footer + Modal */}
-            <footer className="bg-[#0e0e16] text-gray-300 mt-20 py-8">
-              {/* … your footer … */}
+            {/* Footer */}
+            <footer className="bg-[#0e0e16] text-gray-300 mt-20 pt-8 pb-2 relative z-10">
+              <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                  <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
+                  <p className="mt-4 text-gray-400 text-sm leading-relaxed">
+                    StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-8 text-sm">
+                  <div>
+                    <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul className="space-y-2">
+                      <li><a href="/" className="hover:text-pink-400">Home</a></li>
+                      <li><a href="#about" className="hover:text-pink-400">About Us</a></li>
+                      <li><a href="#contact" className="hover:text-pink-400">Contact Us</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-4">Services</h4>
+                    <ul className="space-y-2">
+                      <li><a href="#embroidery" className="hover:text-pink-400">Embroidery Digitizing</a></li>
+                      <li><a href="#vector" className="hover:text-pink-400">Vector Art</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-[#161620] rounded-xl p-6 shadow-md">
+                  <h4 className="text-white text-lg font-semibold mb-4">Get Connected</h4>
+                  <ul className="text-sm space-y-3 mb-6">
+                    <li className="flex items-center gap-3">
+                      <FaPhoneAlt className="text-yellow-500" />
+                      +91 98765 43210
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <FaEnvelope className="text-yellow-500" />
+                      support@stitchcraft.com
+                    </li>
+                  </ul>
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300"
+                  >
+                    Get Connected
+                  </button>
+                </div>
+              </div>
+              <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm flex flex-col md:flex-row justify-between items-center p-4">
+                <p className="text-gray-400 text-center md:text-right">
+                  © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
+                </p>
+                <div className="flex gap-4 items-center mb-4 md:mb-0">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 object-contain" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" className="h-8 object-contain" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal" className="h-8 object-contain" />
+                  {/* <img src="/img/rupay.png" alt="RuPay" className="h-8 object-contain" /> */}
+                </div>
+              </div>
             </footer>
+
+            {/* Modal */}
             <AnimatePresence>
               {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
             </AnimatePresence>
