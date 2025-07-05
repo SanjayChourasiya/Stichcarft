@@ -157,6 +157,9 @@ export default function App() {
                         </ul>
                       )}
                     </li>
+                    <li><Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</Link></li>
+
+
                     <li><Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link></li>
                     <li>
                       <button
