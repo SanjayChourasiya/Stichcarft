@@ -29,7 +29,7 @@ export default function HeroCarousel() {
     const startAutoScroll = () => {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % slides.length);
-      }, 11000);
+      }, 8000);
     };
     const stopAutoScroll = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
