@@ -48,11 +48,11 @@ function About() {
               <h2 className="text-4xl sm:text-5xl text-justify font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-6">
                 Who We Are
               </h2>
-              <p className="text-gray-700 mb-4 text-justify">
+              <p className="text-black    mb-4 text-justify">
                 StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
                 At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
               </p>
-              <p className="text-gray-600 mb-8 text-justify">
+              <p className="text-black    mb-8 text-justify">
                 We take pride in:
                 Fast turnaround times (within 24 hours),
                 Affordable pricing without compromising on quality,
@@ -68,25 +68,25 @@ function About() {
                   <h3 className="text-3xl font-bold text-purple-800">
                     {inView && <CountUp end={3} duration={2} suffix="M+" />}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">Products Digitized</p>
+                  <p className="text-sm text-black    mt-1">Products Digitized</p>
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-purple-800">
                     {inView && <CountUp end={1} duration={2} suffix="K+" />}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">Happy Clients</p>
+                  <p className="text-sm text-black    mt-1">Happy Clients</p>
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-purple-800">
                     {inView && <CountUp end={10} duration={2} suffix="+" />}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">Years of Experience</p>
+                  <p className="text-sm text-black    mt-1">Years of Experience</p>
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-purple-800">
                     {inView && <CountUp end={25} duration={2} />}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">Team Members</p>
+                  <p className="text-sm text-black    mt-1">Team Members</p>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ function About() {
             <h2 className="text-3xl  p-4 sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
               Why Choose Us
             </h2>
-            <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto">
+            <p className="text-black    text-base sm:text-lg max-w-3xl mx-auto">
               Trusted by print shops, designers, and apparel decorators globally —
               our commitment to quality and service sets us apart.
             </p>
@@ -155,7 +155,7 @@ function About() {
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.desc}</p>
+                <p className="text-sm text-black   ">{feature.desc}</p>
               </div>
             ))}
           </div>

@@ -101,7 +101,7 @@ const QuoteForm = () => {
       />
       <textarea
         name="embroidery_needs"
-        placeholder="Requirements: file format, design size, product/fabric details*"
+        placeholder="Requirements: File Format, Design Size, Product/Fabric Details*"
         rows="4"
         value={formData.embroidery_needs}
         onChange={handleChange}

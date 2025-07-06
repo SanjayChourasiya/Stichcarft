@@ -88,7 +88,7 @@ function ContactPage() {
           <h2 className="text-2xl font-bold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text text-transparent">
             Help & Support
           </h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-black text-sm">
             We’re here to assist you with any queries or artwork needs.
           </p>
 
@@ -117,7 +117,10 @@ function ContactPage() {
                 <p className="text-base font-semibold">Support Hours</p>
                 <p className="text-sm text-gray-600">Monday – Saturday</p>
                 <p className="text-sm text-gray-600 font-medium">
-                  10:00 AM – 7:00 PM (IST)
+                 5:30 AM – 2:30 PM (BST)
+                 {/* 4:30 AM – 1:30 PM (GMT) */}
+
+
                 </p>
               </div>
             </div>
@@ -167,7 +170,7 @@ function ContactPage() {
             />
             <textarea
               name="embroidery_needs"
-              placeholder="Requirements: file format, design size, fabric, etc. *"
+              placeholder="Requirements: File Format, Design Size, Fabric, etc. *"
               rows="4"
               required
               value={formData.embroidery_needs}
