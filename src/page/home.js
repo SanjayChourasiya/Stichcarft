@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
 import { Image, Rocket, Layers } from "lucide-react";
 import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
-
+  import {Link} from "react-router-dom";
 import TestimonialSection from "../page/TestimonialSection"
 
 import Herosection from "../page/herosection";
@@ -167,14 +167,18 @@ export default function Home() {
           </div>
 
           {/* CTA */}
+        
+
           <div className="mt-14 text-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full shadow hover:scale-105 transition duration-300"
-            >
-              Explore All Services
-            </button>
+            <Link to="/emd">
+              <button
+                className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full shadow hover:scale-105 transition duration-300"
+              >
+                Explore All Services
+              </button>
+            </Link>
           </div>
+
         </div>
       </motion.section>
 
