@@ -1,97 +1,21 @@
-// import React, { useState } from "react";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
+import React, { useState } from "react";
 
 const galleryImages = [
-  {
-    id: 1,
-    url: "/img/em1.jpg",
-    title: "Floral Embroidery Design",
-    category: "Embroidery",
-  },
-  {
-    id: 2,
-      url: "/img/g1.jpg",
-    title: "Modern Vector Art",
-    category: "Vector Art",
-  },
-  {
-    id: 3,
-    url: "/img/em3.jpg",
-
-    title: "Traditional Stitch Pattern",
-    category: "Embroidery",
-  },
-
-    {
-    id: 4,
-     url: "/img/g3.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-    {
-    id: 5,
-     url: "/img/g4.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-    {
-    id: 6,
-     url: "/img/g6.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-    {
-    id: 7,
-     url: "/img/g7.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-    {
-    id: 8,
-     url: "/img/g10.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-      {
-    id: 9,
-     url: "/img/8.jpg",
-
-    title: "Digital Vector Design",
-    category: "Vector Art",
-  },
-    
-    {
-    id: 11,
-    url: "/img/em4.jpg",
-    title: "Floral Embroidery Design",
-    category: "Embroidery",
-  },
-    {
-    id: 12,
-    url: "/img/em6.jpg",
-    title: "Floral Embroidery Design",
-    category: "Embroidery",
-  },
-    {
-    id: 13,
-    url: "/img/em7.jpg",
-    title: "Floral Embroidery Design",
-    category: "Embroidery",
-  },
-    {
-    id: 14,
-    url: "/img/em9.jpg",
-    title: "Floral Embroidery Design",
-    category: "Embroidery",
-  },
+  { id: 1, url: "/img/em1.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
+  { id: 2, url: "/img/g1.jpg", title: "Modern Vector Art", category: "Vector Art Conversion" },
+  { id: 3, url: "/img/em3.jpg", title: "Traditional Stitch Pattern", category: "Embroidery Digitizing" },
+  { id: 4, url: "/img/g3.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 5, url: "/img/g4.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 6, url: "/img/g6.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 7, url: "/img/g7.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 8, url: "/img/g10.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 9, url: "/img/8.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 11, url: "/img/em4.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
+  { id: 12, url: "/img/em6.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
+  { id: 13, url: "/img/em7.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
+  { id: 14, url: "/img/em9.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
 ];
+
 const GalleryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -114,7 +38,7 @@ const GalleryPage = () => {
       <div className="max-w-7xl mx-auto px-4 mt-8 pb-16">
         {/* Top Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {["All", "Embroidery Digitizing service", "Vector Art Conversion"].map((category) => (
+          {["All", "Embroidery Digitizing", "Vector Art Conversion"].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
