@@ -134,7 +134,7 @@ export default function HeroCarousel() {
       const steps = [
         { icon: "📤", title: "Step 1", desc: "Upload your logo or artwork (JPG, PNG, PDF, etc.)." },
         { icon: "📩", title: "Step 2", desc: "Get a quote and preview within 1–3 hours." },
-        { icon: "💳", title: "Step 3", desc: "Approve and pay via PayPal, Wise, or bank transfer." },
+        { icon: "💳", title: "Step 3", desc: "Approve and pay via PayPal,or bank transfer." },
         { icon: "📧", title: "Step 4", desc: "Receive final files via email within 12–24 hours." },
       ];
 

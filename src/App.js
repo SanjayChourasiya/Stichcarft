@@ -225,7 +225,7 @@ export default function App() {
               <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                   <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
-                  <p className="mt-4 text-gray-400 text-sm leading-relaxed">
+                  <p className="mt-4 text-white text-sm leading-relaxed">
                     StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe
                   </p>
                 </div>

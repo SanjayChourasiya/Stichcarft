@@ -100,7 +100,7 @@ export default function PortfolioSection() {
         <h2 className="text-4xl sm:text-5xl text-center font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4">
           Transform Before and After
         </h2>
-        <p className="text-gray-600 text-md sm:text-lg text-center max-w-2xl mx-auto">
+        <p className="text-black text-md sm:text-lg text-center max-w-2xl mx-auto">
           See the precision, creativity, and craftsmanship that go into
           transforming your designs — from concept to final result. Every detail
           is intentional. Every outcome, impactful.

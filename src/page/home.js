@@ -40,11 +40,11 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl font-extrabold text-justify bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4 sm:mb-6">
               Who We Are
             </h2>
-            <p className="text-gray-700 mb-4 text-sm sm:text-base text-justify">
+            <p className="text-black mb-4 text-sm sm:text-base text-justify">
               StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
               At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
             </p>
-            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base text-justify">
+            <p className="text-black mb-6 sm:mb-8 text-sm sm:text-base text-justify">
               We take pride in:
               Fast turnaround times (within 24 hours)
               Affordable pricing without compromising on quality
@@ -60,25 +60,25 @@ export default function Home() {
                 <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={3} duration={2} suffix="M+" />}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">Products Digitized</p>
+                <p className="text-xs sm:text-sm text-black   mt-1">Products Digitized</p>
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={1} duration={2} suffix="K+" />}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">Happy Clients</p>
+                <p className="text-xs sm:text-sm text-black   mt-1">Happy Clients</p>
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={10} duration={2} suffix="+" />}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">Years of Experience</p>
+                <p className="text-xs sm:text-sm text-black   mt-1">Years of Experience</p>
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={25} duration={2} />}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">Team Members</p>
+                <p className="text-xs sm:text-sm text-black   mt-1">Team Members</p>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
               What We Do
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-black   text-base sm:text-lg max-w-2xl mx-auto">
               We offer two specialized services crafted for modern apparel brands.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function Home() {
                   Embroidery Digitizing Services
                 </h3>
               </div>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+              <p className="text-blacktext-sm sm:text-base leading-relaxed text-justify">
                 We convert your artwork into machine-ready embroidery files with sharp detailing, accurate stitch paths, and minimal thread breaks. Our team is skilled in left chest logo digitizing, cap and hat digitizing, 3D puff digitizing, appliqué digitizing, and monogram and lettering digitizing. Each file is tested for production quality and optimized for smooth operation on major embroidery machines like Tajima, Barudan, Brother, and more.
               </p>
             </motion.div>
@@ -160,7 +160,7 @@ export default function Home() {
                 </h3>
               </div>
 
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+              <p className="text-black text-sm sm:text-base leading-relaxed text-justify">
                 We transform low-resolution images, hand-drawn logos, or blurry artwork into clean, scalable vector files ready for screen printing, DTF, sublimation, and vinyl cutting. Our services include raster to vector conversion, logo recreation, color separation for printing, and redrawing complex artwork. We support AI, EPS, PDF, SVG, and CDR formats.
               </p>
             </motion.div>
@@ -186,7 +186,7 @@ export default function Home() {
             <h2 className="text-3xl  p-4 sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
               Why Choose Us
             </h2>
-            <p className="text-gray-700 text-base sm:text-lg max-w-3xl mx-auto">
+            <p className="text-black text-base sm:text-lg max-w-3xl mx-auto">
               Trusted by print shops, designers, and apparel decorators globally —
               our commitment to quality and service sets us apart.
             </p>
@@ -224,7 +224,7 @@ export default function Home() {
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.desc}</p>
+                <p className="text-sm text-black  ">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -254,7 +254,7 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-black   text-lg max-w-2xl mx-auto">
               Everything you need to know about how Diziting Kart works.
             </p>
           </div>
@@ -283,7 +283,7 @@ export default function Home() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="px-5 pb-5 text-gray-700 text-sm sm:text-base bg-white"
+                        className="px-5 pb-5 text-black text-sm sm:text-base bg-white"
                       >
                         {faq.answer}
                       </motion.div>
@@ -313,26 +313,26 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow-sm mb-6">
             Connect With Us
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-12">
+          <p className="text-black   text-lg max-w-2xl mx-auto mb-12">
             Whether it's a custom request, a question about our services, or just a friendly hello — we're here and ready to help.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-gray-50 p-6 rounded-xl border hover:shadow-md transition">
-              <p className="text-sm font-semibold text-gray-500 mb-1">📧 Email Us</p>
+              <p className="text-sm font-semibold text-black   mb-1">📧 Email Us</p>
               <a href="mailto:support@stitchcraft.com" className="text-[#4B4FCA] font-medium hover:underline">
                 support@stitchcraft.com
               </a>
             </div>
             <div className="bg-gray-50 p-6 rounded-xl border hover:shadow-md transition">
-              <p className="text-sm font-semibold text-gray-500 mb-1">📞 Call Us</p>
+              <p className="text-sm font-semibold text-black   mb-1">📞 Call Us</p>
               <a href="tel:+919876543210" className="text-[#4B4FCA] font-medium hover:underline">
                 +91 98765 43210
               </a>
             </div>
             <div className="bg-gray-50 p-6 rounded-xl border hover:shadow-md transition">
-              <p className="text-sm font-semibold text-gray-500 mb-1">💬 Support Hours</p>
-              <p className="text-gray-700 font-medium">Mon–Sat, 9AM–8PM IST</p>
+              <p className="text-sm font-semibold text-black   mb-1">💬 Support Hours</p>
+              <p className="text-black font-medium">Mon–Sat, 9AM–8PM IST</p>
             </div>
           </div>
 
@@ -347,6 +347,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
+
+
+
 
       <AnimatePresence>
         {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
