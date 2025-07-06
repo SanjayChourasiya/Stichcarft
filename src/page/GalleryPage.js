@@ -107,14 +107,14 @@ const GalleryPage = () => {
       <header className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-20 px-4 text-center shadow">
         <h1 className="text-5xl font-bold text-white mb-4">Our Premium Designs</h1>
         <p className="text-lg text-white max-w-xl mx-auto">
-          Browse embroidery and vector art — crafted with passion and precision.
+          Browse embroidery and vector art conversion — crafted with passion and precision.
         </p>
       </header>
 
       <div className="max-w-7xl mx-auto px-4 mt-8 pb-16">
         {/* Top Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {["All", "Embroidery", "Vector Art"].map((category) => (
+          {["All", "Embroidery Digitizing service", "Vector Art Conversion"].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}

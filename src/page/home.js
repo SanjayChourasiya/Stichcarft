@@ -13,28 +13,7 @@ import Herosection from "../page/herosection";
 import Howemake from "../page/HowWeMakeSection";
 import PartnerSlider from "../page/PartnerSlider";
 import RequestQuoteModal from "../page/RequestQuoteModal";
-const faqs = [
-  {
-    question: "What is the mission of Diziting Kart?",
-    answer:
-      "Diziting Kart aims to bridge the gap between local sellers and customers by offering a hyper-local online marketplace for everyday essentials.",
-  },
-  {
-    question: "How does Diziting Kart support local businesses?",
-    answer:
-      "We provide an easy-to-use platform for local vendors to showcase and sell their products, reaching a wider audience and boosting their sales.",
-  },
-  {
-    question: "How can customers benefit from using Diziting Kart?",
-    answer:
-      "Customers can shop conveniently for a wide variety of products from trusted local vendors, supporting their community and enjoying quick delivery.",
-  },
-  {
-    question: "Is there a fee for sellers to join Diziting Kart?",
-    answer:
-      "Diziting Kart offers flexible plans for sellers, including a free option to start selling and premium plans with added promotional features.",
-  },
-];
+
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);

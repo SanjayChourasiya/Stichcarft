@@ -1,8 +1,58 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaPaintBrush, FaVectorSquare, FaRocket } from "react-icons/fa";
+import { useState } from "react";
+import {  AnimatePresence } from "framer-motion";
+import {
+  FaCheckCircle,
+  FaClock,
+  FaCogs,
+  FaTshirt,
+  FaHatCowboy,
+  FaShieldAlt,
+  FaFileAlt,
+  FaFileImage,
+  FaFileCode,
+  FaFileArchive,
+} from "react-icons/fa";
+
+const faqs = [
+  {
+    question: "What image formats do you accept for conversion?",
+    answer:
+      "We accept .jpg, .gif, .bmp, .tif, .ai, .eps. It's best to email .jpeg or .gif due to smaller file size.",
+  },
+  {
+    question: "What embroidery file types do you deliver?",
+    answer:
+      "We email PDF and DST (or any requested format) files after your approval and payment.",
+  },
+  {
+    question: "Are edits or revisions included?",
+    answer: "Yes. All basic edits and corrections are free.",
+  },
+  {
+    question: "What payment methods do you support?",
+    answer: "We support PayPal and bank transfers.",
+  },
+  {
+    question: "Can I contact you during my business hours?",
+    answer: "Yes! Our team is available Monday to Saturday.",
+  },
+  {
+    question: "What is your turnaround time?",
+    answer:
+      "Typically within 24 hours depending on complexity. We prioritize urgent jobs.",
+  },
+];
 
 function VectorArt() {
+    const [openIndexes, setOpenIndexes] = useState({});
+  
+    const toggleFAQ = (index) => {
+      setOpenIndexes((prev) => ({ ...prev, [index]: !prev[index] }));
+    };
+  
   return (
     <div className="bg-white text-gray-900">
       {/* Hero Section */}
@@ -113,6 +163,63 @@ function VectorArt() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+            <section className="bg-gradient-to-br from-white to-gray-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="w-14 h-1 bg-purple-600 rounded-full mb-4 mx-auto" />
+            <p className="mb-2">About Our Services</p>
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Everything you need to know about Stitchkraft.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full flex justify-between items-center p-5 text-left text-gray-900 bg-gray-50 hover:bg-gray-100 transition"
+                  >
+                    <span>{faq.question}</span>
+                    <span className="text-2xl font-bold text-purple-600">
+                      {openIndexes[index] ? "−" : "+"}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openIndexes[index] && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="px-5 pb-5 text-gray-700 text-sm"
+                      >
+                        {faq.answer}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="/img/faq.png"
+                alt="FAQ Illustration"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 bg-white/90 text-purple-800 px-4 py-1 rounded-full font-semibold text-sm shadow">
+                Clarity in Every Answer
+              </div>
+            </div>
           </div>
         </div>
       </section>

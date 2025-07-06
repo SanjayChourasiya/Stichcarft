@@ -191,7 +191,7 @@ export default function HeroCarousel() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
             <div className="space-y-5 sm:space-y-6">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-snug sm:leading-tight">
-                Custom Embroidery & Vector Art
+                Vector Art Conversion
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white/90">
                 We transform your rough ideas into machine-ready vector art and detailed embroidery files.
