@@ -177,7 +177,7 @@ function EmbroideryDigitizing() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white px-4">
+      {/* <section className="py-20 bg-white px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Our Digitizing Process</h2>
           <ol className="relative border-l border-[#4B4FCA] pl-6">
@@ -192,7 +192,7 @@ function EmbroideryDigitizing() {
             ))}
           </ol>
         </div>
-      </section>
+      </section> */}
 
       {/* File Types */}
       <section className="py-20 bg-white px-4">
