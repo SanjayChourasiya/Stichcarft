@@ -59,7 +59,7 @@ function VectorArt() {
       <section className="relative bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600 text-white py-28 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center z-10 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
-            Stunning Vector Art Services
+            Stunning Vector Art Conversion
           </h1>
           <p className="text-lg sm:text-xl max-w-2xl mx-auto">
             Get ultra-crisp, scalable, and print-ready artwork for logos, t-shirts,illustrations, and more.
@@ -77,10 +77,10 @@ function VectorArt() {
             transition={{ duration: 0.5 }}
             className="text-3xl sm:text-4xl font-bold mb-6"
           >
-            What is Vector Art?
+            What is Vector  Art Conversion?
           </motion.h2>
           <p className="text-lg text-gray-600">
-            Vector art is a digital design technique that uses lines and curves to create artwork that scales perfectly without losing clarity. Ideal for printing, engraving, embroidery, or digital design — it turns any image or sketch into high-quality art.
+            Vector Art Conversion is a digital design technique that uses lines and curves to create artwork that scales perfectly without losing clarity. Ideal for printing, engraving, embroidery, or digital design — it turns any image or sketch into high-quality art.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ function VectorArt() {
       <section className="py-20 px-4 sm:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Why Choose Our Vector Art?
+            Why Choose Our Vector Art Conversion?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
@@ -130,7 +130,7 @@ function VectorArt() {
       <section className="py-20 px-4 sm:px-8 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800">
-            Our Vector Art Transformations
+            Our Vector Art  Art Conversion Transformations
           </h2>
           <p className="text-lg text-gray-600 mb-12">
             See how we bring flat, pixelated images to life with bold, clean vector lines.
