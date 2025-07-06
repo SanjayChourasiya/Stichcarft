@@ -130,7 +130,7 @@ function VectorArt() {
       <section className="py-20 px-4 sm:px-8 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800">
-            Our Vector Art  Art Conversion Transformations
+            Our Vector Art Conversion Transformations
           </h2>
           <p className="text-lg text-gray-600 mb-12">
             See how we bring flat, pixelated images to life with bold, clean vector lines.
