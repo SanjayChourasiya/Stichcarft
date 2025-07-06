@@ -80,7 +80,7 @@ const TestimonialSlider = () => {
               key={index}
               className="flex-none w-80 p-6 bg-white rounded-3xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 text-center"
             >
-              <h4 className="text-xl font-semibold text-gray-800 mb-2">
+              <h4 className="text-xl text-black font-bold  mb-2">
                 {item.name}
               </h4>
               <div className="flex justify-center text-yellow-400 mb-3">
@@ -88,7 +88,7 @@ const TestimonialSlider = () => {
                   <Star key={i} size={18} fill="currentColor" />
                 ))}
               </div>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-base text-balck leading-relaxed">
                 “{item.feedback}”
               </p>
             </div>
