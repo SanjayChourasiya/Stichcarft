@@ -10,7 +10,6 @@ export default function HeroCarousel() {
   const intervalRef = useRef(null);
   const [sliderPos, setSliderPos] = useState(50);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const slides = ["quote", "journey", "vectorArt"];
 
@@ -40,13 +39,6 @@ export default function HeroCarousel() {
     if (!isPaused) startAutoScroll();
     return () => stopAutoScroll();
   }, [isPaused]);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   const handleMouseMove = (e) => {
     if (!sliderRef.current) return;
@@ -112,24 +104,20 @@ export default function HeroCarousel() {
               >
                 <span className="relative z-10">Get a Free Quote</span>
               </motion.button>
-
-
             </div>
             <div className="relative flex justify-center md:justify-end h-auto sm:h-[100vh] bg-[#150818] sm:bg-transparent">
-              {/* Gradient background visible only on sm (640px) and up */}
               <div className="absolute inset-0 sm:bg-gradient-to-br sm:from-[#4B4FCA]/30 sm:via-purple-800/20 sm:to-pink-600/30 z-0 rounded-lg" />
-
               <img
                 src="/img/co4.png"
                 alt="Parrot"
                 className="h-[300px] sm:h-full w-auto object-contain relative z-10"
               />
             </div>
-
           </div>
         </motion.section>
       );
     }
+
     if (type === "journey") {
       const steps = [
         { icon: "📤", title: "Step 1", desc: "Upload your logo or artwork (JPG, PNG, PDF, etc.)." },
@@ -138,14 +126,11 @@ export default function HeroCarousel() {
         { icon: "📧", title: "Step 4", desc: "Receive final files via email within 12–24 hours." },
       ];
 
-      let visibleSteps = steps;
-      if (isMobile) {
-        visibleSteps = currentIndex % 2 === 0 ? steps.slice(0, 4) : steps.slice(0, 2);
-      }
+      const visibleSteps = steps;
 
       return (
         <motion.section
-          className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white h-auto sm:min-h-[80vh] flex items-center px-4 sm:px-12 py-12 sm:py-24 overflow-hidden"
+          className="relative bg-gradient-to-r from-blue-950 via-indigo-800 to-purple-800 text-white h-fit sm:min-h-[60vh] flex items-center px-4 sm:px-12 py-10 sm:py-16 overflow-hidden"
           {...animationProps}
         >
           <div className="relative z-10 max-w-7xl mx-auto w-full text-center space-y-6 sm:space-y-10">
@@ -179,6 +164,7 @@ export default function HeroCarousel() {
             </a>
           </div>
         </motion.section>
+
       );
     }
 
