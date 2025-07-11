@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
-import RequestQuoteModal from  "../page/RequestQuoteModal";
+import RequestQuoteModal from "../page/RequestQuoteModal";
 
 import {
   FaCheckCircle,
@@ -107,8 +107,8 @@ const services = [
 
 function VectorArtwork() {
   const [openIndexes, setOpenIndexes] = useState({});
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const toggleFAQ = (index) => {
     setOpenIndexes((prev) => ({ ...prev, [index]: !prev[index] }));
   };
@@ -132,7 +132,7 @@ function VectorArtwork() {
           </p>
 
           <button
-           onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsModalOpen(true)}
 
             className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg"
           >
@@ -145,53 +145,54 @@ function VectorArtwork() {
 
 
       {/* About Vector Artwork Services */}
-     
-<section className="bg-gradient-to-r from-white to-gray-50 py-16 px-4 sm:px-6 md:px-10">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-    
-    {/* Text Section */}
-    <div>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text">
-        Vector Artwork Services
-      </h2>
-      <p className="text-base sm:text-lg mb-4 text-gray-800">
-        At <span className="font-bold text-blue-800">Stitchkraft</span>, we offer premium vector artwork conversion services to help you transform low-resolution images, sketches, and logos into sharp, scalable vector files.
-      </p>
-      <p className="text-base sm:text-lg mb-4 text-gray-800">
-        Our skilled designers manually recreate your artwork using industry-standard tools, ensuring every line, curve, and color is crisp, clean, and ready for print, screen, or stitch.
-      </p>
-      <p className="text-base sm:text-lg mb-6 text-gray-800">
-        We deliver high-quality AI, EPS, SVG, PDF, or CDR formats customized to your needs.
-      </p>
 
-      <ul className="space-y-3 mb-6 text-gray-800 font-semibold">
-        <li>✅ 12–24 Hour Delivery Time</li>
-        <li>✅ Clean Stitch Path & Detailing</li>
-        <li>✅ Affordable & Reliable</li>
-        <li>✅ Supports All Embroidery Machines</li>
-      </ul>
+      <section className="bg-gradient-to-r from-white to-gray-50 py-16 px-4 sm:px-6 md:px-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
-      <button 
-      onClick={() => setIsModalOpen(true)}
+          {/* Text Section */}
+          <div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text">
+              Vector Artwork Services
+            </h2>
+            <p className="text-base sm:text-lg mb-4 text-gray-800">
+              At <span className="font-bold text-blue-800">Stitchkraft</span>, we offer premium vector artwork conversion services to help you transform low-resolution images, sketches, and logos into sharp, scalable vector files.
+            </p>
+            <p className="text-base sm:text-lg mb-4 text-gray-800">
+              Our skilled designers manually recreate your artwork using industry-standard tools, ensuring every line, curve, and color is crisp, clean, and ready for print, screen, or stitch.
+            </p>
+            <p className="text-base sm:text-lg mb-6 text-gray-800">
+              We deliver high-quality AI, EPS, SVG, PDF, or CDR formats customized to your needs.
+            </p>
 
-      className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
-        Upload Your Design
-      </button>
-    </div>
+            <ul className="space-y-3 mb-6 text-gray-800 font-semibold">
+              ✅ Hand-Drawn Precision
+              ✅ Print-Ready & Scalable Files
+              ✅ Fast Turnaround
+              ✅ Affordable Pricing
 
-    {/* Image Section */}
-    <div className="w-full flex justify-center">
-      <div className="w-full sm:w-[80%] md:w-[90%] lg:w-[400px] rounded-2xl overflow-hidden shadow-xl border border-white bg-gradient-to-br from-[#D1D9F2] via-[#e6d4f7] to-[#fcd6e6] p-2">
-        <img
-          src="/img/vectora.png"
-          alt="Vector Artwork Example"
-          className="w-full h-full object-contain rounded-xl"
-        />
-      </div>
-    </div>
+            </ul>
 
-  </div>
-</section>
+            <button
+              onClick={() => setIsModalOpen(true)}
+
+              className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+              Upload Your Design
+            </button>
+          </div>
+
+          {/* Image Section */}
+          <div className="w-full flex justify-center">
+            <div className="w-full sm:w-[80%] md:w-[90%] lg:w-[400px] rounded-2xl overflow-hidden shadow-xl border border-white bg-gradient-to-br from-[#D1D9F2] via-[#e6d4f7] to-[#fcd6e6] p-2">
+              <img
+                src="/img/vectora.png"
+                alt="Vector Artwork Example"
+                className="w-full h-full object-contain rounded-xl"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
 
 
 
@@ -241,14 +242,14 @@ function VectorArtwork() {
           </p>
 
           <div className="mt-6 text-center">
-          
-              <button
-      onClick={() => setIsModalOpen(true)}
 
-               className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
-                Upload Your Design Now
-              </button>
-            
+            <button
+              onClick={() => setIsModalOpen(true)}
+
+              className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+              Upload Your Design Now
+            </button>
+
           </div>
         </div>
       </motion.section>
@@ -322,15 +323,15 @@ function VectorArtwork() {
             Send us your artwork and receive sharp, clean vector files perfect for printing, cutting, and digital media.
           </p>
           <button
-      onClick={() => setIsModalOpen(true)}
-            
+            onClick={() => setIsModalOpen(true)}
+
             className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
           >
             Request a Quote
           </button>
         </div>
       </section>
-        <AnimatePresence>
+      <AnimatePresence>
         {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
       </AnimatePresence>
 
