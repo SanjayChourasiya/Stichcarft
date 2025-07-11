@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Toaster, toast } from "react-hot-toast";
+
 import {
   FaCheckCircle,
   FaClock,
@@ -13,6 +15,8 @@ import {
   FaFileArchive,
 } from "react-icons/fa";
 import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
+import RequestQuoteModal from  "../page/RequestQuoteModal";
+
 import { Link } from "react-router-dom";
 
 import Step from "../page/HowItWorks"
@@ -181,6 +185,8 @@ const samples = [
 function EmbroideryDigitizing() {
   const [openIndexes, setOpenIndexes] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
 
 
   const toggleFAQ = (index) => {
@@ -215,7 +221,7 @@ function EmbroideryDigitizing() {
       Convert your designs into flawless stitch files with precision.
     </p>
     <a
-      href="#"
+      onClick={() => setIsModalOpen(true)}
       className="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
     >
       Get a Free Quote
@@ -255,7 +261,10 @@ function EmbroideryDigitizing() {
               ))}
             </ul>
 
-            <button className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
+            <button
+              onClick={() => setIsModalOpen(true)}
+
+             className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
               Upload Your Design
             </button>
           </div>
@@ -384,11 +393,14 @@ function EmbroideryDigitizing() {
 
         {/* CTA Button */}
         <div className="mt-6 text-center">
-          <a href="/emd">
-            <button className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+          
+            <button
+              onClick={() => setIsModalOpen(true)}
+
+             className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
               Upload Your Design Now
             </button>
-          </a>
+          
         </div>
       </div>
     </motion.section>
@@ -465,14 +477,21 @@ function EmbroideryDigitizing() {
     <p className="text-lg mb-8">
       Send us your design and receive a high-quality embroidery file with a fast turnaround.
     </p>
-    <a
-      href="#"
+   < button
+    onClick={() => setIsModalOpen(true)}
+      
       className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
     >
       Request a Quote
-    </a>
+      </button>
+    
   </div>
 </section>
+  <AnimatePresence>
+        {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+      </AnimatePresence>
+
+      <Toaster />
 
     </div>
   );
