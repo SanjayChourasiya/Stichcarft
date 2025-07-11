@@ -134,7 +134,7 @@ export default function Home() {
                 <div className="min-w-[48px] min-h-[48px] bg-gradient-to-br from-[#4B4FCA] to-pink-600 rounded-full flex items-center justify-center">
                   <ScissorsSquare className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug ">
                   Embroidery Digitizing Services
                 </h3>
               </div>

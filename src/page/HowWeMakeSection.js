@@ -32,7 +32,7 @@ function BeforeAfter({ before, after }) {
       onMouseMove={handleMouseMove}
       onTouchStart={handleTouchMove}
       onTouchMove={handleTouchMove}
-      className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-white group transition-all duration-300 select-none"
+      className="relative w-full h-72 sm:h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200 group select-none"
     >
       {/* After Image (Background) */}
       <img
@@ -55,38 +55,34 @@ function BeforeAfter({ before, after }) {
 
       {/* Divider Line */}
       <div
-        className="absolute inset-y-0 w-[2px] bg-gray-500 z-30"
+        className="absolute inset-y-0 w-[3px] bg-white shadow-md z-30"
         style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
       />
 
       {/* Draggable Handle */}
       <div
-        className="absolute top-1/2 w-12 h-12 bg-white border-2 border-gray-400 rounded-full shadow-xl z-40 flex items-center justify-center cursor-ew-resize transition-transform duration-300 group-hover:scale-110"
+        className="absolute top-1/2 w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-500 border-2 border-white rounded-full shadow-2xl z-40 flex items-center justify-center cursor-ew-resize transition-transform duration-300 group-hover:scale-110"
         style={{ left: `${pos}%`, transform: "translate(-50%, -50%)" }}
       >
-        <div className="flex items-center space-x-1 text-gray-700">
-          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M12.293 4.293a1 1 0 011.414 1.414L8.414 11l5.293 5.293a1 1 0 01-1.414 1.414l-6-6a1 1 0 010-1.414l6-6z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M7.707 4.293a1 1 0 00-1.414 1.414L11.586 11l-5.293 5.293a1 1 0 001.414 1.414l6-6a1 1 0 000-1.414l-6-6z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
+        {/* Icon */}
+        <svg
+          className="w-5 h-5 text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            fillRule="evenodd"
+            d="M12.293 4.293a1 1 0 011.414 1.414L8.414 11l5.293 5.293a1 1 0 01-1.414 1.414l-6-6a1 1 0 010-1.414l6-6z"
+            clipRule="evenodd"
+          />
+        </svg>
       </div>
 
       {/* Labels */}
-      <span className="absolute bottom-3 left-4 text-[11px] font-semibold text-gray-600 tracking-wider uppercase bg-white/70 px-2 py-0.5 rounded">
+      <span className="absolute bottom-3 left-4 text-xs font-bold text-white bg-black/50 px-2 py-0.5 rounded">
         Before
       </span>
-      <span className="absolute bottom-3 right-4 text-[11px] font-semibold text-gray-600 tracking-wider uppercase bg-white/70 px-2 py-0.5 rounded">
+      <span className="absolute bottom-3 right-4 text-xs font-bold text-white bg-black/50 px-2 py-0.5 rounded">
         After
       </span>
     </div>
@@ -95,12 +91,12 @@ function BeforeAfter({ before, after }) {
 
 export default function PortfolioSection() {
   return (
-    <section className="py-10 bg-white px-6 sm:px-10">
+    <section className="py-12 bg-gradient-to-b from-white to-gray-50 px-6 sm:px-10">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl text-center font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4">
+        <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4">
           Transform Before and After
         </h2>
-        <p className="text-black text-md sm:text-lg text-center max-w-2xl mx-auto">
+        <p className="text-gray-700 text-md sm:text-lg max-w-2xl mx-auto">
           See the precision, creativity, and craftsmanship that go into
           transforming your designs — from concept to final result. Every detail
           is intentional. Every outcome, impactful.
@@ -108,7 +104,7 @@ export default function PortfolioSection() {
       </div>
 
       <motion.div
-        className="grid gap-8 grid-cols-1 py-10 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid gap-8 grid-cols-1 py-12 sm:grid-cols-2 lg:grid-cols-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, staggerChildren: 0.1 }}
@@ -116,8 +112,8 @@ export default function PortfolioSection() {
         {portfolioItems.map((item) => (
           <motion.div
             key={item.id}
-            whileHover={{ scale: 1.02 }}
-            className="rounded-lg overflow-hidden"
+            whileHover={{ scale: 1.03 }}
+            className="rounded-lg overflow-hidden shadow-lg"
           >
             <BeforeAfter before={item.before} after={item.after} />
           </motion.div>
