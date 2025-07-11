@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CloudUpload, ChevronDown, Mail } from "lucide-react";
+import RequestQuoteModal from  "../page/RequestQuoteModal";
+import { Toaster, toast } from "react-hot-toast";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+
 
 const steps = [
     {
@@ -71,6 +77,8 @@ const HowItWorks = () => {
         return () => window.removeEventListener("resize", updateGrayLine);
     }, []);
 
+      const [isModalOpen, setIsModalOpen] = useState(false);
+    
     return (
         <section
             ref={sectionRef}
@@ -85,7 +93,10 @@ const HowItWorks = () => {
                 <p className="text-black text-xl">
                     Just follow three easy steps for a seamless experience. We ensure fast and accurate delivery of your embroidery files.
                 </p>
-                <button className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full shadow hover:scale-105 transition duration-300">
+                <button
+                   onClick={() => setIsModalOpen(true)}
+
+                 className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full shadow hover:scale-105 transition duration-300">
                     Get a Free Quote
                 </button>
             </div>
@@ -141,6 +152,11 @@ const HowItWorks = () => {
                     );
                 })}
             </div>
+              <AnimatePresence>
+        {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+      </AnimatePresence>
+
+      <Toaster />
         </section>
     );
 };
