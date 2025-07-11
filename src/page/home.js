@@ -40,11 +40,11 @@ export default function Home() {
             <h2 className="text-3xl sm:text-5xl font-extrabold text-justify bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4 sm:mb-6">
               Who We Are
             </h2>
-            <p className="text-black mb-4 text-sm sm:text-base text-justify">
+            <p className="text-black mb-4 text-lg text-justify">
               StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
               At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
             </p>
-            <p className="text-black mb-6 sm:mb-8 text-sm sm:text-base text-justify">
+             <p className="text-black mb-4 text-lg text-justify">
               We take pride in:
               Fast turnaround times (within 24 hours)
               Affordable pricing without compromising on quality
@@ -134,11 +134,11 @@ export default function Home() {
                 <div className="min-w-[48px] min-h-[48px] bg-gradient-to-br from-[#4B4FCA] to-pink-600 rounded-full flex items-center justify-center">
                   <ScissorsSquare className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug ">
+                <h3 className="text-lg sm:text-2xl font-bold text-gray-900 leading-snug ">
                   Embroidery Digitizing Services
                 </h3>
               </div>
-              <p className="text-blacktext-sm sm:text-base leading-relaxed text-justify">
+              <p className="text-black text-lg leading-relaxed text-justify">
                 We convert your artwork into machine-ready embroidery files with sharp detailing, accurate stitch paths, and minimal thread breaks. Our team is skilled in left chest logo digitizing, cap and hat digitizing, 3D puff digitizing, appliqué digitizing, and monogram and lettering digitizing. Each file is tested for production quality and optimized for smooth operation on major embroidery machines like Tajima, Barudan, Brother, and more.
               </p>
             </motion.div>
@@ -155,12 +155,13 @@ export default function Home() {
                 <div className="min-w-[48px] min-h-[48px] bg-gradient-to-br from-[#4B4FCA] to-pink-600 rounded-full flex items-center justify-center">
                   <Image className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug mt-2">
+                <h3 className="text-lg sm:text-2xl font-bold text-gray-900 leading-snug mt-2">
                   Vector Artwork Conversion
                 </h3>
               </div>
 
-              <p className="text-black text-sm sm:text-base leading-relaxed text-justify">
+              <p className="text-black text-lg leading-relaxed text-justify">
+
                 We transform low-resolution images, hand-drawn logos, or blurry artwork into clean, scalable vector files ready for screen printing, DTF, sublimation, and vinyl cutting. Our services include raster to vector conversion, logo recreation, color separation for printing, and redrawing complex artwork. We support AI, EPS, PDF, SVG, and CDR formats.
               </p>
             </motion.div>
@@ -227,8 +228,8 @@ export default function Home() {
                 <div className="flex justify-center items-center bg-purple-100 rounded-full w-14 h-14 mx-auto mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-black  ">{feature.desc}</p>
+                <h3 className="text-xl font-bold  text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-[16px] text-black  ">{feature.desc}</p>
               </div>
             ))}
           </div>

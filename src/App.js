@@ -198,7 +198,7 @@ export default function App() {
                         onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }}
                         className="w-full py-2 mt-2 font-bold rounded bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600"
                       >
-                        Get Started Free
+                       Upload Your Artwork
                       </button>
                     </li>
                   </ul>

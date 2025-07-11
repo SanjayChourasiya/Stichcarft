@@ -273,7 +273,7 @@ function EmbroideryDigitizing() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
+       <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -318,8 +318,8 @@ function EmbroideryDigitizing() {
                 <div className="flex justify-center items-center bg-purple-100 rounded-full w-14 h-14 mx-auto mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-black  ">{feature.desc}</p>
+                <h3 className="text-xl font-bold  text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-[16px] text-black  ">{feature.desc}</p>
               </div>
             ))}
           </div>
