@@ -38,7 +38,8 @@ export default function HeroCarousel() {
 
     if (!isPaused) startAutoScroll();
     return () => stopAutoScroll();
-  }, [isPaused]);
+  }, [isPaused, slides.length]);
+
 
   const handleMouseMove = (e) => {
     if (!sliderRef.current) return;
@@ -156,12 +157,13 @@ export default function HeroCarousel() {
               ))}
             </div>
 
-            <a
+            <button
               onClick={() => setIsModalOpen(true)}
               className="inline-block mt-6 sm:mt-8 px-6 sm:px-8 py-3 bg-white text-blue-900 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition cursor-pointer"
             >
               Start Building Yours
-            </a>
+            </button>
+
           </div>
         </motion.section>
 
