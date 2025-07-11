@@ -1,8 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaPaintBrush, FaVectorSquare, FaRocket } from "react-icons/fa";
-import { useState } from "react";
-import {  AnimatePresence } from "framer-motion";
+// Updated Embroidery + Vector Art Services Page
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaCheckCircle,
   FaClock,
@@ -14,184 +12,267 @@ import {
   FaFileImage,
   FaFileCode,
   FaFileArchive,
+  FaRegObjectGroup,
+  FaRegGem,
+  FaLayerGroup,
+  FaRegLaughWink,
+  FaRulerCombined,
+  FaAlignCenter,
+  FaIdBadge,
+  FaFont,
 } from "react-icons/fa";
+import { Sparkles, ScissorsSquare, Headphones, BadgeDollarSign, Clock, CheckCircle, Layers } from "lucide-react";
+import { Link } from "react-router-dom";
+import Step from "../page/HowItWorks";
 
 const faqs = [
   {
-    question: "What image formats do you accept for conversion?",
+    question: "What file formats do you deliver?",
     answer:
-      "We accept .jpg, .gif, .bmp, .tif, .ai, .eps. It's best to email .jpeg or .gif due to smaller file size.",
+      "We provide final files in AI, EPS, SVG, PDF, CDR formats based on your requirements.",
   },
   {
-    question: "What embroidery file types do you deliver?",
+    question: "Can you convert blurry logos or scanned artwork?",
     answer:
-      "We email PDF and DST (or any requested format) files after your approval and payment.",
+      "Yes. We manually redraw low-quality or scanned images into crisp, clean vector files.",
   },
   {
-    question: "Are edits or revisions included?",
-    answer: "Yes. All basic edits and corrections are free.",
-  },
-  {
-    question: "What payment methods do you support?",
-    answer: "We support PayPal and bank transfers.",
-  },
-  {
-    question: "Can I contact you during my business hours?",
-    answer: "Yes! Our team is available Monday to Saturday.",
-  },
-  {
-    question: "What is your turnaround time?",
+    question: "What printing methods are supported?",
     answer:
-      "Typically within 24 hours depending on complexity. We prioritize urgent jobs.",
+      "We create vector art suitable for screen printing, DTG, DTF, engraving, sublimation, and more.",
+  },
+  {
+    question: "Do you support color separation?",
+    answer:
+      "Yes, we provide spot color and process color separations for screen printing.",
+  },
+  {
+    question: "What's your delivery timeline?",
+    answer:
+      "Standard turnaround is 12–24 hours. Urgent requests are prioritized.",
+  },
+  {
+    question: "Are edits free?",
+    answer: "Yes. We offer unlimited revisions until you're satisfied.",
   },
 ];
 
-function VectorArt() {
-    const [openIndexes, setOpenIndexes] = useState({});
-  
-    const toggleFAQ = (index) => {
-      setOpenIndexes((prev) => ({ ...prev, [index]: !prev[index] }));
-    };
-  
+const services = [
+  {
+    icon: <FaFileAlt className="text-white w-6 h-6" />,
+    title: "Raster to Vector Conversion",
+    description:
+      "We convert low-resolution images (JPEG, PNG, BMP, etc.) into clean, scalable vector formats like AI, EPS, SVG, PDF, or CDR.",
+  },
+  {
+    icon: <FaRegObjectGroup className="text-white w-6 h-6" />,
+    title: "Logo Vectorization",
+    description:
+      "Recreate logos with precise shapes, fonts, and colors—perfect for professional branding and printing.",
+  },
+  {
+    icon: <FaRulerCombined className="text-white w-6 h-6" />,
+    title: "Line Art Conversion",
+    description:
+      "Convert sketches, drawings, or complex graphics into sharp line art suitable for engraving and laser cutting.",
+  },
+  {
+    icon: <FaAlignCenter className="text-white w-6 h-6" />,
+    title: "Color Separation",
+    description:
+      "Spot color and process color separations prepared for vibrant screen printing results.",
+  },
+  {
+    icon: <FaRegGem className="text-white w-6 h-6" />,
+    title: "Redrawing & Cleanup",
+    description:
+      "Fix blurry or low-quality images by manually redrawing them in clean, scalable vector formats.",
+  },
+  {
+    icon: <FaTshirt className="text-white w-6 h-6" />,
+    title: "Vector for DTF/DTG Printing",
+    description:
+      "Custom files optimized for Direct-to-Film and Direct-to-Garment printing with high color accuracy.",
+  },
+  {
+    icon: <FaIdBadge className="text-white w-6 h-6" />,
+    title: "Product Mockup Vectoring",
+    description:
+      "Turn your artwork into clean mockups for apparel, signage, and packaging products.",
+  },
+];
+
+function VectorArtwork() {
+  const [openIndexes, setOpenIndexes] = useState({});
+  const toggleFAQ = (index) => {
+    setOpenIndexes((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
   return (
-    <div className="bg-white text-gray-900">
+    <div className="font-sans text-gray-900">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600 text-white py-28 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center z-10 relative">
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
-            Stunning Vector Art Conversion
-          </h1>
-          <p className="text-lg sm:text-xl max-w-2xl mx-auto">
-            Get ultra-crisp, scalable, and print-ready artwork for logos, t-shirts,illustrations, and more.
-          </p>
-        </div>
-      </section>
+  <section
+  className="relative text-white text-center px-4 py-20 sm:py-24 overflow-hidden h-auto sm:h-[58vh] bg-cover bg-center"
+  style={{ backgroundImage: "url('/img/vc2.jpeg')" }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
+  
+  <div className="relative z-10 max-w-5xl mx-auto px-4 flex flex-col justify-center items-center h-full">
+    <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
+      Premium Vector Artwork Conversion
+    </h1>
+    
+    <p className="text-lg sm:text-2xl mb-6 max-w-2xl">
+      Get sharp, scalable vector files recreated by skilled designers.
+    </p>
+    
+    <a
+      href="#"
+      className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg"
+    >
+      Upload Your Design
+    </a>
+  </div>
+</section>
 
-      {/* What is Vector Art */}
-      <section className="py-20 px-4 sm:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl font-bold mb-6"
-          >
-            What is Vector  Art Conversion?
-          </motion.h2>
-          <p className="text-lg text-gray-600">
-            Vector Art Conversion is a digital design technique that uses lines and curves to create artwork that scales perfectly without losing clarity. Ideal for printing, engraving, embroidery, or digital design — it turns any image or sketch into high-quality art.
-          </p>
-        </div>
-      </section>
 
-      {/* Features */}
-      <section className="py-20 px-4 sm:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Why Choose Our Vector Art Conversion?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Pixel-Perfect Conversion",
-                desc: "We meticulously convert low-res images to clean, editable vector files.",
-                icon: <FaVectorSquare size={32} />,
-              },
-              {
-                title: "Creative Detailing",
-                desc: "From flat colors to intricate gradients, we capture your design’s soul.",
-                icon: <FaPaintBrush size={32} />,
-              },
-              {
-                title: "Lightning Fast Delivery",
-                desc: "Your files delivered within 12–24 hours. Speed + Quality = Perfection.",
-                icon: <FaRocket size={32} />,
-              },
-            ].map((item, idx) => (
+
+
+      {/* About Vector Artwork Services */}
+  <section className="bg-gradient-to-r from-white to-gray-50 py-16 px-4 sm:px-6 md:px-10">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    {/* Text Content */}
+    <div>
+    <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
+  Vector Artwork Services
+</h2>
+
+      <p className="text-base sm:text-lg mb-4 text-black">
+        At <span className="font-bold text-blue-800">Stitchkraft</span>, we offer premium vector artwork conversion services to help you transform low-resolution images, sketches, and logos into sharp, scalable vector files.
+      </p>
+      <p className="text-base sm:text-lg mb-4 text-black">
+        Our skilled designers manually recreate your artwork using industry-standard tools, ensuring every line, curve, and color is crisp, clean, and ready for print, screen, or stitch.
+      </p>
+      <p className="text-base sm:text-lg mb-6 text-black">
+        We deliver high-quality AI, EPS, SVG, PDF, or CDR formats customized to your needs.
+      </p>
+
+      <ul className="space-y-3 mb-6">
+        {[
+          "✅ Hand-Drawn Precision",
+          "✅ Print-Ready & Scalable Files",
+          "✅ Fast Turnaround",
+          "✅ Affordable Pricing",
+        ].map((item, idx) => (
+          <li key={idx} className="text-base sm:text-lg font-semibold text-gray-800">
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <button className="shine-button w-full sm:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
+        Upload Your Design
+      </button>
+    </div>
+
+    {/* Image */}
+    <div className="relative w-full h-[320px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600 animate-pulse opacity-90" />
+      <img
+        src="/img/vectora.png"
+        alt="Vector Illustration"
+        className="relative z-10 w-full h-full object-contain p-4"
+      />
+    </div>
+  </div>
+</section>
+
+
+      {/* Our Vector Services */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-br from-white via-[#fdfbff] to-gray-100 py-10 px-4 sm:px-10"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text p-4">
+              Our Vector Artwork Services
+            </h2>
+            <p className="text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto">
+              We specialize in converting images, logos, and hand-drawn sketches into clean, scalable vector formats.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {services.map((service, index) => (
               <motion.div
-                key={idx}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               >
-                <div className="text-[#4B4FCA] mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4B4FCA] to-pink-600 flex items-center justify-center shadow-md">
+                    {service.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-center text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-black text-center text-base leading-relaxed">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 px-4 sm:px-8 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800">
-            Our Vector Art Conversion Transformations
-          </h2>
-          <p className="text-lg text-gray-600 mb-12">
-            See how we bring flat, pixelated images to life with bold, clean vector lines.
+          <p className="mt-16 text-center text-lg font-medium text-gray-800 max-w-xl mx-auto">
+            Need professional vector art? Upload your file now and get high-quality vector output fast.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-            //   { image: "/img/vector1.png", label: "Logo Cleanup" },
-            //   { image: "/img/vector2.png", label: "T-shirt Art" },
-            //   { image: "/img/vector3.png", label: "Mascot Vector" },
-            //   { image: "/img/vector4.png", label: "Custom Badge" },
-            //   { image: "/img/vector5.png", label: "Portrait Line Art" },
-            //   { image: "/img/vector6.png", label: "Print Icon Set" },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
-              >
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-4 bg-gray-50 text-left">
-                  <h3 className="text-[#4B4FCA] font-semibold text-sm">{item.label}</h3>
-                </div>
-              </motion.div>
-            ))}
+          <div className="mt-6 text-center">
+            <a href="/vector-upload">
+              <button className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+                Upload Your Design Now
+              </button>
+            </a>
           </div>
         </div>
-      </section>
-            <section className="bg-gradient-to-br from-white to-gray-50 py-20 px-4">
+      </motion.section>
+
+      {/* How It Works */}
+      <Step />
+
+      {/* FAQ Section */}
+      <section className="bg-gradient-to-br from-white to-gray-50 py-10 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="w-14 h-1 bg-purple-600 rounded-full mb-4 mx-auto" />
-            <p className="mb-2">About Our Services</p>
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
+            <div className="w-16 h-1 bg-purple-600 rounded-full mb-4 mx-auto" />
+            <p className="mb-2 text-lg text-black">About Our Services</p>
+            <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Everything you need to know about Stitchkraft.
+            <p className="text-black text-lg max-w-2xl mx-auto">
+              Everything you need to know about Stitchkraft and our vector art services.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
+            <div className="space-y-5">
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition"
+                  className="border border-gray-300 rounded-2xl overflow-hidden bg-white shadow hover:shadow-md transition"
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full flex justify-between items-center p-5 text-left text-gray-900 bg-gray-50 hover:bg-gray-100 transition"
+                    className="w-full flex justify-between items-center p-6 text-left text-black font-medium text-lg bg-gray-50 hover:bg-gray-100 transition"
                   >
                     <span>{faq.question}</span>
-                    <span className="text-2xl font-bold text-purple-600">
+                    <span className="text-2xl font-bold text-purple-700">
                       {openIndexes[index] ? "−" : "+"}
                     </span>
                   </button>
@@ -201,7 +282,7 @@ function VectorArt() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="px-5 pb-5 text-gray-700 text-sm"
+                        className="px-6 pb-6 text-black text-lg leading-relaxed"
                       >
                         {faq.answer}
                       </motion.div>
@@ -210,34 +291,31 @@ function VectorArt() {
                 </div>
               ))}
             </div>
+
             <div className="relative rounded-3xl overflow-hidden shadow-xl">
               <img
                 src="/img/faq.png"
+
                 alt="FAQ Illustration"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-4 left-4 bg-white/90 text-purple-800 px-4 py-1 rounded-full font-semibold text-sm shadow">
-                Clarity in Every Answer
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-20 px-4 sm:px-8 text-white text-center">
+      {/* Final CTA */}
+      <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16 px-4 text-white text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Start Your Vector Journey Today
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Elevate Your Design with Vector Art</h2>
           <p className="text-lg mb-8">
-            Send us your sketch, image, or logo and get back a professional-grade vector file you can use anywhere.
+            Send us your artwork and receive sharp, clean vector files perfect for printing, cutting, and digital media.
           </p>
           <a
             href="#"
-            className="inline-block px-8 py-3 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-100 transition"
+            className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
           >
-            Request a Vector Quote
+            Request a Quote
           </a>
         </div>
       </section>
@@ -245,4 +323,4 @@ function VectorArt() {
   );
 }
 
-export default VectorArt;
+export default VectorArtwork;

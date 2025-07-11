@@ -74,7 +74,7 @@ const HowItWorks = () => {
     return (
         <section
             ref={sectionRef}
-            className="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row gap-16"
+            className="max-w-7xl mx-auto px-6 py-14 flex flex-col lg:flex-row gap-16"
         >
             {/* LEFT */}
             <div className="lg:w-1/2 space-y-4">
