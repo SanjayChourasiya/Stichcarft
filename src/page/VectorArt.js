@@ -1,6 +1,9 @@
 // Updated Embroidery + Vector Art Services Page
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Toaster, toast } from "react-hot-toast";
+import RequestQuoteModal from  "../page/RequestQuoteModal";
+
 import {
   FaCheckCircle,
   FaClock,
@@ -104,6 +107,8 @@ const services = [
 
 function VectorArtwork() {
   const [openIndexes, setOpenIndexes] = useState({});
+    const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const toggleFAQ = (index) => {
     setOpenIndexes((prev) => ({ ...prev, [index]: !prev[index] }));
   };
@@ -126,12 +131,13 @@ function VectorArtwork() {
             Get sharp, scalable vector files recreated by skilled designers.
           </p>
 
-          <a
-            href="#"
+          <button
+           onClick={() => setIsModalOpen(true)}
+
             className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg"
           >
             Upload Your Design
-          </a>
+          </button>
         </div>
       </section>
 
@@ -165,7 +171,10 @@ function VectorArtwork() {
         <li>✅ Supports All Embroidery Machines</li>
       </ul>
 
-      <button className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+      <button 
+      onClick={() => setIsModalOpen(true)}
+
+      className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
         Upload Your Design
       </button>
     </div>
@@ -232,11 +241,14 @@ function VectorArtwork() {
           </p>
 
           <div className="mt-6 text-center">
-            <a href="/vector-upload">
-              <button className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+          
+              <button
+      onClick={() => setIsModalOpen(true)}
+
+               className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
                 Upload Your Design Now
               </button>
-            </a>
+            
           </div>
         </div>
       </motion.section>
@@ -309,14 +321,20 @@ function VectorArtwork() {
           <p className="text-lg mb-8">
             Send us your artwork and receive sharp, clean vector files perfect for printing, cutting, and digital media.
           </p>
-          <a
-            href="#"
+          <button
+      onClick={() => setIsModalOpen(true)}
+            
             className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
           >
             Request a Quote
-          </a>
+          </button>
         </div>
       </section>
+        <AnimatePresence>
+        {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+      </AnimatePresence>
+
+      <Toaster />
     </div>
   );
 }
