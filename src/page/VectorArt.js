@@ -111,81 +111,79 @@ function VectorArtwork() {
   return (
     <div className="font-sans text-gray-900">
       {/* Hero Section */}
-  <section
-  className="relative text-white text-center px-4 py-20 sm:py-24 overflow-hidden h-auto sm:h-[58vh] bg-cover bg-center"
-  style={{ backgroundImage: "url('/img/vc2.jpeg')" }}
->
-  <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
-  
-  <div className="relative z-10 max-w-5xl mx-auto px-4 flex flex-col justify-center items-center h-full">
-    <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
-      Premium Vector Artwork Conversion
-    </h1>
-    
-    <p className="text-lg sm:text-2xl mb-6 max-w-2xl">
-      Get sharp, scalable vector files recreated by skilled designers.
-    </p>
-    
-    <a
-      href="#"
-      className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg"
-    >
-      Upload Your Design
-    </a>
-  </div>
-</section>
+      <section
+        className="relative text-white text-center px-4 py-20 sm:py-24 overflow-hidden h-auto sm:h-[58vh] bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/vc2.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 flex flex-col justify-center items-center h-full">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
+            Premium Vector Artwork Conversion
+          </h1>
+
+          <p className="text-lg sm:text-2xl mb-6 max-w-2xl">
+            Get sharp, scalable vector files recreated by skilled designers.
+          </p>
+
+          <a
+            href="#"
+            className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg"
+          >
+            Upload Your Design
+          </a>
+        </div>
+      </section>
 
 
 
 
       {/* About Vector Artwork Services */}
-  <section className="bg-gradient-to-r from-white to-gray-50 py-16 px-4 sm:px-6 md:px-10">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    {/* Text Content */}
+     
+<section className="bg-gradient-to-r from-white to-gray-50 py-16 px-4 sm:px-6 md:px-10">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    
+    {/* Text Section */}
     <div>
-    <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
-  Vector Artwork Services
-</h2>
-
-      <p className="text-base sm:text-lg mb-4 text-black">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 bg-clip-text">
+        Vector Artwork Services
+      </h2>
+      <p className="text-base sm:text-lg mb-4 text-gray-800">
         At <span className="font-bold text-blue-800">Stitchkraft</span>, we offer premium vector artwork conversion services to help you transform low-resolution images, sketches, and logos into sharp, scalable vector files.
       </p>
-      <p className="text-base sm:text-lg mb-4 text-black">
+      <p className="text-base sm:text-lg mb-4 text-gray-800">
         Our skilled designers manually recreate your artwork using industry-standard tools, ensuring every line, curve, and color is crisp, clean, and ready for print, screen, or stitch.
       </p>
-      <p className="text-base sm:text-lg mb-6 text-black">
+      <p className="text-base sm:text-lg mb-6 text-gray-800">
         We deliver high-quality AI, EPS, SVG, PDF, or CDR formats customized to your needs.
       </p>
 
-      <ul className="space-y-3 mb-6">
-        {[
-          "✅ Hand-Drawn Precision",
-          "✅ Print-Ready & Scalable Files",
-          "✅ Fast Turnaround",
-          "✅ Affordable Pricing",
-        ].map((item, idx) => (
-          <li key={idx} className="text-base sm:text-lg font-semibold text-gray-800">
-            {item}
-          </li>
-        ))}
+      <ul className="space-y-3 mb-6 text-gray-800 font-semibold">
+        <li>✅ 12–24 Hour Delivery Time</li>
+        <li>✅ Clean Stitch Path & Detailing</li>
+        <li>✅ Affordable & Reliable</li>
+        <li>✅ Supports All Embroidery Machines</li>
       </ul>
 
-      <button className="shine-button w-full sm:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
+      <button className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
         Upload Your Design
       </button>
     </div>
 
-    {/* Image */}
-    <div className="relative w-full h-[320px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600 animate-pulse opacity-90" />
-      <img
-        src="/img/vectora.png"
-        alt="Vector Illustration"
-        className="relative z-10 w-full h-full object-contain p-4"
-      />
+    {/* Image Section */}
+    <div className="w-full flex justify-center">
+      <div className="w-full sm:w-[80%] md:w-[90%] lg:w-[400px] rounded-2xl overflow-hidden shadow-xl border border-white bg-gradient-to-br from-[#D1D9F2] via-[#e6d4f7] to-[#fcd6e6] p-2">
+        <img
+          src="/img/vectora.png"
+          alt="Vector Artwork Example"
+          className="w-full h-full object-contain rounded-xl"
+        />
+      </div>
     </div>
+
   </div>
 </section>
+
 
 
       {/* Our Vector Services */}
