@@ -274,7 +274,7 @@ function EmbroideryDigitizing() {
           <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600  animate-pulse opacity-90"></div>
             <img
-              src="/img/jacket.png"
+              src="/img/dizi.jpg"
               alt="Embroidery Illustration"
               className="relative z-10 w-full h-full object-contain p-2 "
             />
