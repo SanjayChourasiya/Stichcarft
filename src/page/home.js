@@ -235,7 +235,7 @@ export default function Home() {
           </div>
 
           {/* CTA Button */}
-          <div className="mt-14 text-center">
+          <div className="mt-14 pb-4 text-center">
             <button
               onClick={() => setIsModalOpen(true)}
               className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold text-base sm:text-lg rounded-full shadow hover:scale-105 transition duration-300"
