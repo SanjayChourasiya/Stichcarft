@@ -87,7 +87,7 @@ export default function Home() {
           <div className="md:col-span-5 mt-8 md:mt-0">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl group h-60 sm:h-[450px]">
               <img
-                src="/img/about.jpeg"
+                src="/img/who.jpg"
                 alt="About StitchKart"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
               />

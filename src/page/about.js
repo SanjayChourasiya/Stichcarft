@@ -95,7 +95,7 @@ function About() {
             <div className="md:col-span-5">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl group h-[400px] sm:h-[450px]">
                 <img
-                  src="/img/about.jpeg"
+                  src="/img/who.jpg"
                   alt="About StitchKart"
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
                 />
