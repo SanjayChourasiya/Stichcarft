@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import RequestQuoteModal from  "../page/RequestQuoteModal";
+import FAQ from "../page/faq"
+
 
 import {
   FaCheckCircle,
@@ -257,62 +259,7 @@ function VectorArtwork() {
       <Step />
 
       {/* FAQ Section */}
-      <section className="bg-gradient-to-br from-white to-gray-50 py-10 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="w-16 h-1 bg-purple-600 rounded-full mb-4 mx-auto" />
-            <p className="mb-2 text-lg text-black">About Our Services</p>
-            <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-black text-lg max-w-2xl mx-auto">
-              Everything you need to know about Stitchkraft and our vector art services.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-5">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-gray-300 rounded-2xl overflow-hidden bg-white shadow hover:shadow-md transition"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full flex justify-between items-center p-6 text-left text-black font-medium text-lg bg-gray-50 hover:bg-gray-100 transition"
-                  >
-                    <span>{faq.question}</span>
-                    <span className="text-2xl font-bold text-purple-700">
-                      {openIndexes[index] ? "−" : "+"}
-                    </span>
-                  </button>
-                  <AnimatePresence>
-                    {openIndexes[index] && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="px-6 pb-6 text-black text-lg leading-relaxed"
-                      >
-                        {faq.answer}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
-              <img
-                src="/img/faq.png"
-
-                alt="FAQ Illustration"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQ />
 
       {/* Final CTA */}
       <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16 px-4 text-white text-center">
