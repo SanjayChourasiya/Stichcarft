@@ -112,8 +112,8 @@ function About() {
    <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="w-16 h-1 bg-purple-600 rounded-full mb-3 mx-auto" />
+          <div className="text-center ">
+            <div className="w-16 h-1 bg-purple-600 rounded-full  mx-auto" />
             <h2 className="text-3xl  p-4 sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text mb-4">
               Why Choose Us
             </h2>
@@ -161,7 +161,7 @@ function About() {
           </div>
 
           {/* CTA Button */}
-          <div className="mt-14 text-center">
+          <div className="mt-14 pb-4  text-center">
             <button
               onClick={() => setIsModalOpen(true)}
               className="px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold text-base sm:text-lg rounded-full shadow hover:scale-105 transition duration-300"
