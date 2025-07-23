@@ -66,7 +66,7 @@ function SoftBeforeAfter({ before, after }) {
 
 export default function BeforeAfterGrid() {
   const portfolio = [
-    { before: "/img/hb.jpg", after: "/img/ha.jpg" },
+    { before: "/img/hb.jpg", after: "/img/hb.png" },
     { before: "/img/sb.png", after: "/img/sb.jpg" },
     { before: "/img/b.jpg", after: "/img/f.jpg" },
     { before: "/img/b.jpg", after: "/img/f.jpg" },
