@@ -224,65 +224,66 @@ export default function App() {
             </Routes>
 
             {/* Footer */}
-            <footer className="bg-[#0e0e16] text-gray-300 mt-20 pt-8 pb-2 relative z-10">
-              <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div>
-                  <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
-                  <p className="mt-4 text-white text-sm leading-relaxed">
-                    StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-8 text-sm">
-                  <div>
-                    <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-                    <ul className="space-y-2">
-                      <li><a href="/" className="hover:text-pink-400">Home</a></li>
-                      <li><a href="/about" className="hover:text-pink-400">About Us</a></li>
-                      <li><a href="/contact" className="hover:text-pink-400">Contact Us</a></li>
-                      <li><a href="/privacy" className="hover:text-pink-400">  Privacy & Terms</a></li>
+          <footer className="bg-[#0e0e16] text-gray-300 mt-20 pt-8 pb-2 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <h2 className="text-3xl font-bold text-white">StitchCraft</h2>
+          <p className="mt-4 text-white text-sm leading-relaxed">
+            StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe.
+          </p>
+        </div>
 
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-4">Services</h4>
-                    <ul className="space-y-2">
-                      <li><a href="/emd" className="hover:text-pink-400">Embroidery Digitizing</a></li>
-                      <li><a href="/vd" className="hover:text-pink-400">Vector Art</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bg-[#161620] rounded-xl p-6 shadow-md">
-                  <h4 className="text-white text-lg font-semibold mb-4">Get Connected</h4>
-                  <ul className="text-sm space-y-3 mb-6">
-                    <li className="flex items-center gap-3">
-                      <FaPhoneAlt className="text-yellow-500" />
-                      +91 98765 43210
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <FaEnvelope className="text-yellow-500" />
-                      support@stitchcraft.com
-                    </li>
-                  </ul>
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300"
-                  >
-                    Get Connected
-                  </button>
-                </div>
-              </div>
-              <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm flex flex-col md:flex-row justify-between items-center p-4">
-                <p className="text-gray-400 text-center md:text-right">
-                  © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
-                </p>
-                <div className="flex gap-4 items-center mb-4 md:mb-0">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 object-contain" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" className="h-8 object-contain" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal" className="h-8 object-contain" />
-                  {/* <img src="/img/rupay.png" alt="RuPay" className="h-8 object-contain" /> */}
-                </div>
-              </div>
-            </footer>
+        <div className="grid grid-cols-2 gap-8 text-sm">
+          <div>
+            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><Link to="/" className="hover:text-pink-400">Home</Link></li>
+              <li><Link to="/about" className="hover:text-pink-400">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-pink-400">Contact Us</Link></li>
+              <li><Link to="/privacy" className="hover:text-pink-400">Privacy & Terms</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <ul className="space-y-2">
+              <li><Link to="/emd" className="hover:text-pink-400">Embroidery Digitizing</Link></li>
+              <li><Link to="/vd" className="hover:text-pink-400">Vector Art</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="bg-[#161620] rounded-xl p-6 shadow-md">
+          <h4 className="text-white text-lg font-semibold mb-4">Get Connected</h4>
+          <ul className="text-sm space-y-3 mb-6">
+            <li className="flex items-center gap-3">
+              <FaPhoneAlt className="text-yellow-500" />
+              +91 98765 43210
+            </li>
+            <li className="flex items-center gap-3">
+              <FaEnvelope className="text-yellow-500" />
+              support@stitchcraft.com
+            </li>
+          </ul>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="w-full px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white text-sm font-bold rounded-full shadow hover:scale-105 transition duration-300"
+          >
+            Get Connected
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-14 border-t border-gray-700 pt-6 px-6 text-sm flex flex-col md:flex-row justify-between items-center p-4">
+        <p className="text-gray-400 text-center md:text-right">
+          © {new Date().getFullYear()} <span className="text-white font-semibold">StitchCraft</span>. All rights reserved.
+        </p>
+        <div className="flex gap-4 items-center mb-4 md:mb-0">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 object-contain" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" className="h-8 object-contain" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal" className="h-8 object-contain" />
+        </div>
+      </div>
+    </footer>
 
             {/* Modal */}
             <AnimatePresence>
