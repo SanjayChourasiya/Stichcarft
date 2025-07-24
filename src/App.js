@@ -31,6 +31,8 @@ import Ditizing from "../src/page/EmbroideryDigitizing";
 import Vector from "../src/page/VectorArt";
 import RequestQuoteModal from "../src/page/RequestQuoteModal";
 import GalleryPage from "../src/page/GalleryPage"
+import ThankYouPage from "./page/thankyou";
+
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -218,6 +220,8 @@ export default function App() {
               <Route path="/Vd" element={<Vector />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/privacy" element={<Privacy  />} />
+                <Route path="/thank-you" element={<ThankYouPage />} />
+
 
 
               <Route path="/product/:productName" element={<SingleProductPage />} />

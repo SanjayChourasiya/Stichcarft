@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
-const QuoteForm = () => {
+const QuoteForm = ({ onClose }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     full_name: "",
     email_address: "",
@@ -53,6 +55,7 @@ const QuoteForm = () => {
       );
       toast.dismiss(loadingToast);
       toast.success("Form submitted successfully!");
+
       setFormData({
         full_name: "",
         email_address: "",
@@ -61,6 +64,10 @@ const QuoteForm = () => {
       });
       setFileData(null);
       setFileName("Upload Design");
+
+      onClose();                 // ✅ Close the modal first
+      navigate("/thank-you");   // ✅ Then navigate to thank you page
+
     } catch (error) {
       toast.dismiss(loadingToast);
       toast.error("Submission failed: " + error.message);
@@ -168,7 +175,7 @@ const RequestQuoteModal = ({ isOpen, onClose }) => {
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-800 hover:opacity-90 transition">
           Request a Quote
         </h2>
-        <QuoteForm />
+        <QuoteForm onClose={onClose} />
       </motion.div>
     </motion.div>
   );
