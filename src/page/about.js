@@ -63,7 +63,7 @@ function About() {
               </p>
 
               {/* Stats */}
-              <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left mt-6">
+              {/* <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left mt-6">
                 <div>
                   <h3 className="text-3xl font-bold text-purple-800">
                     {inView && <CountUp end={3} duration={2} suffix="M+" />}
@@ -88,7 +88,7 @@ function About() {
                   </h3>
                   <p className="text-sm text-black    mt-1">Team Members</p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Image */}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
-
-import FAQ from "../page/faq"
+import Feature from "../page/featurecard"
+import FAQ from "../page/embfaq"
+import WHATWE from "../page/whatwedo"
 import {
   FaCheckCircle,
   FaClock,
@@ -16,12 +17,12 @@ import {
   FaFileArchive,
 } from "react-icons/fa";
 import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
-import RequestQuoteModal from  "../page/RequestQuoteModal";
+import RequestQuoteModal from "../page/RequestQuoteModal";
 
 import { Link } from "react-router-dom";
 
 import Step from "../page/HowItWorks"
-import {   FaRegObjectGroup, FaRegGem,  FaLayerGroup, FaRegLaughWink, FaRulerCombined, FaAlignCenter, FaIdBadge, FaFont } from "react-icons/fa";
+import { FaRegObjectGroup, FaRegGem, FaLayerGroup, FaRegLaughWink, FaRulerCombined, FaAlignCenter, FaIdBadge, FaFont } from "react-icons/fa";
 
 
 import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
@@ -197,38 +198,38 @@ function EmbroideryDigitizing() {
   return (
     <div className="font-sans text-gray-900">
       {/* Hero */}
-<section className="relative text-white text-center px-4 py-24 overflow-hidden h-[58vh] sm:h-[70vh]">
-  {/* Background Video */}
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute top-0 left-0 w-full h-full object-cover z-0"
-  >
-    <source src="/img/herov.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+      <section className="relative text-white text-center px-4 py-24 overflow-hidden h-[58vh] sm:h-[70vh]">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          {/* <source src="/img/herov.mp4" type="video/mp4" /> */}
+          Your browser does not support the video tag.
+        </video>
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
 
-  {/* Foreground Content */}
-  <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4">
-    <h1 className="text-3xl sm:text-5xl font-bold mb-3 pt-12 sm:pt-10 text-white leading-snug sm:leading-tight">
-      Premium Embroidery Digitizing
-    </h1>
-    <p className="text-base sm:text-xl mb-5 sm:mb-6 text-white px-2 sm:px-0">
-      Convert your designs into flawless stitch files with precision.
-    </p>
-    <a
-      onClick={() => setIsModalOpen(true)}
-      className="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
-    >
-      Get a Free Quote
-    </a>
-  </div>
-</section>
+        {/* Foreground Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4">
+          <h1 className="text-3xl sm:text-5xl font-bold mb-3 pt-12 sm:pt-10 text-white leading-snug sm:leading-tight">
+            Premium Embroidery Digitizing
+          </h1>
+          <p className="text-base sm:text-xl mb-5 sm:mb-6 text-white px-2 sm:px-0">
+            Convert your designs into flawless stitch files with precision.
+          </p>
+          <a
+            onClick={() => setIsModalOpen(true)}
+            className="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
+          >
+            Get a Free Quote
+          </a>
+        </div>
+      </section>
 
       <section className="bg-gradient-to-r from-white to-gray-50 py-20 md:px-10 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -265,7 +266,7 @@ function EmbroideryDigitizing() {
             <button
               onClick={() => setIsModalOpen(true)}
 
-             className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
+              className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
               Upload Your Design
             </button>
           </div>
@@ -283,7 +284,7 @@ function EmbroideryDigitizing() {
         </div>
       </section>
 
-       <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
+      <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -298,42 +299,8 @@ function EmbroideryDigitizing() {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Affordable Pricing",
-                desc: "Affordable digitizing for embroidery & vector artwork without sacrificing quality.",
-                icon: <BadgeDollarSign className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "Fast Turnaround",
-                desc: "12–24 hour delivery to keep your business moving.",
-                icon: <Clock className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "All Formats Supported",
-                desc: "We support DST, PES, EMB, and all major file types.",
-                icon: <Layers className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "Free Edits & Guarantee",
-                desc: "Unlimited edits + 100% satisfaction guarantee.",
-                icon: <CheckCircle className="w-8 h-8 text-purple-700" />,
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="bg-white p-6 rounded-2xl shadow border border-gray-200 text-center hover:shadow-lg transition-transform hover:-translate-y-1 duration-300"
-              >
-                <div className="flex justify-center items-center bg-purple-100 rounded-full w-14 h-14 mx-auto mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold  text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-[16px] text-black  ">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
 
+          <Feature />
           {/* CTA Button */}
           <div className="mt-14 text-center">
             <button
@@ -345,93 +312,71 @@ function EmbroideryDigitizing() {
           </div>
         </div>
       </section>
-          <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="bg-gradient-to-br from-white via-[#fdfbff] to-gray-100 py-10 px-4 sm:px-8 lg:px-16"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text p-4">
-           What we do in embroidery digitizing?
-          </h2>
-          <p className="text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto">
-          Our Embroidery Digitizing Services
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-br from-white via-[#fdfbff] to-gray-100 py-10 px-4 sm:px-8 lg:px-16"
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Heading
+          <div className="text-center mb-20">
+            <h2 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text p-4">
+              What we do in embroidery digitizing?
+            </h2>
+            <p className="text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto">
+              Our Embroidery Digitizing Services
+            </p>
+          </div> */}
+
+          {/* Cards */}
+       <WHATWE/>
+          {/* Info Line */}
+          <p className="mt-16 text-center text-lg font-medium text-gray-800 max-w-xl mx-auto">
+            Need a design digitized? Upload your artwork now and get started with top-tier quality and fast delivery.
           </p>
-        </div>
 
-        {/* Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
-            >
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4B4FCA] to-pink-600 flex items-center justify-center shadow-md">
-                  {service.icon}
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-center text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-black text-center text-lg sm:text-base  leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+          {/* CTA Button */}
+          <div className="mt-6 text-center">
 
-        {/* Info Line */}
-        <p className="mt-16 text-center text-lg font-medium text-gray-800 max-w-xl mx-auto">
-          Need a design digitized? Upload your artwork now and get started with top-tier quality and fast delivery.
-        </p>
-
-        {/* CTA Button */}
-        <div className="mt-6 text-center">
-          
             <button
               onClick={() => setIsModalOpen(true)}
 
-             className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+              className="px-10 py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
               Upload Your Design Now
             </button>
-          
+
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
 
 
       {/* Why Choose Us */}
-   
-<Step/>
+
+      <Step />
 
 
-<FAQ/>
+      <FAQ />
 
-{/* CTA Section */}
-<section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16 px-4 text-white text-center">
-  <div className="max-w-3xl mx-auto">
-    <h2 className="text-4xl font-bold mb-4">Elevate Your Brand Today</h2>
-    <p className="text-lg mb-8">
-      Send us your design and receive a high-quality embroidery file with a fast turnaround.
-    </p>
-   < button
-    onClick={() => setIsModalOpen(true)}
-      
-      className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
-    >
-      Request a Quote
-      </button>
-    
-  </div>
-</section>
-  <AnimatePresence>
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16 px-4 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Elevate Your Brand Today</h2>
+          <p className="text-lg mb-8">
+            Send us your design and receive a high-quality embroidery file with a fast turnaround.
+          </p>
+          < button
+            onClick={() => setIsModalOpen(true)}
+
+            className="inline-block px-8 py-3 bg-white text-[#4B4FCA] text-lg font-semibold rounded-full hover:bg-gray-100 transition"
+          >
+            Request a Quote
+          </button>
+
+        </div>
+      </section>
+      <AnimatePresence>
         {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
       </AnimatePresence>
 
