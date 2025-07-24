@@ -1,5 +1,6 @@
 // App.jsx
 import React, { useState, useEffect } from "react";
+import CookieBanner from "../src/page/cookies"
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,7 +18,7 @@ import {
 } from "react-icons/fa";
 import { Toaster } from "react-hot-toast";
 import { AnimatePresence } from "framer-motion";
-
+import Privacy from "../src/page/privacy"
 import ScrollToTop from "../src/page/ScrollToTop";
 import Home from "./page/home";
 import About from "./page/about";
@@ -216,6 +217,8 @@ export default function App() {
               <Route path="/emd" element={<Ditizing />} />
               <Route path="/Vd" element={<Vector />} />
               <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/privacy" element={<Privacy  />} />
+
 
               <Route path="/product/:productName" element={<SingleProductPage />} />
             </Routes>
@@ -236,6 +239,8 @@ export default function App() {
                       <li><a href="/" className="hover:text-pink-400">Home</a></li>
                       <li><a href="/about" className="hover:text-pink-400">About Us</a></li>
                       <li><a href="/contact" className="hover:text-pink-400">Contact Us</a></li>
+                      <li><a href="/privacy" className="hover:text-pink-400">  Privacy & Terms</a></li>
+
                     </ul>
                   </div>
                   <div>
@@ -283,6 +288,7 @@ export default function App() {
             <AnimatePresence>
               {isModalOpen && <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
             </AnimatePresence>
+            <CookieBanner />
           </>
         )}
       </div>
