@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { Sparkles, ScissorsSquare, Headphones } from "lucide-react";
 import { Image, Rocket, Layers } from "lucide-react";
 import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
-  import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import TestimonialSection from "../page/TestimonialSection"
 import Feature from "../page/featurecard"
 import Herosection from "../page/herosection";
@@ -30,75 +30,52 @@ export default function Home() {
       {/* <PartnerSlider /> */}
 
       {/* Why StitchCraft Section */}
-      <section className="relative bg-white py-10px-4 sm:px-6 p-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
-          {/* Text Content */}
-          <div className="md:col-span-7">
-            <p className="text-xs sm:text-sm uppercase text-purple-600 font-semibold tracking-wide mb-2 sm:mb-3">
-              About Us
-            </p>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-justify bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4 sm:mb-6">
-              Who We Are
-            </h2>
-            <p className="text-black mb-4 text-lg text-justify">
-              StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
-              At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
-            </p>
-             <p className="text-black mb-4 text-lg text-justify">
-              We take pride in:
-              Fast turnaround times (within 24 hours)
-              Affordable pricing without compromising on quality
-              Skilled professionals using the latest digitizing software
-              Exceptional customer support and satisfaction
-              Our mission is to help businesses grow by providing custom embroidery digitizing and vector conversion services that are production-ready, machine-friendly, and visually stunning.
-              Partner with StichKart to turn your ideas into flawless embroidery designs and ready-to-print vector files — quickly, affordably, and reliably.
-            </p>
+ <section className="relative bg-white px-4 py-10 sm:px-6">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
+    
+    {/* Text Content */}
+    <div className="md:col-span-7">
+      <p className="text-xs sm:text-sm uppercase text-purple-600 font-semibold tracking-wide mb-2 sm:mb-3">
+        About Us
+      </p>
+      <h2 className="text-3xl sm:text-5xl font-extrabold text-justify bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text drop-shadow mb-4 sm:mb-6">
+        Who We Are
+      </h2>
+      <p className="text-black mb-4 text-lg text-justify">
+        StichKart is a leading provider of embroidery digitizing services and vector artwork services, trusted by apparel decorators, promotional product companies, embroidery businesses, and print shops around the globe. With a deep understanding of the embroidery industry and years of hands-on experience, we specialize in converting artwork into high-quality embroidery files and clean, scalable vector graphics.
+        At StichKart, we focus on delivering digitizing for embroidery machines that ensures smooth stitching, fewer thread breaks, and enhanced design clarity. Whether you need left chest logos, cap digitizing, 3D puff digitizing, or complex vector conversions, our expert team is equipped to handle it all — with precision and care.
+      </p>
+      <p className="text-black mb-4 text-lg text-justify">
+        We take pride in:
+        Fast turnaround times (within 24 hours)
+        Affordable pricing without compromising on quality
+        Skilled professionals using the latest digitizing software
+        Exceptional customer support and satisfaction
+        Our mission is to help businesses grow by providing custom embroidery digitizing and vector conversion services that are production-ready, machine-friendly, and visually stunning.
+        Partner with StichKart to turn your ideas into flawless embroidery designs and ready-to-print vector files — quickly, affordably, and reliably.
+      </p>
+    </div>
 
-            {/* Stats */}
-            {/* <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-left mt-4 sm:mt-6">
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={3} duration={2} suffix="M+" />}
-                </h3>
-                <p className="text-xs sm:text-sm text-black   mt-1">Products Digitized</p>
-              </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={1} duration={2} suffix="K+" />}
-                </h3>
-                <p className="text-xs sm:text-sm text-black   mt-1">Happy Clients</p>
-              </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={10} duration={2} suffix="+" />}
-                </h3>
-                <p className="text-xs sm:text-sm text-black   mt-1">Years of Experience</p>
-              </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
-                  {inView && <CountUp end={25} duration={2} />}
-                </h3>
-                <p className="text-xs sm:text-sm text-black   mt-1">Team Members</p>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Image */}
-          <div className="md:col-span-5 mt-8 md:mt-0">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl group h-60 sm:h-[450px]">
-              <img
-                src="/img/who.jpg"
-                alt="About StitchKart"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-in-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10" />
-              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md text-purple-800 px-3 py-1 rounded-full font-semibold shadow-md z-20 text-sm">
-                Real Craft in Action
-              </div>
-            </div>
+    {/* Image Section */}
+    <div className="md:col-span-5 mt-8 md:mt-0">
+      <div className="relative p-[8px] bg-gradient-to-br from-[#4B4FCA] via-purple-500 to-pink-500 rounded-2xl shadow-2xl animate-glow">
+        <div className="rounded-2xl overflow-hidden w-full h-60 sm:h-[500px] relative bg-black">
+          <img
+            src="/img/bz.jpg"
+            alt="About StitchKart"
+            className="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10" />
+          <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md text-purple-800 px-3 py-1 rounded-full font-semibold shadow-md z-20 text-sm">
+            Real Craft in Action
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 
       {/* What We Offer Section */}
@@ -168,7 +145,7 @@ export default function Home() {
           </div>
 
           {/* CTA */}
-        
+
 
           <div className="mt-14 text-center">
             <Link to="/emd">
@@ -198,7 +175,7 @@ export default function Home() {
           </div>
 
           {/* Features Grid */}
-     <Feature/>
+          <Feature />
           {/* CTA Button */}
           <div className="mt-14 pb-4 text-center">
             <button
