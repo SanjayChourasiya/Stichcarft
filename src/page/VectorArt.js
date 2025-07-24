@@ -200,7 +200,7 @@ function VectorArtwork() {
 
 
       {/* Our Vector Services */}
-   <Newcard />
+      <Newcard />
 
       {/* How It Works */}
       {/* <Step /> */}
@@ -210,7 +210,7 @@ function VectorArtwork() {
       <FAQ />
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16 px-4 text-white text-center">
+      <section className="bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 py-16  px-4 text-white text-center mt-6 sm:mt-0">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">Elevate Your Design with Vector Art</h2>
           <p className="text-lg mb-8">

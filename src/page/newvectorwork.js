@@ -1,29 +1,16 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
-import "../../src/FlipCard.css";
-import { Sparkles, ScissorsSquare, Headphones, BadgeDollarSign, Clock, CheckCircle, Layers } from "lucide-react";
-
 import {
-  FaCheckCircle,
-  FaClock,
-  FaCogs,
-  FaTshirt,
-  FaHatCowboy,
-  FaShieldAlt,
   FaFileAlt,
-  FaFileImage,
-  FaFileCode,
-  FaFileArchive,
   FaRegObjectGroup,
-  FaRegGem,
-  FaLayerGroup,
-  FaRegLaughWink,
   FaRulerCombined,
   FaAlignCenter,
+  FaRegGem,
+  FaTshirt,
   FaIdBadge,
-  FaFont,
 } from "react-icons/fa";
+import "../../src/FlipCard.css";
+
 const services = [
   {
     icon: <FaFileAlt className="text-white w-6 h-6" />,
@@ -69,8 +56,13 @@ const services = [
   },
 ];
 
-
 export default function FlipCardServices() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
+  const handleFlip = (index) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -91,19 +83,20 @@ export default function FlipCardServices() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service, index) => (
-            <div className="flip-card" key={index}>
+            <div
+              key={index}
+              className={`flip-card ${flippedIndex === index ? "flipped" : ""}`}
+              onClick={() => handleFlip(index)}
+            >
               <div className="flip-card-inner">
-                {/* Front Side */}
-                <div className="flip-card-front bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md text-center">
+                <div className="flip-card-front bg-white border border-gray-200 shadow-md">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4B4FCA] to-pink-600 flex items-center justify-center mx-auto mb-6">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 text-center px-4">{service.title}</h3>
                 </div>
-
-                {/* Back Side */}
-                <div className="flip-card-back bg-purple-700 text-white border border-purple-600 rounded-2xl p-6 sm:p-8 shadow-md text-center flex items-center justify-center">
-                  <p className="text-base sm:text-lg leading-relaxed">{service.description}</p>
+                <div className="flip-card-back border border-purple-600 shadow-md">
+                  <p className="text-base sm:text-lg leading-relaxed px-4 text-center">{service.description}</p>
                 </div>
               </div>
             </div>

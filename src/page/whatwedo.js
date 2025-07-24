@@ -14,7 +14,7 @@ import "../../src/FlipCard.css";
 
 const services = [
   {
-    icon: <FaTshirt className="text-white w-6 h-6" />, 
+    icon: <FaTshirt className="text-white w-6 h-6" />,
     title: "Logo Digitizing",
     description: "Transform your business logo into a high-quality stitch file for t-shirts, caps, and branding needs.",
   },
@@ -56,6 +56,12 @@ const services = [
 ];
 
 export default function FlipCardServices() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
+  const handleFlip = (index) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -76,7 +82,11 @@ export default function FlipCardServices() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service, index) => (
-            <div className="flip-card" key={index}>
+            <div
+              className={`flip-card ${flippedIndex === index ? "flipped" : ""}`}
+              key={index}
+              onClick={() => handleFlip(index)}
+            >
               <div className="flip-card-inner">
                 {/* Front Side */}
                 <div className="flip-card-front bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md text-center">

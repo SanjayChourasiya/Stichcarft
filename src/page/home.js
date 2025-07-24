@@ -84,7 +84,7 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="bg-white py-14 px-4 sm:px-6 lg:px-10"
+        className="bg-white py-8px-4 sm:px-6 lg:px-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Heading */}

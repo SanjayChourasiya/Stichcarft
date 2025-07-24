@@ -40,9 +40,9 @@ export default function FeatureCards() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       {features.map((feature, i) => (
         <div
-          className={`flip-card max-w-sm mx-auto ${
-            flippedIndex === i ? "flipped" : ""
-          }`}
+          className={`flip-card w-[90%] sm:max-w-sm mx-auto ${flippedIndex === i ? "flipped" : ""
+            }`}
+
           key={i}
           onClick={() => handleFlip(i)}
         >
