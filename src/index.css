@@ -77,3 +77,6 @@
   }
 }
 
+.group-hover\:rotate-y-180:hover > div {
+  transform: rotateY(180deg);
+}

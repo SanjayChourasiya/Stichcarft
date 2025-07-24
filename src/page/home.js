@@ -8,7 +8,7 @@ import { Image, Rocket, Layers } from "lucide-react";
 import { BadgeDollarSign, Clock, CheckCircle } from "lucide-react";
   import {Link} from "react-router-dom";
 import TestimonialSection from "../page/TestimonialSection"
-
+import Feature from "../page/featurecard"
 import Herosection from "../page/herosection";
 import Howemake from "../page/HowWeMakeSection";
 import PartnerSlider from "../page/PartnerSlider";
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div>
       <Herosection />
-      <PartnerSlider />
+      {/* <PartnerSlider /> */}
 
       {/* Why StitchCraft Section */}
       <section className="relative bg-white py-10px-4 sm:px-6 p-4">
@@ -55,7 +55,7 @@ export default function Home() {
             </p>
 
             {/* Stats */}
-            <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-left mt-4 sm:mt-6">
+            {/* <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-left mt-4 sm:mt-6">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-purple-800">
                   {inView && <CountUp end={3} duration={2} suffix="M+" />}
@@ -80,7 +80,7 @@ export default function Home() {
                 </h3>
                 <p className="text-xs sm:text-sm text-black   mt-1">Team Members</p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Image */}
@@ -198,42 +198,7 @@ export default function Home() {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Affordable Pricing",
-                desc: "Affordable digitizing for embroidery & vector artwork without sacrificing quality.",
-                icon: <BadgeDollarSign className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "Fast Turnaround",
-                desc: "12–24 hour delivery to keep your business moving.",
-                icon: <Clock className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "All Formats Supported",
-                desc: "We support DST, PES, EMB, and all major file types.",
-                icon: <Layers className="w-8 h-8 text-purple-700" />,
-              },
-              {
-                title: "Free Edits & Guarantee",
-                desc: "Unlimited edits + 100% satisfaction guarantee.",
-                icon: <CheckCircle className="w-8 h-8 text-purple-700" />,
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="bg-white p-6 rounded-2xl shadow border border-gray-200 text-center hover:shadow-lg transition-transform hover:-translate-y-1 duration-300"
-              >
-                <div className="flex justify-center items-center bg-purple-100 rounded-full w-14 h-14 mx-auto mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold  text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-[16px] text-black  ">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-
+     <Feature/>
           {/* CTA Button */}
           <div className="mt-14 pb-4 text-center">
             <button
