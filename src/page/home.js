@@ -57,9 +57,9 @@ export default function Home() {
     </div>
 
     {/* Image Section */}
-    <div className="md:col-span-5 mt-8 md:mt-0">
+    <div className="md:col-span-5 mt-0 md:mt-0">
       <div className="relative p-[8px] bg-gradient-to-br from-[#4B4FCA] via-purple-500 to-pink-500 rounded-2xl shadow-2xl animate-glow">
-        <div className="rounded-2xl overflow-hidden w-full h-60 sm:h-[500px] relative bg-black">
+        <div className="rounded-2xl overflow-hidden w-full h-80 sm:h-[500px] relative bg-black">
           <img
             src="/img/bz.jpg"
             alt="About StitchKart"

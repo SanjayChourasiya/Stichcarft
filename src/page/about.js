@@ -40,7 +40,7 @@ function About() {
     <>
       {/* MAIN SECTIONS */}
       <div>
-     <section className="relative bg-white px-4 py-10 sm:px-6">
+    <section className="relative bg-white px-4 py-10 sm:px-6">
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
     
     {/* Text Content */}
@@ -67,9 +67,9 @@ function About() {
     </div>
 
     {/* Image Section */}
-    <div className="md:col-span-5 mt-8 md:mt-0">
+    <div className="md:col-span-5 mt-0 md:mt-0">
       <div className="relative p-[8px] bg-gradient-to-br from-[#4B4FCA] via-purple-500 to-pink-500 rounded-2xl shadow-2xl animate-glow">
-        <div className="rounded-2xl overflow-hidden w-full h-60 sm:h-[500px] relative bg-black">
+        <div className="rounded-2xl overflow-hidden w-full h-80 sm:h-[500px] relative bg-black">
           <img
             src="/img/bz.jpg"
             alt="About StitchKart"
@@ -85,6 +85,7 @@ function About() {
 
   </div>
 </section>
+
 
         {/* Why Choose Us */}
    <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
