@@ -4,6 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 import Feature from "../page/featurecard"
 import FAQ from "../page/embfaq"
 import WHATWE from "../page/whatwedo"
+import BEFORE from "../page/Emboroiderybeforeafter"
 import {
   FaCheckCircle,
   FaClock,
@@ -231,58 +232,7 @@ function EmbroideryDigitizing() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-white to-gray-50 py-20 md:px-10 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
-          {/* Left Content */}
-          <div>
-            <h2 className="text-4xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-transparent bg-clip-text animate-headingGlow">
-              Embroidery Digitizing Services
-            </h2>
-
-            <p className="text-lg mb-4 text-black">
-              At <span className="font-bold text-blue-800">Stitchkraft</span>, we expertly convert logos, artwork, and illustrations into high-quality, machine-readable embroidery files.
-            </p>
-            <p className="text-lg mb-4 text-black">
-              Our team ensures clean stitching, minimal thread breaks, and detail perfection across every file—suited for caps, jackets, shirts, and more.
-            </p>
-            <p className="text-lg mb-6 text-black">
-              We deliver files in <span className="font-bold text-blue-800">.DST, .PES, .EXP, .JEF</span> and all major formats with lightning-fast turnaround and unbeatable precision.
-            </p>
-
-            <ul className="space-y-3 mb-6">
-              {[
-                "✅ 12–24 Hour Delivery Time",
-                "✅ Clean Stitch Path & Detailing",
-                "✅ Affordable & Reliable",
-                "✅ Supports All Embroidery Machines"
-              ].map((item, idx) => (
-                <li key={idx} className="text-lg font-semibold text-gray-800">
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <button
-              onClick={() => setIsModalOpen(true)}
-
-              className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-lg hover:scale-105 transition-transform duration-300">
-              Upload Your Design
-            </button>
-          </div>
-
-          {/* Right Image with Gradient BG */}
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#4B4FCA] via-purple-800 to-pink-600  animate-pulse opacity-90"></div>
-            <img
-              src="/img/dizi.jpg"
-              alt="Embroidery Illustration"
-              className="relative z-10 w-full h-full object-contain p-2 "
-            />
-          </div>
-
-        </div>
-      </section>
+ <BEFORE/>
 
       <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
