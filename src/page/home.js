@@ -214,7 +214,7 @@ export default function Home() {
 </motion.section>
 
 
-      <section className="bg-gradient-to-br from-white to-gray-50 py-10px-4 sm:px-6 lg:px-10">
+      <section className="bg-gradient-to-br from-white to-gray-50 py-4 px-4 sm:px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
