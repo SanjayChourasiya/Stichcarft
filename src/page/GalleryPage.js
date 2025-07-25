@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 
 const galleryImages = [
-  { id: 1, url: "/img/em1.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
-  { id: 2, url: "/img/g1.jpg", title: "Modern Vector Art", category: "Vector Art Conversion" },
-  { id: 3, url: "/img/em3.jpg", title: "Traditional Stitch Pattern", category: "Embroidery Digitizing" },
-  { id: 4, url: "/img/g3.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
+  { id: 1, url: "/img/dizi.jpg", category: "Embroidery Digitizing" },
+  { id: 2, url: "/img/bc9.png", category: "Embroidery Digitizing" },
+  { id: 3, url: "/img/bc.png", category: "Embroidery Digitizing" },
+  { id: 4, url: "/img/bz.jpg", category: "Embroidery Digitizing" },
   { id: 5, url: "/img/g4.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
   { id: 6, url: "/img/g6.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 7, url: "/img/g7.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 8, url: "/img/g10.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
   { id: 9, url: "/img/8.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 11, url: "/img/em4.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
-  { id: 12, url: "/img/em6.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
   { id: 13, url: "/img/em7.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
   { id: 14, url: "/img/em9.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
 ];
@@ -61,11 +57,13 @@ const GalleryPage = () => {
               onClick={() => setLightboxImage(image)}
               className="relative bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer group transform hover:-translate-y-2 transition duration-500"
             >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-72 object-cover group-hover:scale-110 transition duration-700"
-              />
+              <div className="aspect-w-1 aspect-h-1 w-full">
+                <img
+                  src={image.url}
+                  alt={image.title || "Design"}
+                  className="object-cover object-center w-full h-full transition-transform duration-700 group-hover:scale-110 rounded-2xl"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
               <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-700">
                 <h2 className="text-2xl font-bold drop-shadow">{image.title}</h2>
@@ -88,7 +86,7 @@ const GalleryPage = () => {
           >
             <img
               src={lightboxImage.url}
-              alt={lightboxImage.title}
+              alt={lightboxImage.title || "Lightbox Image"}
               className="w-full h-auto max-h-[80vh] object-contain rounded"
             />
             <button
