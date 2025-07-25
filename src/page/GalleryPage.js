@@ -5,11 +5,11 @@ const galleryImages = [
   { id: 2, url: "/img/bc9.png", category: "Embroidery Digitizing" },
   { id: 3, url: "/img/bc.png", category: "Embroidery Digitizing" },
   { id: 4, url: "/img/bz.jpg", category: "Embroidery Digitizing" },
-  { id: 5, url: "/img/g4.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 6, url: "/img/g6.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 9, url: "/img/8.jpg", title: "Digital Vector Design", category: "Vector Art Conversion" },
-  { id: 13, url: "/img/em7.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
-  { id: 14, url: "/img/em9.jpg", title: "Floral Embroidery Design", category: "Embroidery Digitizing" },
+  { id: 5, url: "/img/g4.jpg", category: "Vector Art Conversion" },
+  { id: 6, url: "/img/g6.jpg",category: "Vector Art Conversion" },
+  { id: 9, url: "/img/8.jpg",category: "Vector Art Conversion" },
+  { id: 13, url: "/img/em7.jpg",category: "Embroidery Digitizing" },
+  { id: 14, url: "/img/em9.jpg",category: "Embroidery Digitizing" },
 ];
 
 const GalleryPage = () => {
@@ -38,11 +38,10 @@ const GalleryPage = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition duration-300 ${
-                selectedCategory === category
+              className={`px-6 py-3 rounded-full font-medium text-sm transition duration-300 ${selectedCategory === category
                   ? "bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow"
                   : "bg-gray-200 text-gray-800 hover:bg-gradient-to-r hover:from-[#4B4FCA] hover:via-purple-800 hover:to-pink-600 hover:text-white"
-              }`}
+                }`}
             >
               {category}
             </button>
