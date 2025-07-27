@@ -199,7 +199,7 @@ function EmbroideryDigitizing() {
   return (
     <div className="font-sans text-gray-900">
       {/* Hero */}
- <section className="relative text-white text-center px-4 py-20 sm:py-28 overflow-hidden h-[65vh] sm:h-[80vh] lg:h-[85vh] flex items-center">
+ <section className="relative text-white text-center px-4 py-24 overflow-hidden h-[65vh] sm:h-[78vh]">
   {/* Background Video */}
   <video
     autoPlay
@@ -216,17 +216,16 @@ function EmbroideryDigitizing() {
   <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
   {/* Foreground Content */}
-  <div className="relative z-10 max-w-3xl mx-auto w-full px-4 flex flex-col items-center">
-    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-snug sm:leading-tight">
+  <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4 flex flex-col items-center justify-center h-full">
+    <h1 className="text-2xl sm:text-5xl font-bold mb-3 sm:pt-10 text-white leading-snug sm:leading-tight">
       Premium Embroidery Digitizing
     </h1>
-    <p className="text-sm sm:text-lg lg:text-xl mb-5 sm:mb-6 px-2 sm:px-0">
+    <p className="text-sm sm:text-xl mb-5 sm:mb-6 text-white px-2 sm:px-0">
       Convert your designs into flawless stitch files with precision.
     </p>
-    
     <button
       onClick={() => setIsModalOpen(true)}
-      className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold sm:font-bold text-sm sm:text-base lg:text-lg rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 ease-in-out"
+      className="px-6 sm:px-8 py-3 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-bold text-sm sm:text-lg rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 ease-in-out"
     >
       Get a Free Quote
     </button>
