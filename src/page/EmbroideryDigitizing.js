@@ -199,38 +199,39 @@ function EmbroideryDigitizing() {
   return (
     <div className="font-sans text-gray-900">
       {/* Hero */}
-      <section className="relative text-white text-center px-4 py-24 overflow-hidden h-[58vh] sm:h-[70vh]">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        >
-          {/* <source src="/img/herov.mp4" type="video/mp4" /> */}
-          Your browser does not support the video tag.
-        </video>
+ <section className="relative text-white text-center px-4 py-20 sm:py-28 overflow-hidden h-[65vh] sm:h-[80vh] lg:h-[85vh] flex items-center">
+  {/* Background Video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+  >
+    <source src="/img/emv.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
-        {/* Foreground Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4">
-          <h1 className="text-3xl sm:text-5xl font-bold mb-3 pt-12 sm:pt-10 text-white leading-snug sm:leading-tight">
-            Premium Embroidery Digitizing
-          </h1>
-          <p className="text-base sm:text-xl mb-5 sm:mb-6 text-white px-2 sm:px-0">
-            Convert your designs into flawless stitch files with precision.
-          </p>
-          <a
-            onClick={() => setIsModalOpen(true)}
-            className="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-white text-[#4B4FCA] font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
-          >
-            Get a Free Quote
-          </a>
-        </div>
-      </section>
+  {/* Foreground Content */}
+  <div className="relative z-10 max-w-3xl mx-auto w-full px-4 flex flex-col items-center">
+    <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-snug sm:leading-tight">
+      Premium Embroidery Digitizing
+    </h1>
+    <p className="text-sm sm:text-lg lg:text-xl mb-5 sm:mb-6 px-2 sm:px-0">
+      Convert your designs into flawless stitch files with precision.
+    </p>
+    
+    <button
+      onClick={() => setIsModalOpen(true)}
+      className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white font-semibold sm:font-bold text-sm sm:text-base lg:text-lg rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 ease-in-out"
+    >
+      Get a Free Quote
+    </button>
+  </div>
+</section>
 
  <BEFORE/>
 
