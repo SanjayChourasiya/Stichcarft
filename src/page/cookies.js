@@ -14,6 +14,18 @@ export default function CookieBanner() {
   const handleAccept = () => {
     localStorage.setItem("cookieConsent", "accepted");
     setShowBanner(false);
+
+    toast.custom((t) => (
+      <div className="px-5 py-3 rounded-xl shadow-2xl flex items-center gap-4 text-white bg-gradient-to-r from-green-600 via-green-700 to-green-800 animate-slide-in">
+        <span className="text-xl">✅</span>
+        <div>
+          <p className="text-base font-bold">Thank you! Cookies accepted.</p>
+        </div>
+      </div>
+    ), {
+      duration: 2000,
+      position: "top-center",
+    });
   };
 
   const handleDecline = () => {
@@ -22,7 +34,6 @@ export default function CookieBanner() {
         <span className="text-xl">⚠️</span>
         <div>
           <p className="text-base font-bold">Oops! You’ve declined cookies.</p>
-         
         </div>
       </div>
     ), {
@@ -37,13 +48,10 @@ export default function CookieBanner() {
 
   return (
     <>
-      {/* Toast container */}
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Cookie banner */}
       <div className="fixed bottom-5 left-4 right-4 sm:left-8 sm:right-8 bg-[#1f1f1f] text-white px-6 py-5 rounded-2xl shadow-2xl z-50 border border-purple-700 animate-fade-in">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          {/* Text */}
           <div className="flex-1 text-center sm:text-left">
             <p className="text-sm sm:text-base leading-relaxed font-medium text-white/90">
               We use cookies to improve website functionality, enhance user experience,
@@ -51,7 +59,6 @@ export default function CookieBanner() {
             </p>
           </div>
 
-          {/* Buttons */}
           <div className="flex justify-center sm:justify-end gap-3 flex-wrap">
             <button
               onClick={handleDecline}

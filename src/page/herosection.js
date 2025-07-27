@@ -213,7 +213,7 @@ export default function HeroCarousel() {
 
                 {/* Foreground Image */}
                 <img
-                  src="/img/slv4.png"
+                  src="/img/slv4.webp"
                   alt="Vector Art Example"
                   className="relative z-10 w-full h-auto object-contain"
                 />
