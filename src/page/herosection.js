@@ -180,7 +180,7 @@ export default function HeroCarousel() {
             {/* Left Text Content */}
             <div className="pt-10 sm:pt-0 space-y-5 sm:space-y-8 text-center sm:text-left">
               <h1 className="text-xl sm:text-5xl font-bold leading-snug sm:leading-tight mb-4 sm:mb-2">
-                Vector Art That Amplifies Your Brand
+                Vector Art Conversion  That Amplifies Your Brand
               </h1>
 
               <p className="text-sm sm:text-lg text-white/90 mb-4 sm:mb-6 max-w-md sm:max-w-xl mx-auto sm:mx-0">
@@ -214,7 +214,7 @@ export default function HeroCarousel() {
                 {/* Foreground Image */}
                 <img
                   src="/img/slv4.webp"
-                  alt="Vector Art Example"
+                  alt="Vector Art Example "
                   className="relative z-10 w-full h-auto object-contain"
                 />
               </div>
