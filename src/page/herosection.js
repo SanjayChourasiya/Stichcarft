@@ -101,7 +101,7 @@ export default function HeroCarousel() {
                 animate="visible"
                 variants={headingVariant}
                 onClick={() => setIsModalOpen(true)}
-                className="shine-button w-full md:w-auto font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
+                className="shine-button w-full md:w-auto text-lg py-3 px-6 rounded-lg bg-gradient-to-r from-[#4B4FCA] via-purple-800 to-pink-600 text-white shadow-md hover:scale-105 transition duration-300"
               >
                 <span className="relative z-10">Get a Free Quote</span>
               </motion.button>
@@ -173,51 +173,56 @@ export default function HeroCarousel() {
     if (type === "vectorArt") {
       return (
         <motion.section
-          className="relative bg-gradient-to-tr from-purple-900 via-pink-700 to-red-600 text-white py-12 sm:py-20 px-4 sm:px-12"
+          className="relative bg-gradient-to-tr from-purple-900 via-pink-700 to-red-600 text-white px-4 sm:px-12 "
           {...animationProps}
         >
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
-            <div className="space-y-5 sm:space-y-6">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-snug sm:leading-tight">
-                Vector Art Conversion
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-white/90">
-                We transform your rough ideas into machine-ready vector art and detailed embroidery files.
+            {/* Left Text Content */}
+            <div className="pt-10 sm:pt-0 space-y-5 sm:space-y-8 text-center sm:text-left">
+              <h1 className="text-xl sm:text-5xl font-bold leading-snug sm:leading-tight mb-4 sm:mb-2">
+                Vector Art That Amplifies Your Brand
+              </h1>
+
+              <p className="text-sm sm:text-lg text-white/90 mb-4 sm:mb-6 max-w-md sm:max-w-xl mx-auto sm:mx-0">
+                Crisp. Scalable. Print-Ready. From bold graphics to detailed illustrations — we convert your ideas into flawless vector designs.
               </p>
-              <button
+
+              <motion.button
+                custom={3}
+                initial="hidden"
+                animate="visible"
+                variants={headingVariant}
                 onClick={() => setIsModalOpen(true)}
-                className="inline-block px-6 sm:px-8 py-3 bg-white text-pink-700 font-semibold text-sm rounded-full shadow hover:bg-gray-100 transition"
+                className="shine-button w-full sm:w-auto text-base sm:text-lg py-3 px-6 rounded-lg bg-gradient-to-r text-white shadow-md hover:scale-105 transition duration-300"
               >
-                Start Your Design
-              </button>
+                <span className="relative z-10">Get a Free Quote</span>
+              </motion.button>
             </div>
 
+
+            {/* Right Static Image */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               className="w-full px-2 sm:px-4"
             >
-              <div
-                ref={sliderRef}
-                className="relative max-w-xl mx-auto rounded-xl overflow-hidden border border-white/30 shadow-[0_0_40px_10px_rgba(255,105,180,0.4)] ring-2 ring-pink-500/40 h-[60vw] sm:h-[400px] cursor-ew-resize bg-white transition-all duration-300"
-                onMouseMove={handleMouseMove}
-                onTouchMove={handleTouchMove}
-              >
-                <img src="/img/2-after.jpg" alt="After" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute top-0 left-0 h-full overflow-hidden" style={{ width: `${sliderPos}%` }}>
-                  <img src="/img/2-before.jpg" alt="Before" className="w-full h-full object-cover" />
-                </div>
-                <div className="absolute top-0 bottom-0 w-1 bg-white z-20" style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }} />
-                <div className="absolute top-1/2 z-30 bg-white rounded-full border-2 border-gray-300 shadow w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center" style={{ left: `${sliderPos}%`, transform: "translate(-50%, -50%)" }}>
-                  <div className="w-1 h-4 bg-gray-700 rounded-sm" />
-                </div>
-                <span className="absolute bottom-3 left-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">BEFORE</span>
-                <span className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 sm:px-3 py-1 rounded-full shadow">AFTER</span>
+              <div className="max-w-xl mx-auto relative flex items-center justify-center">
+                {/* Glowing Background */}
+                <div className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-700 blur-3xl opacity-60 rounded-full z-0 animate-pulse" />
+
+                {/* Foreground Image */}
+                <img
+                  src="/img/slv4.png"
+                  alt="Vector Art Example"
+                  className="relative z-10 w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
+
           </div>
         </motion.section>
+
       );
     }
 

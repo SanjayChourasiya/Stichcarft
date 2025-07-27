@@ -219,6 +219,7 @@ function EmbroideryDigitizing() {
   <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4 flex flex-col items-center justify-center h-full">
     <h1 className="text-2xl sm:text-5xl font-bold mb-3 sm:pt-10 text-white leading-snug sm:leading-tight">
       Premium Embroidery Digitizing
+      
     </h1>
     <p className="text-sm sm:text-xl mb-5 sm:mb-6 text-white px-2 sm:px-0">
       Convert your designs into flawless stitch files with precision.
